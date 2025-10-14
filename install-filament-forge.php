@@ -392,19 +392,7 @@ php artisan filament:install --panels --no-interaction
 php artisan make:filament-panel admin
 
 # Création utilisateur administrateur pour Forge
-php artisan tinker --execute="
-if (!App\\Models\\User::where('email', 'admin@krinetattoo.com')->exists()) {
-    \$user = new App\\Models\\User();
-    \$user->name = 'Admin';
-    \$user->email = 'admin@krinetattoo.com';
-    \$user->email_verified_at = now();
-    \$user->password = Hash::make('password123');
-    \$user->save();
-    echo 'Admin user created for ktattoo.on-forge.com';
-} else {
-    echo 'Admin user already exists';
-}
-"
+php artisan tinker --execute="if (!App\\Models\\User::where('email', 'admin@krinetattoo.com')->exists()) { \$user = new App\\Models\\User(); \$user->name = 'Admin'; \$user->email = 'admin@krinetattoo.com'; \$user->email_verified_at = now(); \$user->password = Hash::make('password123'); \$user->save(); echo 'Admin user created'; } else { echo 'Admin user exists'; }"
 
 # Publication des assets Filament
 php artisan filament:assets
@@ -425,6 +413,9 @@ chmod -R 775 storage bootstrap/cache
 chmod -R 775 public
 
 echo "✅ Déploiement Filament réussi - ktattoo.on-forge.com/admin/login fonctionnel"
+
+# Suppression du script d installation temporaire
+rm -f install-filament-forge.php
 ';
 
 file_put_contents('deploy-forge-filament.sh', $forgeScript);
