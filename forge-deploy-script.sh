@@ -83,13 +83,29 @@ php artisan storage:link --force
 # Migrations
 php artisan migrate --force
 
+# Test Laravel avant installation Filament
+echo "Test Laravel avant Filament..."
+php artisan --version || (echo "ERREUR: Laravel non fonctionnel avant Filament" && exit 1)
+
 # Installation Filament si pas encore fait
 if ! composer show | grep -q "filament/filament"; then
-    composer require filament/filament:"^3.0" --no-interaction
+    echo "Installation de Filament..."
+    composer require filament/filament:"^3.0" --no-interaction || (echo "Erreur installation Filament" && exit 1)
+    
+    # Régénération autoload après Filament
+    composer dump-autoload --optimize --no-dev
 fi
 
-# Installation du Panel Filament
+# Test Laravel après installation Filament
+echo "Test Laravel après installation Filament..."
+php artisan --version || (echo "ERREUR: Laravel non fonctionnel après Filament" && exit 1)
+
+# Installation du Panel Filament avec vérification
+echo "Configuration du Panel Filament..."
 php artisan filament:install --panels --no-interaction 2>/dev/null || echo "Panel already installed"
+
+# Test après installation du panel
+php artisan --version || (echo "ERREUR: Laravel non fonctionnel après panel install" && exit 1)
 
 # Création du panneau admin
 php artisan make:filament-panel admin 2>/dev/null || echo "Admin panel already exists"
@@ -172,20 +188,34 @@ if ! grep -q "AdminPanelProvider" bootstrap/providers.php; then
     echo "AdminPanelProvider added to bootstrap/providers.php"
 fi
 
-# Création utilisateur administrateur
+# Test Laravel avant création utilisateur
+echo "Test Laravel avant création utilisateur..."
+php artisan --version || (echo "ERREUR: Laravel non fonctionnel avant utilisateur" && exit 1)
+
+# Création utilisateur administrateur avec protection d'erreur
+echo "Création de l'utilisateur administrateur..."
 php artisan tinker --execute='
-$email = "admin@krinetattoo.com";
-if (!App\Models\User::where("email", $email)->exists()) {
-    $user = new App\Models\User();
-    $user->name = "Admin";
-    $user->email = $email;
-    $user->email_verified_at = now();
-    $user->password = Hash::make("password123");
-    $user->save();
-    echo "Admin user created\n";
-} else {
-    echo "Admin user already exists\n";
-}'
+try {
+    $email = "admin@krinetattoo.com";
+    if (!App\Models\User::where("email", $email)->exists()) {
+        $user = new App\Models\User();
+        $user->name = "Admin";
+        $user->email = $email;
+        $user->email_verified_at = now();
+        $user->password = Hash::make("password123");
+        $user->save();
+        echo "Admin user created successfully\n";
+    } else {
+        echo "Admin user already exists\n";
+    }
+} catch (Exception $e) {
+    echo "Erreur création utilisateur: " . $e->getMessage() . "\n";
+    exit(1);
+}' || echo "Erreur lors de la création de l'utilisateur - continuons"
+
+# Test final Laravel après utilisateur
+echo "Test Laravel après création utilisateur..."
+php artisan --version || (echo "ERREUR: Laravel non fonctionnel après utilisateur" && exit 1)
 
 # Vérification des routes Filament
 echo "Vérification des routes Filament..."
@@ -228,10 +258,60 @@ echo "🔗 Admin URL: https://ktattoo.on-forge.com/admin"
 echo "📧 Email: admin@krinetattoo.com"
 echo "🔑 Password: password123"
 
-# Test final de la page admin
-echo "Test final de l'URL admin..."
-if curl -s -o /dev/null -w "%{http_code}" https://ktattoo.on-forge.com/admin | grep -q "200\|302"; then
-    echo "✅ Page admin accessible"
+# Test final complet
+echo "=== TESTS FINAUX ==="
+
+# Test 1: Laravel fonctionne
+echo "Test 1: Laravel..."
+if php artisan --version > /dev/null 2>&1; then
+    echo "✅ Laravel OK"
 else
-    echo "⚠️  Vérifiez manuellement: https://ktattoo.on-forge.com/admin"
+    echo "❌ Laravel ERREUR"
+    exit 1
+fi
+
+# Test 2: Routes admin
+echo "Test 2: Routes admin..."
+if php artisan route:list | grep -q admin; then
+    echo "✅ Routes admin OK"
+else
+    echo "⚠️  Routes admin manquantes"
+fi
+
+# Test 3: Filament provider
+echo "Test 3: Filament provider..."
+if grep -q "AdminPanelProvider" bootstrap/providers.php; then
+    echo "✅ Provider enregistré"
+else
+    echo "⚠️  Provider manquant"
+fi
+
+# Test 4: Permissions
+echo "Test 4: Permissions..."
+if [ -w storage ] && [ -w bootstrap/cache ]; then
+    echo "✅ Permissions OK"
+else
+    echo "⚠️  Problème de permissions"
+fi
+
+# Test 5: Configuration
+echo "Test 5: Configuration..."
+if grep -q "SESSION_DRIVER=file" .env && grep -q "APP_ENV=production" .env; then
+    echo "✅ Configuration OK"
+else
+    echo "⚠️  Configuration incomplète"
+fi
+
+echo "=== FIN DES TESTS ==="
+
+# Test final de la page admin (optionnel)
+echo "Test final de l'URL admin..."
+if command -v curl >/dev/null 2>&1; then
+    if curl -s -o /dev/null -w "%{http_code}" https://ktattoo.on-forge.com/admin | grep -q "200\|302"; then
+        echo "✅ Page admin accessible"
+    else
+        echo "⚠️  Page admin: vérifiez manuellement https://ktattoo.on-forge.com/admin"
+    fi
+else
+    echo "ℹ️  Testez manuellement: https://ktattoo.on-forge.com/admin"
 fi
