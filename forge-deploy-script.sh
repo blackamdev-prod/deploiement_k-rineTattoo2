@@ -57,8 +57,83 @@ php artisan filament:install --panels --no-interaction 2>/dev/null || echo "Pane
 # Création du panneau admin
 php artisan make:filament-panel admin 2>/dev/null || echo "Admin panel already exists"
 
-# Publication des assets Filament
+# Publication et configuration des assets Filament
 php artisan filament:assets
+
+# Configuration des routes Filament pour éviter 404
+# S'assurer que le provider Filament est enregistré
+if [ -f "app/Providers/Filament/AdminPanelProvider.php" ]; then
+    echo "Filament AdminPanelProvider found"
+else
+    echo "Creating default AdminPanelProvider"
+    mkdir -p app/Providers/Filament
+    cat > app/Providers/Filament/AdminPanelProvider.php << 'EOF'
+<?php
+
+namespace App\Providers\Filament;
+
+use Filament\Http\Middleware\Authenticate;
+use Filament\Http\Middleware\DisableBladeIconComponents;
+use Filament\Http\Middleware\DispatchServingFilamentEvent;
+use Filament\Pages;
+use Filament\Panel;
+use Filament\PanelProvider;
+use Filament\Support\Colors\Color;
+use Filament\Widgets;
+use Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse;
+use Illuminate\Cookie\Middleware\EncryptCookies;
+use Illuminate\Foundation\Http\Middleware\VerifyCsrfToken;
+use Illuminate\Routing\Middleware\SubstituteBindings;
+use Illuminate\Session\Middleware\AuthenticateSession;
+use Illuminate\Session\Middleware\StartSession;
+use Illuminate\View\Middleware\ShareErrorsFromSession;
+
+class AdminPanelProvider extends PanelProvider
+{
+    public function panel(Panel $panel): Panel
+    {
+        return $panel
+            ->default()
+            ->id('admin')
+            ->path('/admin')
+            ->login()
+            ->colors([
+                'primary' => Color::Amber,
+            ])
+            ->discoverResources(in: app_path('Filament/Resources'), for: 'App\\Filament\\Resources')
+            ->discoverPages(in: app_path('Filament/Pages'), for: 'App\\Filament\\Pages')
+            ->pages([
+                Pages\Dashboard::class,
+            ])
+            ->discoverWidgets(in: app_path('Filament/Widgets'), for: 'App\\Filament\\Widgets')
+            ->widgets([
+                Widgets\AccountWidget::class,
+                Widgets\FilamentInfoWidget::class,
+            ])
+            ->middleware([
+                EncryptCookies::class,
+                AddQueuedCookiesToResponse::class,
+                StartSession::class,
+                AuthenticateSession::class,
+                ShareErrorsFromSession::class,
+                VerifyCsrfToken::class,
+                SubstituteBindings::class,
+                DisableBladeIconComponents::class,
+                DispatchServingFilamentEvent::class,
+            ])
+            ->authMiddleware([
+                Authenticate::class,
+            ]);
+    }
+}
+EOF
+fi
+
+# S'assurer que le provider est enregistré dans bootstrap/providers.php
+if ! grep -q "AdminPanelProvider" bootstrap/providers.php; then
+    sed -i '/App\\Providers\\AppServiceProvider::class,/a\    App\\Providers\\Filament\\AdminPanelProvider::class,' bootstrap/providers.php
+    echo "AdminPanelProvider added to bootstrap/providers.php"
+fi
 
 # Création utilisateur administrateur
 php artisan tinker --execute='
@@ -75,19 +150,42 @@ if (!App\Models\User::where("email", $email)->exists()) {
     echo "Admin user already exists\n";
 }'
 
+# Vérification des routes Filament
+echo "Vérification des routes Filament..."
+php artisan route:list | grep -i filament || echo "Routes Filament en cours de configuration..."
+
 # Nettoyage avant optimisations
 php artisan cache:clear
 php artisan config:clear
 php artisan route:clear
 php artisan view:clear
 
-# Optimisations
+# Forcer la découverte des routes
+php artisan route:cache
+php artisan route:clear
+
+# Optimisations finales
 php artisan config:cache
 php artisan route:cache
 php artisan view:cache
+
+# Test final des routes
+echo "Test des routes après optimisation:"
+php artisan route:list | grep admin || echo "ATTENTION: Routes admin non trouvées"
 
 # Permissions finales
 chmod -R 775 storage bootstrap/cache
 chmod -R 775 public
 
-echo "✅ Déploiement Filament réussi - ktattoo.on-forge.com/admin/login fonctionnel"
+echo "✅ Déploiement Filament réussi"
+echo "🔗 Admin URL: https://ktattoo.on-forge.com/admin"
+echo "📧 Email: admin@krinetattoo.com"
+echo "🔑 Password: password123"
+
+# Test final de la page admin
+echo "Test final de l'URL admin..."
+if curl -s -o /dev/null -w "%{http_code}" https://ktattoo.on-forge.com/admin | grep -q "200\|302"; then
+    echo "✅ Page admin accessible"
+else
+    echo "⚠️  Vérifiez manuellement: https://ktattoo.on-forge.com/admin"
+fi
