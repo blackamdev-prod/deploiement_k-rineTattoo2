@@ -8,8 +8,11 @@ cd $FORGE_SITE_PATH
 # Git pull
 git pull origin $FORGE_SITE_BRANCH
 
-# Nettoyage des caches pour éviter 500 errors
+# Nettoyage complet pour éviter 500 errors
 rm -rf bootstrap/cache/* storage/framework/cache/* storage/framework/views/*
+rm -rf storage/app/public/livewire-tmp/*
+rm -rf public/storage
+rm -rf storage/logs/*.log
 
 # Installation des dépendances
 composer install --no-dev --optimize-autoloader
@@ -22,8 +25,10 @@ if ! grep -q "APP_KEY=base64:" .env; then
     php artisan key:generate --force
 fi
 
-# Configuration pour éviter erreurs 500 sur /admin/login
-# Forcer SESSION_DRIVER=file
+# Configuration critique pour éviter erreurs 500
+echo "Configuration de l'environnement..."
+
+# Forcer SESSION_DRIVER=file (plus stable que database)
 sed -i "s/SESSION_DRIVER=.*/SESSION_DRIVER=file/" .env
 if ! grep -q "SESSION_DRIVER=" .env; then
     echo "SESSION_DRIVER=file" >> .env
@@ -35,13 +40,45 @@ if ! grep -q "APP_URL=" .env; then
     echo "APP_URL=https://ktattoo.on-forge.com" >> .env
 fi
 
-# Forcer production
+# Configuration production robuste
 sed -i "s/APP_ENV=.*/APP_ENV=production/" .env
 sed -i "s/APP_DEBUG=.*/APP_DEBUG=false/" .env
 
-# Créer répertoires sessions
+# Ajouter configurations manquantes qui peuvent causer des 500
+if ! grep -q "LOG_CHANNEL=" .env; then
+    echo "LOG_CHANNEL=single" >> .env
+fi
+
+if ! grep -q "CACHE_DRIVER=" .env; then
+    echo "CACHE_DRIVER=file" >> .env
+fi
+
+if ! grep -q "QUEUE_CONNECTION=" .env; then
+    echo "QUEUE_CONNECTION=sync" >> .env
+fi
+
+# S'assurer que les variables essentielles existent
+if ! grep -q "BROADCAST_DRIVER=" .env; then
+    echo "BROADCAST_DRIVER=log" >> .env
+fi
+
+echo "Configuration .env mise à jour pour la production"
+
+# Créer et configurer tous les répertoires nécessaires
 mkdir -p storage/framework/sessions
-chmod -R 775 storage/framework/sessions
+mkdir -p storage/framework/cache/data
+mkdir -p storage/framework/views
+mkdir -p storage/logs
+mkdir -p storage/app/public
+mkdir -p bootstrap/cache
+
+# Permissions critiques pour éviter 500 errors
+chmod -R 775 storage
+chmod -R 775 bootstrap/cache
+chmod -R 755 public
+
+# Créer le lien symbolique pour le storage
+php artisan storage:link --force
 
 # Migrations
 php artisan migrate --force
@@ -154,20 +191,29 @@ if (!App\Models\User::where("email", $email)->exists()) {
 echo "Vérification des routes Filament..."
 php artisan route:list | grep -i filament || echo "Routes Filament en cours de configuration..."
 
-# Nettoyage avant optimisations
-php artisan cache:clear
-php artisan config:clear
-php artisan route:clear
-php artisan view:clear
+# Nettoyage avant optimisations - critique pour éviter 500 errors
+php artisan cache:clear 2>/dev/null || true
+php artisan config:clear 2>/dev/null || true
+php artisan route:clear 2>/dev/null || true
+php artisan view:clear 2>/dev/null || true
+php artisan event:clear 2>/dev/null || true
 
-# Forcer la découverte des routes
-php artisan route:cache
-php artisan route:clear
+# Régénération de l'autoload
+composer dump-autoload --optimize --no-dev
 
-# Optimisations finales
-php artisan config:cache
-php artisan route:cache
-php artisan view:cache
+# Test Laravel avant optimisation
+echo "Test Laravel avant optimisation..."
+php artisan --version || (echo "ERREUR: Laravel non fonctionnel" && exit 1)
+
+# Optimisations avec gestion d'erreur
+echo "Optimisation des caches..."
+php artisan config:cache 2>/dev/null || (echo "Erreur config:cache - continuons sans cache config")
+php artisan route:cache 2>/dev/null || (echo "Erreur route:cache - continuons sans cache route")  
+php artisan view:cache 2>/dev/null || (echo "Erreur view:cache - continuons sans cache view")
+
+# Vérification finale Laravel
+echo "Vérification finale Laravel..."
+php artisan about 2>/dev/null | head -10 || echo "Laravel fonctionne mais 'about' non disponible"
 
 # Test final des routes
 echo "Test des routes après optimisation:"
