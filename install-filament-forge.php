@@ -51,10 +51,50 @@ function execCommand($command) {
 }
 
 // =========================================================================
-// ÉTAPE 1: VÉRIFICATIONS PRÉALABLES
+// ÉTAPE 1: CORRECTION 500 SERVER ERROR
 // =========================================================================
 
-step(1, "VÉRIFICATIONS PRÉALABLES");
+step(1, "CORRECTION 500 SERVER ERROR");
+
+// Vérifier et générer APP_KEY si nécessaire
+if (file_exists('.env')) {
+    $envContent = file_get_contents('.env');
+    if (!preg_match('/APP_KEY=base64:/', $envContent)) {
+        info("APP_KEY manquante - génération...");
+        execCommand("php artisan key:generate --force");
+        success("APP_KEY générée");
+    } else {
+        success("APP_KEY présente");
+    }
+} else {
+    error("Fichier .env non trouvé");
+    exit(1);
+}
+
+// Nettoyage des caches pour éviter les erreurs 500
+info("Nettoyage des caches...");
+execCommand("rm -rf bootstrap/cache/* storage/framework/cache/* storage/framework/views/*");
+execCommand("php artisan cache:clear");
+execCommand("php artisan config:clear");
+execCommand("php artisan route:clear");
+execCommand("php artisan view:clear");
+success("Caches nettoyés");
+
+// Vérifier les permissions
+info("Vérification des permissions...");
+execCommand("chmod -R 775 storage bootstrap/cache");
+success("Permissions corrigées");
+
+// Régénération autoload
+info("Régénération autoload...");
+execCommand("composer dump-autoload");
+success("Autoload régénéré");
+
+// =========================================================================
+// ÉTAPE 2: VÉRIFICATIONS PRÉALABLES
+// =========================================================================
+
+step(2, "VÉRIFICATIONS PRÉALABLES");
 
 // Vérifier Laravel
 $laravelCheck = execCommand("php artisan --version");
@@ -79,10 +119,10 @@ if ($filamentCheck['code'] === 0) {
 }
 
 // =========================================================================
-// ÉTAPE 2: INSTALLATION FILAMENT
+// ÉTAPE 3: INSTALLATION FILAMENT
 // =========================================================================
 
-step(2, "INSTALLATION FILAMENT V3");
+step(3, "INSTALLATION FILAMENT V3");
 
 info("Installation de Filament v3.x...");
 $installResult = execCommand("composer require filament/filament:\"^3.0\" --no-interaction");
@@ -96,10 +136,10 @@ if ($installResult['code'] === 0) {
 }
 
 // =========================================================================
-// ÉTAPE 3: CONFIGURATION FILAMENT
+// ÉTAPE 4: CONFIGURATION FILAMENT
 // =========================================================================
 
-step(3, "CONFIGURATION FILAMENT");
+step(4, "CONFIGURATION FILAMENT");
 
 // Créer le panneau admin
 info("Création du panneau admin...");
@@ -120,10 +160,10 @@ if ($assetsResult['code'] === 0) {
 }
 
 // =========================================================================
-// ÉTAPE 4: CRÉATION UTILISATEUR ADMIN
+// ÉTAPE 5: CRÉATION UTILISATEUR ADMIN
 // =========================================================================
 
-step(4, "CRÉATION UTILISATEUR ADMIN");
+step(5, "CRÉATION UTILISATEUR ADMIN");
 
 info("Création d'un utilisateur admin...");
 $userResult = execCommand("php artisan make:filament-user --name=\"Admin\" --email=\"admin@krinetattoo.com\" --password=\"password123\"");
@@ -138,10 +178,10 @@ if ($userResult['code'] === 0) {
 }
 
 // =========================================================================
-// ÉTAPE 5: OPTIMISATIONS
+// ÉTAPE 6: OPTIMISATIONS
 // =========================================================================
 
-step(5, "OPTIMISATIONS");
+step(6, "OPTIMISATIONS");
 
 // Cache des configurations
 info("Mise en cache des configurations...");
@@ -164,10 +204,10 @@ execCommand("composer dump-autoload --optimize");
 success("Autoload optimisé");
 
 // =========================================================================
-// ÉTAPE 6: PERMISSIONS
+// ÉTAPE 7: PERMISSIONS
 // =========================================================================
 
-step(6, "PERMISSIONS");
+step(7, "PERMISSIONS");
 
 info("Configuration des permissions...");
 execCommand("chmod -R 775 storage bootstrap/cache");
@@ -175,10 +215,10 @@ execCommand("chmod -R 775 public");
 success("Permissions configurées");
 
 // =========================================================================
-// ÉTAPE 7: TEST FINAL
+// ÉTAPE 8: TEST FINAL
 // =========================================================================
 
-step(7, "TESTS FINAUX");
+step(8, "TESTS FINAUX");
 
 // Test Filament
 $filamentTest = execCommand("php artisan about | grep -i filament");
@@ -200,7 +240,7 @@ if ($routeTest['code'] === 0) {
 // SCRIPT DE DÉPLOIEMENT FORGE
 // =========================================================================
 
-step(8, "CRÉATION SCRIPT FORGE");
+step(9, "CRÉATION SCRIPT FORGE");
 
 $forgeScript = '#!/bin/bash
 
@@ -209,17 +249,31 @@ cd $FORGE_SITE_PATH
 # Git pull
 git pull origin $FORGE_SITE_BRANCH
 
+# Nettoyage des caches pour éviter 500 errors
+rm -rf bootstrap/cache/* storage/framework/cache/* storage/framework/views/*
+
 # Installation des dépendances
 composer install --no-dev --optimize-autoloader
 
 # Découverte des packages
 php artisan package:discover --ansi
 
+# Vérification APP_KEY
+if ! grep -q "APP_KEY=base64:" .env; then
+    php artisan key:generate --force
+fi
+
 # Migrations
 php artisan migrate --force
 
 # Publication des assets Filament
 php artisan filament:assets
+
+# Nettoyage avant optimisations
+php artisan cache:clear
+php artisan config:clear
+php artisan route:clear
+php artisan view:clear
 
 # Optimisations
 php artisan config:cache
@@ -230,7 +284,7 @@ php artisan view:cache
 chmod -R 775 storage bootstrap/cache
 chmod -R 775 public
 
-echo "✅ Déploiement Filament réussi"
+echo "✅ Déploiement Filament réussi sans erreur 500"
 ';
 
 file_put_contents('deploy-forge-filament.sh', $forgeScript);
