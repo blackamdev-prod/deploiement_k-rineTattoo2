@@ -1,0 +1,53 @@
+# Laravel Forge Quick Deploy Script
+# This file is used by Laravel Forge for quick deployments
+
+cd $FORGE_SITE_PATH
+
+# Update the application
+git pull origin $FORGE_SITE_BRANCH
+
+# Install/update composer dependencies
+$FORGE_COMPOSER install --no-interaction --prefer-dist --optimize-autoloader --no-dev
+
+# Clear caches
+$FORGE_PHP artisan config:clear
+$FORGE_PHP artisan cache:clear
+$FORGE_PHP artisan route:clear
+$FORGE_PHP artisan view:clear
+
+# Install and build assets - Fix for Rollup issue
+rm -rf node_modules package-lock.json
+npm install --force
+npm run build
+
+# Run migrations
+$FORGE_PHP artisan migrate --force
+
+# Create storage link if it doesn't exist
+$FORGE_PHP artisan storage:link
+
+# Ensure logo exists
+mkdir -p public/images
+if [ ! -f "public/images/logo.png" ]; then
+    if [ -f "logo.png" ]; then
+        cp logo.png public/images/logo.png
+        echo "Logo copied from root to public/images/"
+    else
+        # Create a temporary placeholder or download if needed
+        echo "Warning: Logo not found - please push your commits to Git"
+        # You could add a curl command here to download the logo if available online
+    fi
+else
+    echo "Logo already exists in public/images/"
+fi
+
+# Cache for production
+$FORGE_PHP artisan config:cache
+$FORGE_PHP artisan route:cache
+$FORGE_PHP artisan view:cache
+
+# Optimize application
+$FORGE_PHP artisan optimize
+
+# Restart queues
+$FORGE_PHP artisan queue:restart
