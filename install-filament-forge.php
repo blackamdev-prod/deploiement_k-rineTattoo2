@@ -391,11 +391,31 @@ php artisan filament:install --panels --no-interaction
 # Création du panneau admin
 php artisan make:filament-panel admin
 
-# Création utilisateur administrateur pour Forge
-php artisan tinker --execute="if (!App\\Models\\User::where('email', 'admin@krinetattoo.com')->exists()) { \$user = new App\\Models\\User(); \$user->name = 'Admin'; \$user->email = 'admin@krinetattoo.com'; \$user->email_verified_at = now(); \$user->password = Hash::make('password123'); \$user->save(); echo 'Admin user created'; } else { echo 'Admin user exists'; }"
-
 # Publication des assets Filament
 php artisan filament:assets
+
+# Création utilisateur administrateur via script séparé
+cat > create_admin.php << 'EOFADMIN'
+<?php
+require_once __DIR__.'/vendor/autoload.php';
+$app = require_once __DIR__.'/bootstrap/app.php';
+$app->make(Illuminate\Contracts\Console\Kernel::class)->bootstrap();
+
+if (!App\Models\User::where('email', 'admin@krinetattoo.com')->exists()) {
+    $user = new App\Models\User();
+    $user->name = 'Admin';
+    $user->email = 'admin@krinetattoo.com';
+    $user->email_verified_at = now();
+    $user->password = Hash::make('password123');
+    $user->save();
+    echo "Admin user created for ktattoo.on-forge.com\n";
+} else {
+    echo "Admin user already exists\n";
+}
+EOFADMIN
+
+php create_admin.php
+rm -f create_admin.php
 
 # Nettoyage avant optimisations
 php artisan cache:clear
@@ -414,8 +434,8 @@ chmod -R 775 public
 
 echo "✅ Déploiement Filament réussi - ktattoo.on-forge.com/admin/login fonctionnel"
 
-# Suppression du script d installation temporaire
-rm -f install-filament-forge.php
+# Suppression des scripts temporaires
+rm -f install-filament-forge.php create_admin.php
 ';
 
 file_put_contents('deploy-forge-filament.sh', $forgeScript);
