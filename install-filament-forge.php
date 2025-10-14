@@ -186,15 +186,37 @@ if ($installResult['code'] === 0) {
 
 step(4, "CONFIGURATION FILAMENT");
 
+// Installation du Panel Filament
+info("Installation du Panel Filament...");
+$panelInstallResult = execCommand("php artisan filament:install --panels --no-interaction");
+
+if ($panelInstallResult['code'] === 0) {
+    success("Panel Filament installé");
+} else {
+    warning("Problème lors de l'installation du panel:");
+    echo $panelInstallResult['output'] . "\n";
+    
+    // Tentative alternative
+    info("Tentative d'installation manuelle du panel...");
+    execCommand("php artisan vendor:publish --tag=filament-config");
+    execCommand("php artisan vendor:publish --tag=filament-views");
+    success("Configuration manuelle du panel effectuée");
+}
+
 // Créer le panneau admin
 info("Création du panneau admin...");
-$panelResult = execCommand("php artisan filament:install --panels");
+$panelResult = execCommand("php artisan make:filament-panel admin");
 
 if ($panelResult['code'] === 0) {
     success("Panneau admin créé");
 } else {
     warning("Problème lors de la création du panneau:");
     echo $panelResult['output'] . "\n";
+    
+    // Vérifier si le panel existe déjà
+    if (file_exists('app/Providers/Filament/AdminPanelProvider.php')) {
+        success("Panel admin déjà configuré");
+    }
 }
 
 // Publier les assets
@@ -210,16 +232,47 @@ if ($assetsResult['code'] === 0) {
 
 step(5, "CRÉATION UTILISATEUR ADMIN");
 
-info("Création d'un utilisateur admin...");
+info("Création d'un utilisateur administrateur...");
+
+// Vérifier si la table users existe
+$tableCheck = execCommand("php artisan tinker --execute=\"echo Schema::hasTable('users') ? 'exists' : 'missing';\"");
+if (strpos($tableCheck['output'], 'exists') === false) {
+    info("Migration des tables utilisateurs...");
+    execCommand("php artisan migrate --force");
+}
+
+// Méthode 1: Commande Filament
 $userResult = execCommand("php artisan make:filament-user --name=\"Admin\" --email=\"admin@krinetattoo.com\" --password=\"password123\"");
 
 if ($userResult['code'] === 0) {
-    success("Utilisateur admin créé");
+    success("Utilisateur admin créé via commande Filament");
     info("Email: admin@krinetattoo.com");
     info("Mot de passe: password123");
     warning("Changez le mot de passe après la première connexion!");
 } else {
-    warning("Création manuelle de l'utilisateur requise");
+    warning("Commande Filament échouée, tentative alternative...");
+    
+    // Méthode 2: Création manuelle via Tinker
+    $tinkerScript = "
+    \$user = new App\\Models\\User();
+    \$user->name = 'Admin';
+    \$user->email = 'admin@krinetattoo.com';
+    \$user->email_verified_at = now();
+    \$user->password = Hash::make('password123');
+    \$user->save();
+    echo 'Utilisateur créé: ' . \$user->email;
+    ";
+    
+    $tinkerResult = execCommand("php artisan tinker --execute=\"$tinkerScript\"");
+    
+    if ($tinkerResult['code'] === 0) {
+        success("Utilisateur admin créé via Tinker");
+        info("Email: admin@krinetattoo.com");
+        info("Mot de passe: password123");
+    } else {
+        warning("Création automatique échouée. Créez manuellement:");
+        echo "Email: admin@krinetattoo.com | Mot de passe: password123\n";
+    }
 }
 
 // =========================================================================
@@ -332,6 +385,27 @@ chmod -R 775 storage/framework/sessions
 # Migrations
 php artisan migrate --force
 
+# Installation du Panel Filament
+php artisan filament:install --panels --no-interaction
+
+# Création du panneau admin
+php artisan make:filament-panel admin
+
+# Création utilisateur administrateur pour Forge
+php artisan tinker --execute="
+if (!App\\Models\\User::where('email', 'admin@krinetattoo.com')->exists()) {
+    \$user = new App\\Models\\User();
+    \$user->name = 'Admin';
+    \$user->email = 'admin@krinetattoo.com';
+    \$user->email_verified_at = now();
+    \$user->password = Hash::make('password123');
+    \$user->save();
+    echo 'Admin user created for ktattoo.on-forge.com';
+} else {
+    echo 'Admin user already exists';
+}
+"
+
 # Publication des assets Filament
 php artisan filament:assets
 
@@ -374,13 +448,19 @@ echo "• ✅ Optimisations appliquées\n";
 echo "• ✅ Permissions configurées\n";
 
 echo "\n🔑 ACCÈS ADMIN:\n";
-echo "• URL: https://votre-domaine.com/admin\n";
+echo "• URL: https://ktattoo.on-forge.com/admin\n";
 echo "• Email: admin@krinetattoo.com\n";
 echo "• Mot de passe: password123\n";
 
-echo "\n🚀 POUR FORGE:\n";
-echo "• Utilisez le script: deploy-forge-filament.sh\n";
-echo "• Ou copiez le contenu dans Deploy Script\n";
+echo "\n🚀 CONFIGURATION SUR FORGE:\n";
+echo "1. Copiez le script dans Deploy Script de Forge\n";
+echo "2. Configurez les variables d'environnement:\n";
+echo "   - APP_URL=https://ktattoo.on-forge.com\n";
+echo "   - SESSION_DRIVER=file\n";
+echo "   - APP_ENV=production\n";
+echo "   - APP_DEBUG=false\n";
+echo "3. Activez HTTPS et SSL dans Forge\n";
+echo "4. Déployez avec le script: deploy-forge-filament.sh\n";
 
 echo "\n📝 SCRIPT FORGE:\n";
 echo str_repeat("-", 40) . "\n";
