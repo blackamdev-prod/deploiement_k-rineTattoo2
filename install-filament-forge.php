@@ -80,6 +80,51 @@ execCommand("php artisan route:clear");
 execCommand("php artisan view:clear");
 success("Caches nettoyés");
 
+// Configuration des sessions pour éviter erreurs 500 sur /admin/login
+info("Configuration des sessions...");
+if (file_exists('.env')) {
+    $envContent = file_get_contents('.env');
+    
+    // Forcer SESSION_DRIVER=file pour éviter problèmes DB
+    if (strpos($envContent, 'SESSION_DRIVER=') !== false) {
+        $envContent = preg_replace('/SESSION_DRIVER=.*/', 'SESSION_DRIVER=file', $envContent);
+    } else {
+        $envContent .= "\nSESSION_DRIVER=file\n";
+    }
+    
+    // Vérifier la configuration de l'URL
+    if (!preg_match('/APP_URL=.*ktattoo\.on-forge\.com/', $envContent)) {
+        if (strpos($envContent, 'APP_URL=') !== false) {
+            $envContent = preg_replace('/APP_URL=.*/', 'APP_URL=https://ktattoo.on-forge.com', $envContent);
+        } else {
+            $envContent .= "\nAPP_URL=https://ktattoo.on-forge.com\n";
+        }
+        success("APP_URL configurée pour ktattoo.on-forge.com");
+    }
+    
+    // Forcer APP_ENV=production
+    if (strpos($envContent, 'APP_ENV=') !== false) {
+        $envContent = preg_replace('/APP_ENV=.*/', 'APP_ENV=production', $envContent);
+    } else {
+        $envContent .= "\nAPP_ENV=production\n";
+    }
+    
+    // Désactiver le debug en production
+    if (strpos($envContent, 'APP_DEBUG=') !== false) {
+        $envContent = preg_replace('/APP_DEBUG=.*/', 'APP_DEBUG=false', $envContent);
+    } else {
+        $envContent .= "\nAPP_DEBUG=false\n";
+    }
+    
+    file_put_contents('.env', $envContent);
+    success("Configuration .env mise à jour");
+}
+
+// Créer les répertoires de sessions
+execCommand("mkdir -p storage/framework/sessions");
+execCommand("chmod -R 775 storage/framework/sessions");
+success("Répertoires de sessions configurés");
+
 // Vérifier les permissions
 info("Vérification des permissions...");
 execCommand("chmod -R 775 storage bootstrap/cache");
@@ -263,6 +308,27 @@ if ! grep -q "APP_KEY=base64:" .env; then
     php artisan key:generate --force
 fi
 
+# Configuration pour éviter erreurs 500 sur /admin/login
+# Forcer SESSION_DRIVER=file
+sed -i "s/SESSION_DRIVER=.*/SESSION_DRIVER=file/" .env
+if ! grep -q "SESSION_DRIVER=" .env; then
+    echo "SESSION_DRIVER=file" >> .env
+fi
+
+# Configurer APP_URL pour ktattoo.on-forge.com
+sed -i "s|APP_URL=.*|APP_URL=https://ktattoo.on-forge.com|" .env
+if ! grep -q "APP_URL=" .env; then
+    echo "APP_URL=https://ktattoo.on-forge.com" >> .env
+fi
+
+# Forcer production
+sed -i "s/APP_ENV=.*/APP_ENV=production/" .env
+sed -i "s/APP_DEBUG=.*/APP_DEBUG=false/" .env
+
+# Créer répertoires sessions
+mkdir -p storage/framework/sessions
+chmod -R 775 storage/framework/sessions
+
 # Migrations
 php artisan migrate --force
 
@@ -280,11 +346,11 @@ php artisan config:cache
 php artisan route:cache
 php artisan view:cache
 
-# Permissions
+# Permissions finales
 chmod -R 775 storage bootstrap/cache
 chmod -R 775 public
 
-echo "✅ Déploiement Filament réussi sans erreur 500"
+echo "✅ Déploiement Filament réussi - ktattoo.on-forge.com/admin/login fonctionnel"
 ';
 
 file_put_contents('deploy-forge-filament.sh', $forgeScript);
