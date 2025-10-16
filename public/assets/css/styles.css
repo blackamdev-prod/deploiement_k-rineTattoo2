@@ -794,51 +794,51 @@ ul, ol {
     gap: var(--spacing-md);
   }
   
-  /* Section contact pour iPhone Pro Max */
-  .contact {
-    padding: var(--spacing-3xl) 0;
-  }
-  
-  .contact-form-card {
-    padding: var(--spacing-xl);
-    border-radius: 12px;
-  }
-  
-  .form-row {
+  /* Section contact optimisée pour iPhone Pro Max */
+  .contact-details {
+    display: flex;
     flex-direction: column;
-    gap: var(--spacing-sm);
-  }
-  
-  .form-group input,
-  .form-group select,
-  .form-group textarea {
-    padding: var(--spacing-md);
-    font-size: 1rem;
-    border-radius: 8px;
-    min-height: 44px;
-  }
-  
-  .form-group textarea {
-    min-height: 120px;
-    resize: vertical;
-  }
-  
-  .contact-form .btn-full {
-    padding: var(--spacing-md) var(--spacing-xl);
-    font-size: 1.1rem;
-    min-height: 48px;
-    border-radius: 10px;
+    gap: var(--spacing-md);
   }
   
   .contact-detail {
-    padding: var(--spacing-md);
-    background: rgba(254, 252, 250, 0.8);
-    border-radius: 8px;
-    margin-bottom: var(--spacing-sm);
+    display: flex;
+    align-items: flex-start;
+    gap: var(--spacing-md);
+    padding: var(--spacing-lg);
+    background: rgba(255, 255, 255, 0.8);
+    border: 1px solid rgba(212, 184, 150, 0.15);
+    border-radius: 12px;
+    transition: all 0.3s ease;
+    -webkit-tap-highlight-color: transparent;
+  }
+  
+  .contact-detail:active {
+    transform: scale(0.98);
+    background: rgba(212, 184, 150, 0.05);
+  }
+  
+  .contact-detail i {
+    color: var(--tattoo-gold);
+    background: rgba(212, 184, 150, 0.1);
+    padding: var(--spacing-sm);
+    border-radius: 50%;
+    flex-shrink: 0;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .contact-detail div {
+    flex: 1;
   }
   
   .contact-detail h4 {
     font-size: 1rem;
+    font-weight: 600;
+    color: var(--tattoo-deep-black);
     margin-bottom: var(--spacing-xs);
   }
   
@@ -846,24 +846,78 @@ ul, ol {
   .contact-detail a {
     font-size: 0.95rem;
     line-height: 1.5;
+    color: var(--tattoo-deep-black);
+    text-decoration: none;
   }
   
+  .contact-detail a {
+    font-weight: 500;
+    transition: color 0.2s ease;
+  }
+  
+  .contact-detail a:hover,
+  .contact-detail a:active {
+    color: var(--tattoo-gold);
+  }
+  
+  /* Horaires optimisés */
   .hours-list {
+    display: flex;
+    flex-direction: column;
     gap: var(--spacing-sm);
   }
   
   .hour-item {
-    padding: var(--spacing-sm) var(--spacing-md);
-    background: rgba(254, 254, 254, 0.7);
-    border-radius: 6px;
+    display: flex;
     justify-content: space-between;
-    min-height: 40px;
     align-items: center;
+    padding: var(--spacing-md) var(--spacing-lg);
+    background: rgba(255, 255, 255, 0.8);
+    border: 1px solid rgba(212, 184, 150, 0.1);
+    border-radius: 8px;
+    min-height: 48px;
   }
   
-  .map-wrapper iframe {
-    height: 300px;
+  .hour-item span:first-child {
+    font-weight: 500;
+    color: var(--tattoo-deep-black);
+  }
+  
+  .hour-item span:last-child {
+    color: var(--tattoo-gold);
+    font-weight: 600;
+  }
+  
+  .hour-item .closed {
+    color: var(--beige-sable);
+    font-style: italic;
+  }
+  
+  /* Emergency contact styling */
+  .emergency-contact {
+    background: linear-gradient(135deg, 
+      rgba(212, 184, 150, 0.05) 0%, 
+      rgba(248, 246, 243, 0.8) 100%);
+    border: 1px solid rgba(212, 184, 150, 0.2);
     border-radius: 12px;
+    padding: var(--spacing-lg);
+    text-align: center;
+  }
+  
+  .emergency-contact h3 {
+    color: var(--tattoo-gold);
+    font-size: 1.1rem;
+    margin-bottom: var(--spacing-md);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--spacing-sm);
+  }
+  
+  .emergency-contact p {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: var(--tattoo-deep-black);
   }
 }
 
@@ -1094,6 +1148,66 @@ ul, ol {
   .contact-detail a:active {
     transform: scale(0.98);
     color: var(--tattoo-gold);
+  }
+  
+  /* Optimisations Samsung Galaxy spécifiques */
+  .contact-form input[type="file"] {
+    padding: var(--spacing-lg);
+    background: rgba(248, 246, 243, 0.8);
+    border: 2px dashed rgba(212, 184, 150, 0.4);
+    border-radius: 12px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  
+  .contact-form input[type="file"]:hover,
+  .contact-form input[type="file"]:focus {
+    border-color: var(--tattoo-gold);
+    background: rgba(212, 184, 150, 0.05);
+    border-style: solid;
+  }
+  
+  /* Optimisation pour les écrans de forte densité (Samsung) */
+  .contact-detail i {
+    font-size: 18px;
+  }
+  
+  .form-title i {
+    font-size: 20px;
+  }
+  
+  .map-title i {
+    font-size: 18px;
+  }
+  
+  /* Amélioration de l'accessibilité tactile */
+  .contact-detail,
+  .hour-item,
+  .emergency-contact {
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .contact-detail::before,
+  .hour-item::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: rgba(212, 184, 150, 0.1);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    transition: width 0.3s ease, height 0.3s ease;
+    pointer-events: none;
+  }
+  
+  .contact-detail:active::before,
+  .hour-item:active::before {
+    width: 300px;
+    height: 300px;
   }
 }
 
@@ -6807,44 +6921,148 @@ ul, ol {
     letter-spacing: 0.025em;
   }
   
-  /* Optimisations tactiles section contact */
+  /* Optimisations tactiles section contact - UX améliorée */
+  .contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-lg);
+  }
+  
+  .form-group {
+    position: relative;
+    margin-bottom: var(--spacing-md);
+  }
+  
+  .form-group label {
+    display: block;
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: var(--tattoo-deep-black);
+    margin-bottom: var(--spacing-xs);
+    padding-left: var(--spacing-xs);
+  }
+  
+  .form-group label::after {
+    content: " *";
+    color: var(--tattoo-gold);
+    font-weight: 600;
+  }
+  
+  .form-group label[for*="telephone"]::after,
+  .form-group label[for*="style"]::after,
+  .form-group label[for*="zone"]::after,
+  .form-group label[for*="taille"]::after,
+  .form-group label[for*="files"]::after {
+    content: "";
+  }
+  
   .contact-form input,
   .contact-form select,
   .contact-form textarea {
-    min-height: 48px;
+    width: 100%;
+    min-height: 56px;
     font-size: 16px; /* Empêche le zoom automatique sur iOS */
-    -webkit-tap-highlight-color: rgba(212, 184, 150, 0.2);
+    font-family: inherit;
+    padding: var(--spacing-md) var(--spacing-lg);
+    border: 2px solid rgba(212, 184, 150, 0.2);
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.8);
+    transition: all 0.3s cubic-bezier(0.25, 0.1, 0.25, 1);
+    -webkit-tap-highlight-color: transparent;
+    box-sizing: border-box;
+  }
+  
+  .contact-form input:focus,
+  .contact-form select:focus,
+  .contact-form textarea:focus {
+    outline: none;
+    border-color: var(--tattoo-gold);
+    background: rgba(255, 255, 255, 0.95);
+    box-shadow: 
+      0 0 0 4px rgba(212, 184, 150, 0.1),
+      0 4px 20px rgba(212, 184, 150, 0.15);
+    transform: translateY(-1px);
   }
   
   .contact-form textarea {
-    min-height: 120px;
+    min-height: 140px;
     resize: vertical;
+    font-family: inherit;
+    line-height: 1.6;
+  }
+  
+  .form-row {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md);
+  }
+  
+  .contact-form select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background-image: url("data:image/svg+xml;charset=UTF-8,<svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%23D4B896' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'><polyline points='6,9 12,15 18,9'/></svg>");
+    background-repeat: no-repeat;
+    background-position: right 16px center;
+    background-size: 20px;
+    padding-right: 50px;
+    cursor: pointer;
   }
   
   .contact-form .btn-full {
-    min-height: 52px;
-    padding: var(--spacing-md) var(--spacing-xl);
-    font-size: 1.1rem;
-    font-weight: 500;
+    min-height: 60px;
+    padding: var(--spacing-lg) var(--spacing-xl);
+    font-size: 1.2rem;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    background: linear-gradient(135deg, 
+      var(--tattoo-gold) 0%, 
+      rgba(212, 184, 150, 0.9) 50%,
+      var(--tattoo-gold) 100%);
+    border: none;
+    border-radius: 16px;
+    color: white;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+    box-shadow: 
+      0 8px 32px rgba(212, 184, 150, 0.3),
+      inset 0 1px 0 rgba(255, 255, 255, 0.2);
+    transition: all 0.3s cubic-bezier(0.25, 0.1, 0.25, 1);
+    cursor: pointer;
     -webkit-tap-highlight-color: transparent;
+    margin-top: var(--spacing-md);
   }
   
-  .contact-detail a {
-    min-height: 44px;
-    display: flex;
-    align-items: center;
-    padding: var(--spacing-xs) 0;
-    -webkit-tap-highlight-color: rgba(212, 184, 150, 0.2);
-    border-radius: 6px;
-    transition: background-color 0.2s ease;
+  .contact-form .btn-full:hover {
+    transform: translateY(-2px);
+    box-shadow: 
+      0 12px 40px rgba(212, 184, 150, 0.4),
+      inset 0 1px 0 rgba(255, 255, 255, 0.3);
   }
   
-  .contact-detail a:active {
-    background-color: rgba(212, 184, 150, 0.1);
+  .contact-form .btn-full:active {
+    transform: translateY(0);
+    box-shadow: 
+      0 4px 16px rgba(212, 184, 150, 0.3),
+      inset 0 1px 0 rgba(255, 255, 255, 0.2);
   }
   
-  .hours-card {
-    -webkit-tap-highlight-color: transparent;
+  .form-note {
+    font-size: 0.9rem;
+    text-align: center;
+    color: var(--beige-sable);
+    margin-top: var(--spacing-md);
+    padding: var(--spacing-md);
+    background: rgba(212, 184, 150, 0.05);
+    border-radius: 8px;
+    border-left: 3px solid var(--tattoo-gold);
+  }
+  
+  .form-group small {
+    display: block;
+    font-size: 0.85rem;
+    color: var(--beige-sable);
+    margin-top: var(--spacing-xs);
+    padding-left: var(--spacing-xs);
   }
 }
 
@@ -6974,28 +7192,219 @@ ul, ol {
   }
   
   /* Optimisations spécifiques section contact mobile */
-  .contact-content {
-    grid-template-columns: 1fr;
-    gap: var(--spacing-lg);
-    padding: 0 var(--spacing-sm);
+  .contact {
+    padding: var(--spacing-2xl) 0;
+    background: linear-gradient(135deg, 
+      rgba(254, 254, 254, 0.98) 0%, 
+      rgba(248, 246, 243, 0.95) 100%);
   }
   
-  .contact-form-card {
-    padding: var(--spacing-lg);
-    margin: 0 var(--spacing-xs);
+  .contact-content {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-xl);
+    padding: 0 var(--spacing-md);
+    max-width: 100%;
+  }
+  
+  .contact-form-container {
+    order: 1;
   }
   
   .contact-info-container {
-    gap: var(--spacing-md);
+    order: 2;
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-lg);
   }
   
+  .map-container {
+    order: 3;
+    margin-top: var(--spacing-lg);
+  }
+  
+  /* Formulaire optimisé */
+  .contact-form-card {
+    background: rgba(255, 255, 255, 0.95);
+    border: 1px solid rgba(212, 184, 150, 0.2);
+    border-radius: 16px;
+    padding: var(--spacing-xl) var(--spacing-lg);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.04);
+    backdrop-filter: blur(10px);
+  }
+  
+  .form-title {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--spacing-sm);
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: var(--tattoo-deep-black);
+    margin-bottom: var(--spacing-xl);
+    text-align: center;
+  }
+  
+  .form-title i {
+    color: var(--tattoo-gold);
+    background: rgba(212, 184, 150, 0.1);
+    padding: var(--spacing-sm);
+    border-radius: 50%;
+  }
+  
+  /* Info cards optimisées */
   .contact-info-card,
-  .hours-card {
+  .hours-card,
+  .emergency-contact {
+    background: rgba(255, 255, 255, 0.9);
+    border: 1px solid rgba(212, 184, 150, 0.15);
+    border-radius: 12px;
     padding: var(--spacing-lg);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+  }
+  
+  .contact-info-card h3,
+  .hours-card h3,
+  .emergency-contact h3 {
+    font-size: 1.1rem;
+    margin-bottom: var(--spacing-md);
+    color: var(--tattoo-deep-black);
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+  }
+  
+  /* Optimisations de la carte et sections finales */
+  .map-container {
+    background: rgba(255, 255, 255, 0.9);
+    border: 1px solid rgba(212, 184, 150, 0.15);
+    border-radius: 16px;
+    padding: var(--spacing-lg);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+  }
+  
+  .map-title {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--spacing-sm);
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--tattoo-deep-black);
+    margin-bottom: var(--spacing-lg);
+    text-align: center;
+  }
+  
+  .map-title i {
+    color: var(--tattoo-gold);
+    background: rgba(212, 184, 150, 0.1);
+    padding: var(--spacing-sm);
+    border-radius: 50%;
+  }
+  
+  .map-wrapper {
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+    position: relative;
+  }
+  
+  .map-wrapper::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border: 2px solid rgba(212, 184, 150, 0.2);
+    border-radius: 12px;
+    pointer-events: none;
+    z-index: 1;
   }
   
   .map-wrapper iframe {
-    height: 250px;
+    height: 300px;
+    width: 100%;
+    border: none;
+    border-radius: 12px;
+  }
+  
+  .map-description {
+    text-align: center;
+    font-size: 0.95rem;
+    color: var(--tattoo-deep-black);
+    margin-top: var(--spacing-lg);
+    padding: var(--spacing-md);
+    background: rgba(248, 246, 243, 0.6);
+    border-radius: 8px;
+    line-height: 1.6;
+  }
+  
+  /* Messages d'état du formulaire */
+  .alert {
+    padding: var(--spacing-md) var(--spacing-lg);
+    border-radius: 12px;
+    margin-bottom: var(--spacing-lg);
+    font-size: 0.95rem;
+    line-height: 1.5;
+    border-left: 4px solid;
+  }
+  
+  .alert-success {
+    background: rgba(34, 197, 94, 0.05);
+    border-left-color: #22c55e;
+    color: #15803d;
+  }
+  
+  .alert-error {
+    background: rgba(239, 68, 68, 0.05);
+    border-left-color: #ef4444;
+    color: #dc2626;
+  }
+  
+  /* Validation visuelle des champs */
+  .form-group input:invalid,
+  .form-group select:invalid,
+  .form-group textarea:invalid {
+    border-color: rgba(239, 68, 68, 0.3);
+  }
+  
+  .form-group input:valid,
+  .form-group select:valid,
+  .form-group textarea:valid {
+    border-color: rgba(34, 197, 94, 0.3);
+  }
+  
+  .form-group input:focus:invalid,
+  .form-group select:focus:invalid,
+  .form-group textarea:focus:invalid {
+    border-color: #ef4444;
+    box-shadow: 
+      0 0 0 4px rgba(239, 68, 68, 0.1),
+      0 4px 20px rgba(239, 68, 68, 0.15);
+  }
+  
+  /* Loading state pour le bouton */
+  .contact-form .btn-full:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+    transform: none;
+  }
+  
+  .contact-form .btn-full:disabled::after {
+    content: '';
+    width: 20px;
+    height: 20px;
+    border: 2px solid transparent;
+    border-top: 2px solid white;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin-left: var(--spacing-sm);
+  }
+  
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
   }
 }
 
