@@ -52,12 +52,29 @@
                     {!! $heroImage !!}
                 @else
                     <div class="image-container">
-                        <img src="{{ asset('storage/assets/images/artiste.png') }}" 
-                             alt="K'rine - Artiste tatoueur professionnel au travail" 
-                             class="featured-img"
-                             loading="eager"
-                             width="400"
-                             height="600">
+                        @if(file_exists(public_path('assets/images/artiste.png')))
+                            <img src="{{ asset('assets/images/artiste.png') }}" 
+                                 alt="K'rine - Artiste tatoueur professionnel au travail" 
+                                 class="featured-img"
+                                 loading="eager"
+                                 width="400"
+                                 height="600">
+                        @elseif(file_exists(storage_path('app/public/assets/images/artiste.png')))
+                            <img src="{{ asset('storage/assets/images/artiste.png') }}" 
+                                 alt="K'rine - Artiste tatoueur professionnel au travail" 
+                                 class="featured-img"
+                                 loading="eager"
+                                 width="400"
+                                 height="600">
+                        @else
+                            <!-- Placeholder si l'image n'est pas trouvée -->
+                            <div class="featured-img-placeholder">
+                                <div class="placeholder-icon">
+                                    <i data-lucide="user" class="icon-xl"></i>
+                                </div>
+                                <p>K'rine - Artiste Tatoueur</p>
+                            </div>
+                        @endif
                     </div>
                     <div class="decorative-box decorative-box-1"></div>
                     <div class="decorative-box decorative-box-2"></div>
