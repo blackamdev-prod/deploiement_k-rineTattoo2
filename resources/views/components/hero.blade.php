@@ -1,13 +1,5 @@
 <!-- Section Héro -->
 <section id="home" class="hero">
-    @isset($backgroundVideo)
-        {!! $backgroundVideo !!}
-    @else
-        <video class="hero-video" autoplay muted loop>
-            <source src="assets/videos/fume.mp4" type="video/mp4">
-        </video>
-    @endisset
-    
     <div class="hero-overlay"></div>
     <div class="container">
         <div class="hero-content">

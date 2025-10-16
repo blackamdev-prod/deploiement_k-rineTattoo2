@@ -2079,13 +2079,21 @@ ul, ol {
     rgba(10, 10, 10, 0.95) 100%);
   color: var(--tattoo-pearl);
   overflow: hidden;
-  padding: calc(3rem + var(--spacing-xs)) 0 var(--spacing-xs) 0;
-  height: 100vh;
-  max-height: 100vh;
+  padding: calc(3rem + var(--spacing-2xl)) 0 var(--spacing-2xl) 0;
+  min-height: 100vh;
+  height: auto;
   display: flex;
   align-items: center;
   justify-content: center;
   backdrop-filter: blur(20px);
+}
+
+/* Hero mobile - hauteur augmentée */
+@media (max-width: 767px) {
+  .hero {
+    min-height: 120vh;
+    padding: calc(4rem + var(--spacing-3xl)) 0 var(--spacing-3xl) 0;
+  }
 }
 
 .hero .container {
@@ -2174,17 +2182,7 @@ ul, ol {
   }
 }
 
-.hero-video {
-  position: absolute;
-  top: -10%;
-  left: 0;
-  width: 100%;
-  height: 120%;
-  object-fit: cover;
-  z-index: 0;
-  transform: translateZ(0);
-  will-change: transform;
-}
+/* Vidéo supprimée - styles conservés pour référence si besoin */
 
 .hero-overlay {
   position: absolute;
@@ -6458,14 +6456,10 @@ ul, ol {
     animation: none !important;
   }
   
-  .hero-video {
-    top: 0 !important;
-    height: 100% !important;
-  }
+  /* hero-video supprimé */
 }
 
 /* Performance optimizations pour les éléments parallax */
-.hero-video,
 .decorative-box,
 .service-icon,
 .feature-icon,
