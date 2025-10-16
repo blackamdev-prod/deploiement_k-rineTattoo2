@@ -2070,6 +2070,13 @@ ul, ol {
   padding-top: 4rem;
 }
 
+/* Correction pour mobile - suppression du padding qui cache le hero */
+@media (max-width: 767px) {
+  .main-content {
+    padding-top: 0 !important;
+  }
+}
+
 /* ===== HERO SECTION - STYLE LOUIS VUITTON ===== */
 .hero {
   position: relative;
@@ -2091,30 +2098,61 @@ ul, ol {
 /* Hero mobile - hauteur augmentée */
 @media (max-width: 767px) {
   .hero {
-    min-height: 120vh;
-    padding: calc(4rem + var(--spacing-3xl)) 0 var(--spacing-3xl) 0;
+    min-height: 100vh;
+    height: auto;
+    padding: calc(5rem + var(--spacing-2xl)) 0 var(--spacing-2xl) 0;
+    background: linear-gradient(135deg, 
+      rgba(10, 10, 10, 0.95) 0%, 
+      rgba(20, 20, 20, 0.90) 50%,
+      rgba(10, 10, 10, 0.95) 100%) !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
   }
   
   /* Assurer la visibilité du contenu sur mobile */
   .hero-content {
     z-index: 10 !important;
     color: var(--tattoo-pearl) !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    padding: var(--spacing-lg) !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    text-align: center !important;
   }
   
   .hero-text {
     z-index: 10;
     color: var(--tattoo-pearl) !important;
+    width: 100%;
   }
   
   .title-main,
   .title-accent {
     color: var(--tattoo-pearl) !important;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    font-size: 2.5rem !important;
   }
   
   .hero-description {
     color: var(--tattoo-champagne) !important;
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+    font-size: 1.1rem !important;
+    margin: var(--spacing-lg) 0 !important;
+  }
+  
+  .hero-buttons {
+    margin-top: var(--spacing-lg) !important;
+    z-index: 10;
+  }
+  
+  .hero-buttons .btn {
+    background: var(--tattoo-gold) !important;
+    color: var(--tattoo-deep-black) !important;
+    border: 2px solid var(--tattoo-gold) !important;
   }
 }
 
@@ -2220,14 +2258,41 @@ ul, ol {
   backdrop-filter: blur(1px);
 }
 
-/* Overlay plus sombre sur desktop, plus clair sur mobile */
+/* Overlay plus sombre sur desktop, supprimé sur mobile */
 @media (max-width: 767px) {
   .hero-overlay {
-    background: linear-gradient(135deg, 
-      rgba(10, 10, 10, 0.1) 0%, 
-      rgba(0, 0, 0, 0.05) 50%,
-      rgba(10, 10, 10, 0.1) 100%);
-    backdrop-filter: none;
+    display: none !important;
+  }
+}
+
+/* Format portrait mobile très spécifique */
+@media (max-width: 480px) and (orientation: portrait) {
+  .hero {
+    min-height: 100vh !important;
+    height: auto !important;
+    padding: calc(6rem) var(--spacing-md) var(--spacing-2xl) var(--spacing-md) !important;
+    background: #1a1a1a !important;
+  }
+  
+  .hero-content {
+    padding: var(--spacing-md) !important;
+    gap: var(--spacing-lg) !important;
+  }
+  
+  .title-main {
+    font-size: 2rem !important;
+    line-height: 1.2 !important;
+  }
+  
+  .title-accent {
+    font-size: 1.8rem !important;
+    line-height: 1.2 !important;
+  }
+  
+  .hero-description {
+    font-size: 1rem !important;
+    line-height: 1.5 !important;
+    margin: var(--spacing-md) 0 !important;
   }
 }
 
