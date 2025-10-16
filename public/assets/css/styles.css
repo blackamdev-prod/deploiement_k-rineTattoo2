@@ -793,6 +793,78 @@ ul, ol {
     grid-template-columns: repeat(2, 1fr);
     gap: var(--spacing-md);
   }
+  
+  /* Section contact pour iPhone Pro Max */
+  .contact {
+    padding: var(--spacing-3xl) 0;
+  }
+  
+  .contact-form-card {
+    padding: var(--spacing-xl);
+    border-radius: 12px;
+  }
+  
+  .form-row {
+    flex-direction: column;
+    gap: var(--spacing-sm);
+  }
+  
+  .form-group input,
+  .form-group select,
+  .form-group textarea {
+    padding: var(--spacing-md);
+    font-size: 1rem;
+    border-radius: 8px;
+    min-height: 44px;
+  }
+  
+  .form-group textarea {
+    min-height: 120px;
+    resize: vertical;
+  }
+  
+  .contact-form .btn-full {
+    padding: var(--spacing-md) var(--spacing-xl);
+    font-size: 1.1rem;
+    min-height: 48px;
+    border-radius: 10px;
+  }
+  
+  .contact-detail {
+    padding: var(--spacing-md);
+    background: rgba(254, 252, 250, 0.8);
+    border-radius: 8px;
+    margin-bottom: var(--spacing-sm);
+  }
+  
+  .contact-detail h4 {
+    font-size: 1rem;
+    margin-bottom: var(--spacing-xs);
+  }
+  
+  .contact-detail p,
+  .contact-detail a {
+    font-size: 0.95rem;
+    line-height: 1.5;
+  }
+  
+  .hours-list {
+    gap: var(--spacing-sm);
+  }
+  
+  .hour-item {
+    padding: var(--spacing-sm) var(--spacing-md);
+    background: rgba(254, 254, 254, 0.7);
+    border-radius: 6px;
+    justify-content: space-between;
+    min-height: 40px;
+    align-items: center;
+  }
+  
+  .map-wrapper iframe {
+    height: 300px;
+    border-radius: 12px;
+  }
 }
 
 @media only screen and (max-width: 414px) and (-webkit-min-device-pixel-ratio: 3) {
@@ -811,6 +883,45 @@ ul, ol {
     width: 100%;
     text-align: center;
     padding: var(--spacing-md) var(--spacing-lg);
+  }
+  
+  /* Section contact pour iPhone standard */
+  .contact-form-card {
+    padding: var(--spacing-lg) var(--spacing-md);
+  }
+  
+  .form-group label {
+    font-size: 0.9rem;
+    font-weight: 500;
+    margin-bottom: var(--spacing-xs);
+    color: var(--tattoo-deep-black);
+  }
+  
+  .form-group small {
+    font-size: 0.8rem;
+    color: var(--beige-sable);
+    margin-top: var(--spacing-xs);
+  }
+  
+  .contact-details {
+    gap: var(--spacing-md);
+  }
+  
+  .contact-detail i {
+    width: 20px;
+    height: 20px;
+  }
+  
+  .emergency-contact {
+    background: rgba(212, 184, 150, 0.05);
+    padding: var(--spacing-lg);
+    border-radius: 8px;
+    border: 1px solid rgba(212, 184, 150, 0.2);
+  }
+  
+  .emergency-contact h3 {
+    font-size: 1rem;
+    color: var(--tattoo-gold);
   }
 }
 
@@ -857,6 +968,52 @@ ul, ol {
     transform: translateY(-2px);
     box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
   }
+  
+  /* Section contact pour Galaxy Ultra */
+  .contact {
+    padding: var(--spacing-3xl) 0 var(--spacing-4xl) 0;
+  }
+  
+  .contact-content {
+    padding: 0 var(--spacing-md);
+  }
+  
+  .contact-form-card {
+    padding: var(--spacing-xl) var(--spacing-lg);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+  }
+  
+  .form-group input[type="tel"] {
+    font-family: monospace;
+    letter-spacing: 1px;
+  }
+  
+  .form-group input:focus,
+  .form-group select:focus,
+  .form-group textarea:focus {
+    border-color: var(--tattoo-gold);
+    box-shadow: 0 0 0 3px rgba(212, 184, 150, 0.2);
+    outline: none;
+  }
+  
+  .contact-info-card,
+  .hours-card,
+  .emergency-contact {
+    border: 1px solid rgba(212, 184, 150, 0.15);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+  }
+  
+  .hours-card {
+    background: linear-gradient(135deg, 
+      rgba(254, 254, 254, 0.95) 0%, 
+      rgba(248, 246, 243, 0.9) 100%);
+  }
+  
+  .map-wrapper {
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  }
 }
 
 @media only screen and (max-width: 412px) and (min-resolution: 2.5dppx) {
@@ -895,6 +1052,49 @@ ul, ol {
     font-size: 0.85rem;
     min-width: auto;
   }
+  
+  /* Section contact pour Galaxy standard */
+  .contact-form .btn-full {
+    background: linear-gradient(135deg, 
+      var(--tattoo-gold) 0%, 
+      rgba(212, 184, 150, 0.9) 50%,
+      var(--tattoo-gold) 100%);
+    box-shadow: 0 4px 16px rgba(212, 184, 150, 0.3);
+  }
+  
+  .contact-form .btn-full:active {
+    transform: scale(0.98);
+    box-shadow: 0 2px 8px rgba(212, 184, 150, 0.4);
+  }
+  
+  .form-group {
+    margin-bottom: var(--spacing-md);
+  }
+  
+  .form-group input,
+  .form-group select {
+    transition: all 0.3s ease;
+    -webkit-appearance: none;
+    appearance: none;
+  }
+  
+  .form-group select {
+    background-image: url("data:image/svg+xml;charset=UTF-8,<svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%23D4B896' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><polyline points='6,9 12,15 18,9'/></svg>");
+    background-repeat: no-repeat;
+    background-position: right 12px center;
+    background-size: 16px;
+    padding-right: 40px;
+  }
+  
+  .contact-detail a {
+    text-decoration: none;
+    transition: all 0.2s ease;
+  }
+  
+  .contact-detail a:active {
+    transform: scale(0.98);
+    color: var(--tattoo-gold);
+  }
 }
 
 @media only screen and (max-width: 384px) and (min-resolution: 2dppx) {
@@ -922,6 +1122,77 @@ ul, ol {
   
   .contact-detail span {
     font-size: 0.9rem;
+  }
+  
+  /* Section contact pour Galaxy A series */
+  .contact {
+    padding: var(--spacing-2xl) 0 var(--spacing-3xl) 0;
+  }
+  
+  .contact-form-card {
+    padding: var(--spacing-lg);
+    margin: 0 var(--spacing-xs);
+  }
+  
+  .form-title {
+    font-size: 1.1rem;
+    text-align: center;
+    margin-bottom: var(--spacing-lg);
+  }
+  
+  .form-title i {
+    margin-right: var(--spacing-sm);
+    color: var(--tattoo-gold);
+  }
+  
+  .form-note {
+    font-size: 0.85rem;
+    text-align: center;
+    color: var(--beige-sable);
+    margin-top: var(--spacing-md);
+    padding: var(--spacing-sm);
+    background: rgba(212, 184, 150, 0.05);
+    border-radius: 6px;
+  }
+  
+  .map-container {
+    margin-top: var(--spacing-xl);
+  }
+  
+  .map-title {
+    font-size: 1.1rem;
+    text-align: center;
+    margin-bottom: var(--spacing-md);
+    color: var(--tattoo-deep-black);
+  }
+  
+  .map-title i {
+    margin-right: var(--spacing-sm);
+    color: var(--tattoo-gold);
+  }
+  
+  .map-description {
+    text-align: center;
+    font-size: 0.9rem;
+    color: var(--beige-sable);
+    margin-top: var(--spacing-md);
+    padding: var(--spacing-md);
+    background: rgba(248, 246, 243, 0.8);
+    border-radius: 8px;
+  }
+  
+  .hours-note {
+    background: rgba(212, 184, 150, 0.08);
+    padding: var(--spacing-md);
+    border-radius: 8px;
+    margin-top: var(--spacing-md);
+    border-left: 3px solid var(--tattoo-gold);
+  }
+  
+  .hours-note p {
+    font-size: 0.9rem;
+    margin: 0;
+    color: var(--tattoo-deep-black);
   }
 }
 
@@ -6535,6 +6806,46 @@ ul, ol {
     line-height: 1.6;
     letter-spacing: 0.025em;
   }
+  
+  /* Optimisations tactiles section contact */
+  .contact-form input,
+  .contact-form select,
+  .contact-form textarea {
+    min-height: 48px;
+    font-size: 16px; /* Empêche le zoom automatique sur iOS */
+    -webkit-tap-highlight-color: rgba(212, 184, 150, 0.2);
+  }
+  
+  .contact-form textarea {
+    min-height: 120px;
+    resize: vertical;
+  }
+  
+  .contact-form .btn-full {
+    min-height: 52px;
+    padding: var(--spacing-md) var(--spacing-xl);
+    font-size: 1.1rem;
+    font-weight: 500;
+    -webkit-tap-highlight-color: transparent;
+  }
+  
+  .contact-detail a {
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+    padding: var(--spacing-xs) 0;
+    -webkit-tap-highlight-color: rgba(212, 184, 150, 0.2);
+    border-radius: 6px;
+    transition: background-color 0.2s ease;
+  }
+  
+  .contact-detail a:active {
+    background-color: rgba(212, 184, 150, 0.1);
+  }
+  
+  .hours-card {
+    -webkit-tap-highlight-color: transparent;
+  }
 }
 
 /* Optimisations spécifiques pour iPhone Pro Max et Galaxy Ultra */
@@ -6660,6 +6971,31 @@ ul, ol {
   * {
     animation-duration: 0.3s !important;
     transition-duration: 0.3s !important;
+  }
+  
+  /* Optimisations spécifiques section contact mobile */
+  .contact-content {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-lg);
+    padding: 0 var(--spacing-sm);
+  }
+  
+  .contact-form-card {
+    padding: var(--spacing-lg);
+    margin: 0 var(--spacing-xs);
+  }
+  
+  .contact-info-container {
+    gap: var(--spacing-md);
+  }
+  
+  .contact-info-card,
+  .hours-card {
+    padding: var(--spacing-lg);
+  }
+  
+  .map-wrapper iframe {
+    height: 250px;
   }
 }
 
