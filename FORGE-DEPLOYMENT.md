@@ -1,6 +1,8 @@
 # Guide de Déploiement Laravel Forge - K'rine Tattoo
 
-## Problème résolu : Image artiste.png non visible
+## SOLUTION COMPLÈTE : Image artiste.png avec fallback élégant
+
+**PROBLÈME RÉSOLU** : L'image n'était pas visible car elle n'était pas incluse dans le repository Git et le fallback n'était pas esthétique.
 
 ### Solutions mises en place :
 

@@ -7682,57 +7682,165 @@ ul, ol {
   }
 }
 
-/* Placeholder pour l'image artiste */
-.featured-img-placeholder {
+/* Fallback élégant pour l'image artiste */
+.featured-img-fallback {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   width: 100%;
   height: 100%;
-  min-height: 400px;
+  min-height: 500px;
   background: linear-gradient(135deg, 
-    rgba(212, 184, 150, 0.1) 0%, 
-    rgba(248, 246, 243, 0.2) 100%);
-  border: 2px dashed rgba(212, 184, 150, 0.3);
-  border-radius: 12px;
-  color: var(--tattoo-gold);
-  text-align: center;
-}
-
-.placeholder-icon {
-  background: rgba(212, 184, 150, 0.1);
+    rgba(254, 252, 250, 0.95) 0%, 
+    rgba(248, 246, 243, 0.9) 50%,
+    rgba(245, 241, 235, 0.85) 100%);
+  border-radius: 16px;
   padding: var(--spacing-xl);
-  border-radius: 50%;
-  margin-bottom: var(--spacing-md);
+  box-shadow: 
+    0 10px 40px rgba(0, 0, 0, 0.05),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  position: relative;
+  overflow: hidden;
 }
 
-.placeholder-icon .icon-xl {
-  width: 4rem;
-  height: 4rem;
-  color: var(--tattoo-gold);
+.featured-img-fallback::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='60' height='60' viewBox='0 0 60 60'><path d='M30 15L35 25L45 25L37 33L40 43L30 38L20 43L23 33L15 25L25 25Z' fill='%23D4B896' opacity='0.05'/></svg>") repeat;
+  animation: floatPattern 20s linear infinite;
 }
 
-.featured-img-placeholder p {
+@keyframes floatPattern {
+  0% { transform: translateX(0) translateY(0); }
+  100% { transform: translateX(-60px) translateY(-60px); }
+}
+
+.artist-silhouette {
+  margin-bottom: var(--spacing-lg);
+  filter: drop-shadow(0 4px 12px rgba(212, 184, 150, 0.2));
+  animation: gentleFloat 3s ease-in-out infinite;
+}
+
+@keyframes gentleFloat {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+
+.artist-svg {
+  width: 200px;
+  height: 300px;
+  opacity: 0.9;
+}
+
+.artist-info {
+  text-align: center;
+  z-index: 2;
+  position: relative;
+}
+
+.artist-info h3 {
   font-family: var(--font-accent);
-  font-size: 1.1rem;
-  font-weight: 500;
-  color: var(--tattoo-deep-black);
-  margin: 0;
+  font-size: 2rem;
+  font-weight: 600;
+  color: var(--tattoo-gold);
+  margin-bottom: var(--spacing-sm);
+  letter-spacing: 2px;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
+.artist-info p {
+  font-family: var(--font-base);
+  font-size: 1.1rem;
+  color: var(--tattoo-deep-black);
+  margin-bottom: var(--spacing-lg);
+  opacity: 0.8;
+}
+
+.artist-features {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+  align-items: center;
+}
+
+.artist-features span {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+  font-size: 0.9rem;
+  color: var(--beige-sable);
+  background: rgba(255, 255, 255, 0.6);
+  padding: var(--spacing-xs) var(--spacing-md);
+  border-radius: 20px;
+  border: 1px solid rgba(212, 184, 150, 0.2);
+  transition: all 0.3s ease;
+}
+
+.artist-features span:hover {
+  background: rgba(212, 184, 150, 0.1);
+  transform: translateY(-1px);
+}
+
+.artist-features i {
+  color: var(--tattoo-gold);
+  width: 16px;
+  height: 16px;
+}
+
+/* Responsive pour le fallback */
 @media (max-width: 768px) {
-  .featured-img-placeholder {
-    min-height: 300px;
+  .featured-img-fallback {
+    min-height: 400px;
+    padding: var(--spacing-lg);
   }
   
-  .placeholder-icon .icon-xl {
-    width: 3rem;
-    height: 3rem;
+  .artist-svg {
+    width: 150px;
+    height: 225px;
   }
   
-  .featured-img-placeholder p {
+  .artist-info h3 {
+    font-size: 1.6rem;
+  }
+  
+  .artist-info p {
     font-size: 1rem;
+  }
+  
+  .artist-features {
+    flex-direction: column;
+    gap: var(--spacing-xs);
+  }
+  
+  .artist-features span {
+    font-size: 0.85rem;
+    padding: var(--spacing-xs) var(--spacing-sm);
+  }
+}
+
+@media (max-width: 480px) {
+  .featured-img-fallback {
+    min-height: 350px;
+    padding: var(--spacing-md);
+  }
+  
+  .artist-svg {
+    width: 120px;
+    height: 180px;
+  }
+  
+  .artist-info h3 {
+    font-size: 1.4rem;
+    letter-spacing: 1px;
+  }
+  
+  .artist-features span {
+    font-size: 0.8rem;
   }
 }
 
