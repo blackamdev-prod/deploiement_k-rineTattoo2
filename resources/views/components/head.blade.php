@@ -1,6 +1,10 @@
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes, viewport-fit=cover">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="theme-color" content="#D4B896">
     <title>{{ $title ?? 'K\'RINE TATTOO - Salon de Tatouage en Martinique' }}</title>
     <meta name="description" content="{{ $description ?? 'K\'RINE TATTOO - Salon de tatouage professionnel en Martinique. Plus de 15 ans d\'expérience, styles réaliste et géométrique. Consultation gratuite.' }}">
     

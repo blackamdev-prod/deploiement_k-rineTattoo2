@@ -760,6 +760,171 @@ ul, ol {
   }
 }
 
+/* Optimisations spécifiques pour iPhone (Apple) */
+@media only screen and (max-width: 428px) and (-webkit-min-device-pixel-ratio: 2) {
+  /* iPhone 14 Pro Max, 13 Pro Max, 12 Pro Max */
+  .header-content {
+    padding: 0 var(--spacing-md);
+    height: 3.8rem;
+  }
+  
+  .mobile-logo {
+    height: 2.5rem !important;
+    width: 2.5rem !important;
+  }
+  
+  .hero-title .title-main {
+    font-size: 2.4rem;
+    line-height: 1.2;
+  }
+  
+  .services-grid {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-lg);
+    padding: 0 var(--spacing-sm);
+  }
+  
+  .service-card {
+    padding: var(--spacing-lg);
+    margin: 0 var(--spacing-xs);
+  }
+  
+  .portfolio-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--spacing-md);
+  }
+}
+
+@media only screen and (max-width: 414px) and (-webkit-min-device-pixel-ratio: 3) {
+  /* iPhone 14 Plus, 13 Pro, 12 Pro, 11 Pro Max */
+  .container {
+    padding: 0 var(--spacing-md);
+  }
+  
+  .hero-buttons {
+    flex-direction: column;
+    gap: var(--spacing-sm);
+    padding: var(--spacing-lg) var(--spacing-md);
+  }
+  
+  .hero-buttons .btn {
+    width: 100%;
+    text-align: center;
+    padding: var(--spacing-md) var(--spacing-lg);
+  }
+}
+
+@media only screen and (max-width: 390px) and (-webkit-min-device-pixel-ratio: 3) {
+  /* iPhone 14, 13, 12, 12 mini */
+  .section-title {
+    font-size: 2rem;
+    text-align: center;
+    padding: 0 var(--spacing-sm);
+  }
+  
+  .about-description p {
+    font-size: 0.95rem;
+    padding-left: var(--spacing-sm);
+  }
+  
+  .service-features li {
+    font-size: 0.9rem;
+    padding: var(--spacing-xs) 0;
+  }
+  
+  .portfolio-item {
+    margin-bottom: var(--spacing-md);
+  }
+  
+  .portfolio-overlay {
+    opacity: 0.8;
+  }
+}
+
+/* Optimisations spécifiques pour Samsung Galaxy */
+@media only screen and (max-width: 430px) and (min-resolution: 2dppx) {
+  /* Galaxy S23 Ultra, S22 Ultra, Note series */
+  .header {
+    padding: var(--spacing-xs) 0;
+  }
+  
+  .hero-image .image-container {
+    margin: var(--spacing-md) auto;
+    padding: 0 var(--spacing-sm);
+  }
+  
+  .services-grid .service-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+  }
+}
+
+@media only screen and (max-width: 412px) and (min-resolution: 2.5dppx) {
+  /* Galaxy S23, S22, S21 */
+  .main-content {
+    padding-top: 3.5rem;
+  }
+  
+  .hero-stats {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--spacing-sm);
+    padding: var(--spacing-lg) var(--spacing-md);
+  }
+  
+  .stat {
+    text-align: center;
+    padding: var(--spacing-md) var(--spacing-sm);
+  }
+  
+  .stat-number {
+    font-size: 1.8rem;
+  }
+  
+  .stat-label {
+    font-size: 0.85rem;
+  }
+  
+  .portfolio-filters {
+    flex-wrap: wrap;
+    gap: var(--spacing-xs);
+    padding: 0 var(--spacing-sm);
+  }
+  
+  .filter-btn {
+    padding: var(--spacing-xs) var(--spacing-sm);
+    font-size: 0.85rem;
+    min-width: auto;
+  }
+}
+
+@media only screen and (max-width: 384px) and (min-resolution: 2dppx) {
+  /* Galaxy A series, S20 FE */
+  .hero-description {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    padding: var(--spacing-md) var(--spacing-sm);
+  }
+  
+  .additional-grid {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-md);
+  }
+  
+  .additional-service {
+    padding: var(--spacing-lg) var(--spacing-md);
+    text-align: center;
+  }
+  
+  .contact-detail {
+    padding: var(--spacing-md);
+    gap: var(--spacing-sm);
+  }
+  
+  .contact-detail span {
+    font-size: 0.9rem;
+  }
+}
+
 /* ===== HEADER ===== */
 .header {
   position: fixed;
@@ -6329,6 +6494,172 @@ ul, ol {
   
   .portfolio-grid {
     grid-template-columns: 1fr;
+  }
+}
+
+/* Améliorations tactiles pour mobiles Apple et Samsung */
+@media (pointer: coarse) {
+  /* Augmentation de la zone de touch pour tous les appareils tactiles */
+  .btn, .filter-btn, .portfolio-item {
+    min-height: 44px; /* Apple recommandation */
+    min-width: 44px;
+  }
+  
+  .filter-btn {
+    padding: var(--spacing-sm) var(--spacing-md);
+    margin: var(--spacing-xs);
+  }
+  
+  .hero-buttons .btn {
+    padding: var(--spacing-md) var(--spacing-xl);
+    font-size: 1rem;
+  }
+  
+  .service-card {
+    cursor: pointer;
+    transition: transform 0.2s ease;
+  }
+  
+  .service-card:active {
+    transform: scale(0.98);
+  }
+  
+  .portfolio-item:active {
+    transform: scale(0.95);
+  }
+  
+  /* Amélioration de la lisibilité */
+  .service-description,
+  .about-description p,
+  .hero-description {
+    line-height: 1.6;
+    letter-spacing: 0.025em;
+  }
+}
+
+/* Optimisations spécifiques pour iPhone Pro Max et Galaxy Ultra */
+@media only screen and (min-width: 428px) and (max-width: 430px) {
+  .container {
+    max-width: 100%;
+    padding: 0 var(--spacing-lg);
+  }
+  
+  .hero-title .title-main {
+    font-size: 2.6rem;
+  }
+  
+  .hero-title .title-accent {
+    font-size: 2.2rem;
+  }
+  
+  .services-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--spacing-md);
+  }
+  
+  .service-card {
+    padding: var(--spacing-md);
+  }
+  
+  .portfolio-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--spacing-lg);
+  }
+  
+  .portfolio-item {
+    aspect-ratio: 1;
+  }
+  
+  .hero-stats {
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--spacing-xs);
+  }
+  
+  .stat {
+    padding: var(--spacing-sm);
+  }
+  
+  .stat-number {
+    font-size: 1.6rem;
+  }
+  
+  .stat-label {
+    font-size: 0.8rem;
+  }
+}
+
+/* Optimisations pour les modes sombre natifs (iOS/Android) */
+@media (prefers-color-scheme: dark) {
+  .header {
+    background: rgba(26, 26, 26, 0.95);
+    border-bottom: 0.5px solid rgba(212, 184, 150, 0.3);
+  }
+  
+  .portfolio-overlay {
+    background: rgba(0, 0, 0, 0.7);
+  }
+  
+  .service-card {
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+  }
+}
+
+/* Optimisations pour la densité d'écran élevée */
+@media (-webkit-min-device-pixel-ratio: 3) {
+  .decorative-box-1,
+  .decorative-box-2 {
+    border-width: 0.5px;
+  }
+  
+  .title-underline {
+    height: 2px;
+  }
+  
+  .portfolio-tag {
+    font-size: 0.75rem;
+    padding: var(--spacing-xs) var(--spacing-sm);
+  }
+}
+
+/* Optimisations pour les notches et safe areas (iPhone X et plus) */
+@supports (padding: max(0px)) {
+  .header-content {
+    padding-left: max(var(--spacing-lg), env(safe-area-inset-left));
+    padding-right: max(var(--spacing-lg), env(safe-area-inset-right));
+  }
+  
+  .main-content {
+    padding-left: env(safe-area-inset-left);
+    padding-right: env(safe-area-inset-right);
+  }
+  
+  .footer {
+    padding-bottom: max(var(--spacing-lg), env(safe-area-inset-bottom));
+  }
+}
+
+/* Optimisations des performances pour mobile */
+@media (max-width: 768px) {
+  .portfolio-item img {
+    will-change: transform;
+    backface-visibility: hidden;
+  }
+  
+  .service-card {
+    will-change: transform;
+    backface-visibility: hidden;
+  }
+  
+  /* Réduction des effets pour les mobiles lents */
+  .hero::before,
+  .about::after {
+    display: none;
+  }
+  
+  /* Optimisation des animations */
+  * {
+    animation-duration: 0.3s !important;
+    transition-duration: 0.3s !important;
   }
 }
 
