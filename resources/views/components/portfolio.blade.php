@@ -107,7 +107,22 @@
                                 @if(str_starts_with($portfolio->image, 'http'))
                                     <img src="{{ $portfolio->image }}" alt="{{ $portfolio->title }}" loading="lazy">
                                 @else
-                                    <img src="{{ asset($portfolio->image) }}" alt="{{ $portfolio->title }}" loading="lazy">
+                                    @php
+                                        // Système de fallback pour les images problématiques
+                                        $imagePaths = [
+                                            $portfolio->image,
+                                            str_replace('assets/images/portfolio/', 'images/portfolio/', $portfolio->image),
+                                            str_replace('.jpg', '.png', str_replace('assets/images/portfolio/', 'images/portfolio/', $portfolio->image))
+                                        ];
+                                        $finalImagePath = $portfolio->image;
+                                        
+                                        // Pour les images problématiques (4 et 6), forcer le fallback PNG
+                                        if (str_contains($portfolio->image, 'image4.jpg') || str_contains($portfolio->image, 'image6.jpg')) {
+                                            $finalImagePath = str_replace('.jpg', '.png', str_replace('assets/images/portfolio/', 'images/portfolio/', $portfolio->image));
+                                        }
+                                    @endphp
+                                    <img src="{{ asset($finalImagePath) }}" alt="{{ $portfolio->title }}" loading="lazy" 
+                                         onerror="this.onerror=null; this.src='{{ asset('images/portfolio/' . basename($portfolio->image, '.jpg') . '.png') }}';">
                                 @endif
                             @else
                                 <img src="{{ asset('assets/images/artiste.png') }}" alt="{{ $portfolio->title }}" loading="lazy">

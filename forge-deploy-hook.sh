@@ -46,27 +46,37 @@ if [ -d "public/assets/images/portfolio" ]; then
     done
 fi
 
-# Specifically verify problematic images (image4.jpg and image6.jpg)
-echo "Verifying specific portfolio images..."
-for img in image4.jpg image6.jpg; do
-    if [ -f "public/assets/images/portfolio/$img" ]; then
-        echo "✓ $img exists ($(stat -f%z "public/assets/images/portfolio/$img") bytes)"
-        # Re-copy if file seems corrupted (too small)
-        if [ $(stat -f%z "public/assets/images/portfolio/$img") -lt 10000 ]; then
-            echo "⚠ $img seems corrupted, re-copying..."
-            if [ -f "public/images/portfolio/${img%.jpg}.png" ]; then
-                cp "public/images/portfolio/${img%.jpg}.png" "public/assets/images/portfolio/$img"
-                echo "✓ $img re-copied from source"
-            fi
+# Create multiple copies of problematic images for maximum reliability
+echo "Creating multiple fallback copies for problematic images..."
+
+# For image4 (Phoenix Aquarelle)
+if [ -f "public/images/portfolio/image4.png" ]; then
+    # Copy to multiple locations
+    cp "public/images/portfolio/image4.png" "public/assets/images/portfolio/image4.jpg"
+    cp "public/images/portfolio/image4.png" "public/assets/images/portfolio/image4.png"
+    cp "public/images/portfolio/image4.png" "public/images/portfolio/image4.jpg"
+    echo "✓ image4 copied to multiple fallback locations"
+fi
+
+# For image6 (Portrait Réaliste)  
+if [ -f "public/images/portfolio/image6.png" ]; then
+    # Copy to multiple locations
+    cp "public/images/portfolio/image6.png" "public/assets/images/portfolio/image6.jpg"
+    cp "public/images/portfolio/image6.png" "public/assets/images/portfolio/image6.png"
+    cp "public/images/portfolio/image6.png" "public/images/portfolio/image6.jpg"
+    echo "✓ image6 copied to multiple fallback locations"
+fi
+
+# Verify all copies exist
+echo "Verifying all image copies..."
+for location in "public/assets/images/portfolio" "public/images/portfolio"; do
+    for img in image4.jpg image4.png image6.jpg image6.png; do
+        if [ -f "$location/$img" ]; then
+            echo "✓ $location/$img exists ($(stat -c%s "$location/$img" 2>/dev/null || stat -f%z "$location/$img") bytes)"
+        else
+            echo "✗ $location/$img MISSING"
         fi
-    else
-        echo "✗ $img NOT found"
-        # Try to copy from original source
-        if [ -f "public/images/portfolio/${img%.jpg}.png" ]; then
-            cp "public/images/portfolio/${img%.jpg}.png" "public/assets/images/portfolio/$img"
-            echo "✓ $img copied from source PNG"
-        fi
-    fi
+    done
 done
 
 # Also copy to storage (backup location)
