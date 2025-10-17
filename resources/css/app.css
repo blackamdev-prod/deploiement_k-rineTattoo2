@@ -992,7 +992,7 @@ ul, ol {
 
 /* Removed nav-desktop decorative elements for cleaner design */
 
-@media (max-width: 1023px) {
+@media (max-width: 767px) {
   .header {
     padding: var(--spacing-sm) 0;
     background: rgba(254, 252, 250, 0.98);
@@ -1128,20 +1128,14 @@ ul, ol {
   }
 }
 
-@media (min-width: 1024px) {
+@media (min-width: 768px) {
   .header {
-    padding: var(--spacing-sm) 0;
+    padding: var(--spacing-xs) 0;
   }
   
   .header-content {
-    height: 3.5rem;
-    padding: 0 var(--spacing-xl);
+    height: 3rem;
     justify-content: space-between;
-  }
-  
-  .logo-img {
-    height: 3.25rem;
-    width: 3.25rem;
   }
   
   .desktop-logo {
@@ -1149,13 +1143,13 @@ ul, ol {
   }
   
   .desktop-logo .logo-img {
-    height: 2rem;
-    width: 2rem;
+    height: 1.8rem;
+    width: 1.8rem;
   }
   
   .nav-desktop {
     display: flex !important;
-    gap: var(--spacing-xl);
+    gap: var(--spacing-lg);
     align-items: center;
     justify-content: center;
     animation: navDesktopEntrance 0.6s ease-out 0.4s both;
@@ -1167,6 +1161,42 @@ ul, ol {
   
   .nav-link {
     animation: navLinkEntrance 0.4s ease-out both;
+  }
+  
+  .hero {
+    padding: calc(3rem + var(--spacing-3xl)) 0 var(--spacing-3xl) 0;
+  }
+}
+
+@media (min-width: 1024px) {
+  .header {
+    padding: var(--spacing-sm) 0;
+  }
+  
+  .header-content {
+    height: 3.5rem;
+    padding: 0 var(--spacing-xl);
+  }
+  
+  .logo-img {
+    height: 3.25rem;
+    width: 3.25rem;
+  }
+  
+  .nav-desktop {
+    gap: var(--spacing-xl);
+  }
+  
+  .desktop-logo {
+    display: flex !important;
+  }
+  
+  .desktop-logo .logo-img {
+    height: 2rem;
+    width: 2rem;
+  }
+  
+  .nav-link {
     font-size: 0.9rem;
     padding: var(--spacing-xs) var(--spacing-md);
     letter-spacing: 0.4px;
@@ -1701,7 +1731,7 @@ ul, ol {
   }
 }
 
-@media (min-width: 1024px) {
+@media (min-width: 768px) {
   .mobile-menu-btn {
     display: none !important;
   }
@@ -2041,7 +2071,7 @@ ul, ol {
 }
 
 /* Correction pour mobile - suppression du padding qui cache le hero */
-@media (max-width: 1023px) {
+@media (max-width: 767px) {
   .main-content {
     padding-top: 0 !important;
   }
@@ -2066,7 +2096,7 @@ ul, ol {
 }
 
 /* Hero mobile - hauteur augmentée */
-@media (max-width: 1023px) {
+@media (max-width: 767px) {
   .hero {
     min-height: 100vh;
     height: auto;
@@ -2229,7 +2259,7 @@ ul, ol {
 }
 
 /* Overlay plus sombre sur desktop, supprimé sur mobile */
-@media (max-width: 1023px) {
+@media (max-width: 767px) {
   .hero-overlay {
     display: none !important;
   }
@@ -2366,7 +2396,7 @@ ul, ol {
   }
 }
 
-@media (max-width: 1023px) {
+@media (max-width: 767px) {
   .hero-content {
     display: flex;
     flex-direction: column;
@@ -5039,7 +5069,7 @@ ul, ol {
 }
 
 /* Responsive design pour les filtres */
-@media (max-width: 1023px) {
+@media (max-width: 767px) {
   .portfolio-filters {
     flex-direction: column;
     max-width: 320px;
@@ -6456,7 +6486,7 @@ ul, ol {
 }
 
 /* ===== RESPONSIVE UTILITIES ===== */
-@media (max-width: 1023px) {
+@media (max-width: 767px) {
   .hero-content {
     text-align: center;
     padding: 0 var(--spacing-md);
