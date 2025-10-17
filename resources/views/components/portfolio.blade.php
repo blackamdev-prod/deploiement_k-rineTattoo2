@@ -31,25 +31,99 @@
                 {!! $portfolioItems !!}
             @else
                 @php
+                    // Récupérer les portfolios de la base de données d'abord
                     $portfolios = \App\Models\Portfolio::active()->ordered()->get();
-                    // Debug: Afficher le nombre de portfolios trouvés
-                    // dd($portfolios->count(), $portfolios->pluck(['id', 'title', 'image'])->toArray());
+                    
+                    // Si aucun portfolio en base, utiliser des exemples statiques avec les images locales
+                    if ($portfolios->isEmpty()) {
+                        $portfolios = collect([
+                            (object) [
+                                'title' => 'Tatouage Réaliste Portrait',
+                                'description' => 'Portrait réaliste en noir et blanc, technique fine et détaillée',
+                                'image' => 'images/portfolio/image1.png',
+                                'category' => 'realistic',
+                                'duration' => '4-5 heures',
+                                'zone' => 'Avant-bras'
+                            ],
+                            (object) [
+                                'title' => 'Design Minimaliste Géométrique',
+                                'description' => 'Création minimaliste aux lignes épurées et géométriques',
+                                'image' => 'images/portfolio/image2.png',
+                                'category' => 'minimaliste',
+                                'duration' => '2-3 heures',
+                                'zone' => 'Poignet'
+                            ],
+                            (object) [
+                                'title' => 'Line-art Floral',
+                                'description' => 'Composition florale délicate en traits fins et élégants',
+                                'image' => 'images/portfolio/image3.png',
+                                'category' => 'line-art',
+                                'duration' => '3-4 heures',
+                                'zone' => 'Épaule'
+                            ],
+                            (object) [
+                                'title' => 'Aquarelle Abstraite',
+                                'description' => 'Mélange de couleurs vibrantes style aquarelle moderne',
+                                'image' => 'images/portfolio/image4.png',
+                                'category' => 'aquarelle',
+                                'duration' => '5-6 heures',
+                                'zone' => 'Dos'
+                            ],
+                            (object) [
+                                'title' => 'Mandala Détaillé',
+                                'description' => 'Mandala complexe avec motifs symétriques traditionnels',
+                                'image' => 'images/portfolio/image5.png',
+                                'category' => 'realistic',
+                                'duration' => '6-8 heures',
+                                'zone' => 'Cuisse'
+                            ],
+                            (object) [
+                                'title' => 'Symbole Minimaliste',
+                                'description' => 'Symbole personnel simple et significatif',
+                                'image' => 'images/portfolio/image6.png',
+                                'category' => 'minimaliste',
+                                'duration' => '1-2 heures',
+                                'zone' => 'Nuque'
+                            ],
+                            (object) [
+                                'title' => 'Tribal Moderne',
+                                'description' => 'Interprétation moderne des motifs tribaux traditionnels',
+                                'image' => 'images/portfolio/image7.png',
+                                'category' => 'realistic',
+                                'duration' => '4-6 heures',
+                                'zone' => 'Mollet'
+                            ],
+                            (object) [
+                                'title' => 'Calligraphie Artistique',
+                                'description' => 'Texte personnalisé en calligraphie élégante et stylisée',
+                                'image' => 'images/portfolio/image8.png',
+                                'category' => 'line-art',
+                                'duration' => '2-4 heures',
+                                'zone' => 'Côtes'
+                            ]
+                        ]);
+                    }
                 @endphp
-                
-                {{-- Debug temporaire : Nombre de portfolios --}}
-                <!-- Total portfolios actifs: {{ $portfolios->count() }} -->
                 
                 @foreach($portfolios as $portfolio)
                     <div class="portfolio-item" data-category="{{ $portfolio->category }}">
                         <div class="portfolio-image">
-                            <img src="{{ asset('storage/' . $portfolio->image) }}" alt="{{ $portfolio->title }}">
+                            @if(isset($portfolio->image) && is_string($portfolio->image))
+                                @if(str_starts_with($portfolio->image, 'http'))
+                                    <img src="{{ $portfolio->image }}" alt="{{ $portfolio->title }}" loading="lazy">
+                                @else
+                                    <img src="{{ asset($portfolio->image) }}" alt="{{ $portfolio->title }}" loading="lazy">
+                                @endif
+                            @else
+                                <img src="{{ asset('assets/images/artiste.png') }}" alt="{{ $portfolio->title }}" loading="lazy">
+                            @endif
                             <div class="portfolio-overlay">
                                 <i data-lucide="zoom-in" class="view-icon"></i>
                             </div>
                             <span class="portfolio-tag">
                                 {{ match($portfolio->category) {
                                     'realistic' => 'Réaliste',
-                                    'minimaliste' => 'Minimaliste',
+                                    'minimaliste' => 'Minimaliste', 
                                     'line-art' => 'Line-art',
                                     'aquarelle' => 'Couleur',
                                     default => ucfirst($portfolio->category)
@@ -59,12 +133,12 @@
                         <div class="portfolio-content">
                             <h3>{{ $portfolio->title }}</h3>
                             <p>{{ $portfolio->description }}</p>
-                            @if($portfolio->duration || $portfolio->zone)
+                            @if(isset($portfolio->duration) || isset($portfolio->zone))
                                 <div class="portfolio-details">
-                                    @if($portfolio->duration)
+                                    @if(isset($portfolio->duration))
                                         <div><strong>Durée:</strong> {{ $portfolio->duration }}</div>
                                     @endif
-                                    @if($portfolio->zone)
+                                    @if(isset($portfolio->zone))
                                         <div><strong>Zone:</strong> {{ $portfolio->zone }}</div>
                                     @endif
                                 </div>
