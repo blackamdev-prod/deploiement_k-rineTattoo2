@@ -34,68 +34,68 @@
                     // Utiliser directement les exemples statiques pour éviter les erreurs de BDD
                     $portfolios = collect([
                             (object) [
-                                'title' => 'Tatouage Réaliste Portrait',
-                                'description' => 'Portrait réaliste en noir et blanc, technique fine et détaillée',
+                                'title' => 'Line-art Floral Élégant',
+                                'description' => 'Composition florale délicate en traits fins sur le dos',
                                 'image' => 'assets/images/portfolio/image1.jpg',
-                                'category' => 'realistic',
-                                'duration' => '4-5 heures',
-                                'zone' => 'Avant-bras'
-                            ],
-                            (object) [
-                                'title' => 'Design Minimaliste Géométrique',
-                                'description' => 'Création minimaliste aux lignes épurées et géométriques',
-                                'image' => 'assets/images/portfolio/image2.jpg',
-                                'category' => 'minimaliste',
-                                'duration' => '2-3 heures',
-                                'zone' => 'Poignet'
-                            ],
-                            (object) [
-                                'title' => 'Line-art Floral',
-                                'description' => 'Composition florale délicate en traits fins et élégants',
-                                'image' => 'assets/images/portfolio/image3.jpg',
                                 'category' => 'line-art',
                                 'duration' => '3-4 heures',
-                                'zone' => 'Épaule'
-                            ],
-                            (object) [
-                                'title' => 'Aquarelle Abstraite',
-                                'description' => 'Mélange de couleurs vibrantes style aquarelle moderne',
-                                'image' => 'assets/images/portfolio/image4.jpg',
-                                'category' => 'aquarelle',
-                                'duration' => '5-6 heures',
                                 'zone' => 'Dos'
                             ],
                             (object) [
-                                'title' => 'Mandala Détaillé',
-                                'description' => 'Mandala complexe avec motifs symétriques traditionnels',
-                                'image' => 'assets/images/portfolio/image5.jpg',
-                                'category' => 'realistic',
-                                'duration' => '6-8 heures',
+                                'title' => 'Tatouages Minimalistes',
+                                'description' => 'Petits symboles minimalistes assortis et significatifs',
+                                'image' => 'assets/images/portfolio/image2.jpg',
+                                'category' => 'minimaliste',
+                                'duration' => '1-2 heures',
+                                'zone' => 'Bras'
+                            ],
+                            (object) [
+                                'title' => 'Branche Line-art',
+                                'description' => 'Motif végétal délicat en traits fins sur l\'avant-bras',
+                                'image' => 'assets/images/portfolio/image3.jpg',
+                                'category' => 'line-art',
+                                'duration' => '2-3 heures',
+                                'zone' => 'Avant-bras'
+                            ],
+                            (object) [
+                                'title' => 'Phénix Aquarelle',
+                                'description' => 'Phénix coloré style aquarelle avec dégradés vibrants',
+                                'image' => 'assets/images/portfolio/image4.jpg',
+                                'category' => 'aquarelle',
+                                'duration' => '5-6 heures',
                                 'zone' => 'Cuisse'
                             ],
                             (object) [
-                                'title' => 'Symbole Minimaliste',
-                                'description' => 'Symbole personnel simple et significatif',
-                                'image' => 'assets/images/portfolio/image6.jpg',
-                                'category' => 'minimaliste',
+                                'title' => 'Line-art Minimaliste',
+                                'description' => 'Design délicat et épuré en traits rouges fins',
+                                'image' => 'assets/images/portfolio/image5.jpg',
+                                'category' => 'line-art',
                                 'duration' => '1-2 heures',
                                 'zone' => 'Nuque'
                             ],
                             (object) [
-                                'title' => 'Tribal Moderne',
-                                'description' => 'Interprétation moderne des motifs tribaux traditionnels',
+                                'title' => 'Portrait Réaliste',
+                                'description' => 'Portrait féminin réaliste avec détails géométriques',
+                                'image' => 'assets/images/portfolio/image6.jpg',
+                                'category' => 'realistic',
+                                'duration' => '6-8 heures',
+                                'zone' => 'Épaule'
+                            ],
+                            (object) [
+                                'title' => 'Calligraphie et Roses',
+                                'description' => 'Composition mêlant calligraphie et motifs floraux réalistes',
                                 'image' => 'assets/images/portfolio/image7.jpg',
                                 'category' => 'realistic',
                                 'duration' => '4-6 heures',
-                                'zone' => 'Mollet'
+                                'zone' => 'Avant-bras'
                             ],
                             (object) [
-                                'title' => 'Calligraphie Artistique',
-                                'description' => 'Texte personnalisé en calligraphie élégante et stylisée',
+                                'title' => 'Design Tribal Moderne',
+                                'description' => 'Motifs géométriques et tribaux avec calligraphie',
                                 'image' => 'assets/images/portfolio/image8.jpg',
-                                'category' => 'line-art',
-                                'duration' => '2-4 heures',
-                                'zone' => 'Côtes'
+                                'category' => 'realistic',
+                                'duration' => '4-5 heures',
+                                'zone' => 'Mollet'
                             ]
                         ]);
                 @endphp
