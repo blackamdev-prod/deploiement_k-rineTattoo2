@@ -30,6 +30,16 @@ else
     echo "⚠ Warning: public/images/portfolio directory not found"
 fi
 
+# Ensure correct image extensions (rename .png to .jpg if needed)
+if [ -d "public/assets/images/portfolio" ]; then
+    for file in public/assets/images/portfolio/*.png; do
+        if [ -f "$file" ]; then
+            mv "$file" "${file%.png}.jpg"
+            echo "✓ Renamed $(basename "$file") to $(basename "${file%.png}.jpg")"
+        fi
+    done
+fi
+
 # Also copy to storage (backup location)
 if [ -f "public/assets/images/artiste.png" ]; then
     cp public/assets/images/artiste.png storage/app/public/assets/images/artiste.png

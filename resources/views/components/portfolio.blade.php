@@ -36,7 +36,7 @@
                             (object) [
                                 'title' => 'Tatouage Réaliste Portrait',
                                 'description' => 'Portrait réaliste en noir et blanc, technique fine et détaillée',
-                                'image' => 'assets/images/portfolio/image1.png',
+                                'image' => 'assets/images/portfolio/image1.jpg',
                                 'category' => 'realistic',
                                 'duration' => '4-5 heures',
                                 'zone' => 'Avant-bras'
@@ -44,7 +44,7 @@
                             (object) [
                                 'title' => 'Design Minimaliste Géométrique',
                                 'description' => 'Création minimaliste aux lignes épurées et géométriques',
-                                'image' => 'assets/images/portfolio/image2.png',
+                                'image' => 'assets/images/portfolio/image2.jpg',
                                 'category' => 'minimaliste',
                                 'duration' => '2-3 heures',
                                 'zone' => 'Poignet'
@@ -52,7 +52,7 @@
                             (object) [
                                 'title' => 'Line-art Floral',
                                 'description' => 'Composition florale délicate en traits fins et élégants',
-                                'image' => 'assets/images/portfolio/image3.png',
+                                'image' => 'assets/images/portfolio/image3.jpg',
                                 'category' => 'line-art',
                                 'duration' => '3-4 heures',
                                 'zone' => 'Épaule'
@@ -60,7 +60,7 @@
                             (object) [
                                 'title' => 'Aquarelle Abstraite',
                                 'description' => 'Mélange de couleurs vibrantes style aquarelle moderne',
-                                'image' => 'assets/images/portfolio/image4.png',
+                                'image' => 'assets/images/portfolio/image4.jpg',
                                 'category' => 'aquarelle',
                                 'duration' => '5-6 heures',
                                 'zone' => 'Dos'
@@ -68,7 +68,7 @@
                             (object) [
                                 'title' => 'Mandala Détaillé',
                                 'description' => 'Mandala complexe avec motifs symétriques traditionnels',
-                                'image' => 'assets/images/portfolio/image5.png',
+                                'image' => 'assets/images/portfolio/image5.jpg',
                                 'category' => 'realistic',
                                 'duration' => '6-8 heures',
                                 'zone' => 'Cuisse'
@@ -76,7 +76,7 @@
                             (object) [
                                 'title' => 'Symbole Minimaliste',
                                 'description' => 'Symbole personnel simple et significatif',
-                                'image' => 'assets/images/portfolio/image6.png',
+                                'image' => 'assets/images/portfolio/image6.jpg',
                                 'category' => 'minimaliste',
                                 'duration' => '1-2 heures',
                                 'zone' => 'Nuque'
@@ -84,7 +84,7 @@
                             (object) [
                                 'title' => 'Tribal Moderne',
                                 'description' => 'Interprétation moderne des motifs tribaux traditionnels',
-                                'image' => 'assets/images/portfolio/image7.png',
+                                'image' => 'assets/images/portfolio/image7.jpg',
                                 'category' => 'realistic',
                                 'duration' => '4-6 heures',
                                 'zone' => 'Mollet'
@@ -92,7 +92,7 @@
                             (object) [
                                 'title' => 'Calligraphie Artistique',
                                 'description' => 'Texte personnalisé en calligraphie élégante et stylisée',
-                                'image' => 'assets/images/portfolio/image8.png',
+                                'image' => 'assets/images/portfolio/image8.jpg',
                                 'category' => 'line-art',
                                 'duration' => '2-4 heures',
                                 'zone' => 'Côtes'
