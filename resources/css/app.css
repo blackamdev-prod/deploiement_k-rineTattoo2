@@ -992,7 +992,7 @@ ul, ol {
 
 /* Removed nav-desktop decorative elements for cleaner design */
 
-@media (max-width: 767px) {
+@media (max-width: 1023px) {
   .header {
     padding: var(--spacing-sm) 0;
     background: rgba(254, 252, 250, 0.98);
@@ -1128,46 +1128,6 @@ ul, ol {
   }
 }
 
-@media (min-width: 768px) {
-  .header {
-    padding: var(--spacing-xs) 0;
-  }
-  
-  .header-content {
-    height: 3rem;
-    justify-content: space-between;
-  }
-  
-  .desktop-logo {
-    display: flex !important;
-  }
-  
-  .desktop-logo .logo-img {
-    height: 1.8rem;
-    width: 1.8rem;
-  }
-  
-  .nav-desktop {
-    display: flex !important;
-    gap: var(--spacing-lg);
-    align-items: center;
-    justify-content: center;
-    animation: navDesktopEntrance 0.6s ease-out 0.4s both;
-  }
-  
-  .mobile-only {
-    display: none !important;
-  }
-  
-  .nav-link {
-    animation: navLinkEntrance 0.4s ease-out both;
-  }
-  
-  .hero {
-    padding: calc(3rem + var(--spacing-3xl)) 0 var(--spacing-3xl) 0;
-  }
-}
-
 @media (min-width: 1024px) {
   .header {
     padding: var(--spacing-sm) 0;
@@ -1176,15 +1136,12 @@ ul, ol {
   .header-content {
     height: 3.5rem;
     padding: 0 var(--spacing-xl);
+    justify-content: space-between;
   }
   
   .logo-img {
     height: 3.25rem;
     width: 3.25rem;
-  }
-  
-  .nav-desktop {
-    gap: var(--spacing-xl);
   }
   
   .desktop-logo {
@@ -1196,7 +1153,20 @@ ul, ol {
     width: 2rem;
   }
   
+  .nav-desktop {
+    display: flex !important;
+    gap: var(--spacing-xl);
+    align-items: center;
+    justify-content: center;
+    animation: navDesktopEntrance 0.6s ease-out 0.4s both;
+  }
+  
+  .mobile-only {
+    display: none !important;
+  }
+  
   .nav-link {
+    animation: navLinkEntrance 0.4s ease-out both;
     font-size: 0.9rem;
     padding: var(--spacing-xs) var(--spacing-md);
     letter-spacing: 0.4px;
@@ -2071,7 +2041,7 @@ ul, ol {
 }
 
 /* Correction pour mobile - suppression du padding qui cache le hero */
-@media (max-width: 767px) {
+@media (max-width: 1023px) {
   .main-content {
     padding-top: 0 !important;
   }
@@ -2096,7 +2066,7 @@ ul, ol {
 }
 
 /* Hero mobile - hauteur augmentée */
-@media (max-width: 767px) {
+@media (max-width: 1023px) {
   .hero {
     min-height: 100vh;
     height: auto;
@@ -2259,7 +2229,7 @@ ul, ol {
 }
 
 /* Overlay plus sombre sur desktop, supprimé sur mobile */
-@media (max-width: 767px) {
+@media (max-width: 1023px) {
   .hero-overlay {
     display: none !important;
   }
@@ -5069,7 +5039,7 @@ ul, ol {
 }
 
 /* Responsive design pour les filtres */
-@media (max-width: 767px) {
+@media (max-width: 1023px) {
   .portfolio-filters {
     flex-direction: column;
     max-width: 320px;
@@ -6486,7 +6456,7 @@ ul, ol {
 }
 
 /* ===== RESPONSIVE UTILITIES ===== */
-@media (max-width: 767px) {
+@media (max-width: 1023px) {
   .hero-content {
     text-align: center;
     padding: 0 var(--spacing-md);
