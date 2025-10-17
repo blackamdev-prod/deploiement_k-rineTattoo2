@@ -11,14 +11,23 @@ $FORGE_COMPOSER install --no-interaction --prefer-dist --optimize-autoloader
 # CRITICAL: Ensure image directories exist and copy images
 echo "Setting up image assets..."
 mkdir -p public/assets/images
+mkdir -p public/assets/images/portfolio
 mkdir -p storage/app/public/assets/images
 
-# Copy image from repository root to public (primary location)
+# Copy main artiste image from repository root to public (primary location)
 if [ -f "artiste.png" ]; then
     cp artiste.png public/assets/images/artiste.png
-    echo "✓ Image copied to public/assets/images/"
+    echo "✓ Artiste image copied to public/assets/images/"
 else
     echo "⚠ Warning: artiste.png not found in repository root"
+fi
+
+# Copy portfolio images if they exist
+if [ -d "public/images/portfolio" ]; then
+    cp -r public/images/portfolio/* public/assets/images/portfolio/
+    echo "✓ Portfolio images copied to public/assets/images/portfolio/"
+else
+    echo "⚠ Warning: public/images/portfolio directory not found"
 fi
 
 # Also copy to storage (backup location)
