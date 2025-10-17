@@ -243,6 +243,11 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
     
+    // Initialisation : s'assurer que toutes les cartes portfolio sont visibles par défaut
+    portfolioItems.forEach(item => {
+        item.style.display = 'block';
+    });
+    
     // Défilement fluide pour liens navigation
     const navLinks = document.querySelectorAll('a[href^="#"]');
     navLinks.forEach(link => {
