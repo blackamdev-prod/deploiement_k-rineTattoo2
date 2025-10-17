@@ -68,7 +68,7 @@
                     {!! $profileCard !!}
                 @else
                     <div class="profile-content">
-                        <img src="{{ asset('storage/assets/images/logo.png') }}" alt="K'RINE TATTOO Logo" class="profile-logo">
+                        <img src="{{ asset('logo.png') }}" alt="K'RINE TATTOO Logo" class="profile-logo">
                         <h3 class="profile-name">Karine Gertrude</h3>
                         <p class="profile-title">Artiste Tatoueuse Professionnelle</p>
                         <div class="profile-credentials">
