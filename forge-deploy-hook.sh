@@ -30,6 +30,12 @@ else
     echo "⚠ Warning: public/images/portfolio directory not found"
 fi
 
+# Remove macOS extended attributes that can cause deployment issues
+if [ -d "public/assets/images/portfolio" ]; then
+    xattr -cr public/assets/images/portfolio/ 2>/dev/null || true
+    echo "✓ Removed extended attributes from portfolio images"
+fi
+
 # Ensure correct image extensions (rename .png to .jpg if needed)
 if [ -d "public/assets/images/portfolio" ]; then
     for file in public/assets/images/portfolio/*.png; do
@@ -39,6 +45,29 @@ if [ -d "public/assets/images/portfolio" ]; then
         fi
     done
 fi
+
+# Specifically verify problematic images (image4.jpg and image6.jpg)
+echo "Verifying specific portfolio images..."
+for img in image4.jpg image6.jpg; do
+    if [ -f "public/assets/images/portfolio/$img" ]; then
+        echo "✓ $img exists ($(stat -f%z "public/assets/images/portfolio/$img") bytes)"
+        # Re-copy if file seems corrupted (too small)
+        if [ $(stat -f%z "public/assets/images/portfolio/$img") -lt 10000 ]; then
+            echo "⚠ $img seems corrupted, re-copying..."
+            if [ -f "public/images/portfolio/${img%.jpg}.png" ]; then
+                cp "public/images/portfolio/${img%.jpg}.png" "public/assets/images/portfolio/$img"
+                echo "✓ $img re-copied from source"
+            fi
+        fi
+    else
+        echo "✗ $img NOT found"
+        # Try to copy from original source
+        if [ -f "public/images/portfolio/${img%.jpg}.png" ]; then
+            cp "public/images/portfolio/${img%.jpg}.png" "public/assets/images/portfolio/$img"
+            echo "✓ $img copied from source PNG"
+        fi
+    fi
+done
 
 # Also copy to storage (backup location)
 if [ -f "public/assets/images/artiste.png" ]; then
