@@ -11,6 +11,15 @@
                 @endisset
             </div>
             
+            <!-- Logo Mobile Centré -->
+            <div class="mobile-only mobile-logo">
+                @isset($mobileLogo)
+                    {!! $mobileLogo !!}
+                @else
+                    <img src="{{ asset('logo.png') }}" alt="K'RINE TATTOO" class="logo-img">
+                @endisset
+            </div>
+            
             <!-- Navigation Desktop -->
             <nav class="nav-desktop">
                 @isset($navigation)
