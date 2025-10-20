@@ -2097,18 +2097,40 @@ ul, ol {
     padding: 0 var(--spacing-md) !important;
   }
   
-  /* Contenu des sections avec espacement cohérent */
+  /* Contenu des sections avec centrage parfait */
   .about-content,
   .services-content,
   .portfolio-grid,
   .contact-content {
     gap: var(--mobile-content-gap) !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 auto !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    text-align: center !important;
   }
   
-  /* Container optimisé pour mobile */
+  /* Container optimisé pour mobile avec centrage parfait */
   .container {
     padding: 0 var(--spacing-md) !important;
     max-width: 100% !important;
+    margin: 0 auto !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+  }
+  
+  /* Centrage absolu pour toutes les sections */
+  section {
+    text-align: center !important;
+    width: 100% !important;
+    margin: 0 auto !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
   }
   
   /* Grilles harmonieuses sur mobile */
@@ -2121,21 +2143,32 @@ ul, ol {
     margin-bottom: var(--mobile-content-gap) !important;
   }
   
-  /* Cards et éléments harmonieux */
+  /* Cards et éléments harmonieux avec centrage */
   .feature,
   .service-card,
   .portfolio-item {
-    margin-bottom: 0 !important;
+    margin: 0 auto var(--mobile-content-gap) auto !important;
     padding: var(--spacing-lg) !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+    text-align: center !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
   }
   
-  /* Boutons harmonieux sur mobile */
+  /* Boutons harmonieux sur mobile avec centrage parfait */
   .btn {
     padding: var(--spacing-sm) var(--spacing-lg) !important;
     font-size: 0.95rem !important;
     width: 100% !important;
     max-width: 280px !important;
-    margin: 0 auto !important;
+    margin: 0 auto var(--spacing-md) auto !important;
+    display: block !important;
+    text-align: center !important;
+    box-sizing: border-box !important;
   }
   
   /* Portfolio filters harmonieux */
@@ -2184,6 +2217,173 @@ ul, ol {
   .profile-card {
     padding: var(--spacing-lg) !important;
     margin-top: var(--mobile-content-gap) !important;
+  }
+}
+
+/* ===== MOBILE SYMMETRY PERFECTION - UNIFIED CENTERING SYSTEM ===== */
+@media (max-width: 767px) {
+  /* Force uniform positioning across all mobile browsers and devices */
+  * {
+    box-sizing: border-box !important;
+  }
+  
+  html {
+    text-align: center !important;
+    width: 100% !important;
+    overflow-x: hidden !important;
+  }
+  
+  body {
+    text-align: center !important;
+    width: 100% !important;
+    margin: 0 auto !important;
+    padding: 0 !important;
+    overflow-x: hidden !important;
+    position: relative !important;
+  }
+  
+  /* Container base uniforme */
+  .container,
+  .main-content,
+  main {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 auto !important;
+    padding-left: var(--spacing-md) !important;
+    padding-right: var(--spacing-md) !important;
+    text-align: center !important;
+    position: relative !important;
+    box-sizing: border-box !important;
+  }
+  
+  /* Section unifiée avec centrage absolu */
+  section {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 auto !important;
+    padding-left: var(--spacing-md) !important;
+    padding-right: var(--spacing-md) !important;
+    text-align: center !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    position: relative !important;
+    box-sizing: border-box !important;
+  }
+  
+  /* Content wrappers uniformes */
+  .hero-content,
+  .about-content,
+  .services-content,
+  .portfolio-content,
+  .contact-content {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 auto !important;
+    padding: 0 !important;
+    text-align: center !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    position: relative !important;
+    box-sizing: border-box !important;
+  }
+  
+  /* Grilles et layout uniformes */
+  .services-grid,
+  .portfolio-grid,
+  .features-grid {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 auto !important;
+    padding: 0 !important;
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    gap: var(--mobile-content-gap) !important;
+    place-items: center !important;
+    text-align: center !important;
+    box-sizing: border-box !important;
+  }
+  
+  /* Cards et éléments uniformes */
+  .service-card,
+  .portfolio-card,
+  .feature-card,
+  .profile-card,
+  .contact-card {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 auto var(--spacing-md) auto !important;
+    padding: var(--spacing-lg) !important;
+    text-align: center !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    position: relative !important;
+    box-sizing: border-box !important;
+  }
+  
+  /* Textes et titres centrés */
+  h1, h2, h3, h4, h5, h6,
+  .title-main, .title-accent, .section-title {
+    text-align: center !important;
+    width: 100% !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    position: relative !important;
+  }
+  
+  /* Paragraphes et descriptions centrés */
+  p, .description, .hero-description {
+    text-align: center !important;
+    width: 100% !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    position: relative !important;
+  }
+  
+  /* Boutons parfaitement centrés */
+  .btn, button, .hero-buttons {
+    width: 100% !important;
+    max-width: 280px !important;
+    margin: var(--spacing-sm) auto !important;
+    text-align: center !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    position: relative !important;
+    box-sizing: border-box !important;
+  }
+  
+  /* Images et médias uniformes */
+  img, .image-container, .hero-image {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 auto !important;
+    text-align: center !important;
+    display: block !important;
+    position: relative !important;
+    box-sizing: border-box !important;
+  }
+  
+  /* Navigation mobile uniforme */
+  .nav-mobile, .mobile-menu-btn {
+    text-align: center !important;
+    position: relative !important;
+  }
+  
+  /* Footer et éléments de base uniformes */
+  footer, .footer {
+    width: 100% !important;
+    text-align: center !important;
+    margin: 0 auto !important;
+    padding-left: var(--spacing-md) !important;
+    padding-right: var(--spacing-md) !important;
+    position: relative !important;
+    box-sizing: border-box !important;
   }
 }
 
