@@ -1871,8 +1871,10 @@ ul, ol {
 .showcase-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
   gap: 12px;
   margin-bottom: 20px;
+  max-height: 280px;
 }
 
 .showcase-item {
@@ -1895,7 +1897,7 @@ ul, ol {
 .showcase-image {
   position: relative;
   width: 100%;
-  height: 120px;
+  height: 100px;
   overflow: hidden;
 }
 
@@ -1928,7 +1930,7 @@ ul, ol {
 }
 
 .showcase-content {
-  padding: 12px;
+  padding: 8px 10px;
 }
 
 .showcase-content h5 {
