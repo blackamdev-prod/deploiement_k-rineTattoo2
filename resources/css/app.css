@@ -2075,6 +2075,114 @@ ul, ol {
   .main-content {
     padding-top: 0 !important;
   }
+  
+  /* Système d'espacement harmonieux pour toutes les sections */
+  section:not(.hero) {
+    padding: var(--mobile-section-padding) var(--spacing-lg) !important;
+    margin-bottom: 0 !important;
+  }
+  
+  /* Espacement cohérent entre les sections */
+  .about {
+    padding-top: calc(var(--mobile-section-padding) * 1.5) !important;
+  }
+  
+  /* Titres de section harmonieux */
+  .section-title {
+    font-size: 1.8rem !important;
+    margin-bottom: var(--mobile-content-gap) !important;
+    text-align: center !important;
+    padding: 0 var(--spacing-md) !important;
+  }
+  
+  /* Contenu des sections avec espacement cohérent */
+  .about-content,
+  .services-content,
+  .portfolio-grid,
+  .contact-content {
+    gap: var(--mobile-content-gap) !important;
+  }
+  
+  /* Container optimisé pour mobile */
+  .container {
+    padding: 0 var(--spacing-md) !important;
+    max-width: 100% !important;
+  }
+  
+  /* Grilles harmonieuses sur mobile */
+  .features-grid,
+  .services-grid,
+  .portfolio-grid {
+    grid-template-columns: 1fr !important;
+    gap: var(--mobile-content-gap) !important;
+    padding: 0 !important;
+    margin-bottom: var(--mobile-content-gap) !important;
+  }
+  
+  /* Cards et éléments harmonieux */
+  .feature,
+  .service-card,
+  .portfolio-item {
+    margin-bottom: 0 !important;
+    padding: var(--spacing-lg) !important;
+  }
+  
+  /* Boutons harmonieux sur mobile */
+  .btn {
+    padding: var(--spacing-sm) var(--spacing-lg) !important;
+    font-size: 0.95rem !important;
+    width: 100% !important;
+    max-width: 280px !important;
+    margin: 0 auto !important;
+  }
+  
+  /* Portfolio filters harmonieux */
+  .portfolio-filters {
+    margin-bottom: var(--mobile-content-gap) !important;
+    gap: var(--spacing-sm) !important;
+    flex-wrap: wrap !important;
+    justify-content: center !important;
+  }
+  
+  .filter-btn {
+    padding: var(--spacing-xs) var(--spacing-md) !important;
+    font-size: 0.9rem !important;
+    margin-bottom: var(--spacing-sm) !important;
+  }
+  
+  /* Contact form harmonieux */
+  .contact-form {
+    gap: var(--mobile-content-gap) !important;
+  }
+  
+  .form-group {
+    margin-bottom: var(--spacing-lg) !important;
+  }
+  
+  .form-input,
+  .form-textarea {
+    width: 100% !important;
+    padding: var(--spacing-sm) var(--spacing-md) !important;
+    font-size: 1rem !important;
+  }
+  
+  /* Stats harmonieuses */
+  .portfolio-stats {
+    gap: var(--spacing-lg) !important;
+    flex-direction: column !important;
+    align-items: center !important;
+  }
+  
+  .stat {
+    text-align: center !important;
+    margin-bottom: 0 !important;
+  }
+  
+  /* Profile card harmonieuse */
+  .profile-card {
+    padding: var(--spacing-lg) !important;
+    margin-top: var(--mobile-content-gap) !important;
+  }
 }
 
 /* ===== HERO SECTION - STYLE LOUIS VUITTON ===== */
@@ -2097,10 +2205,17 @@ ul, ol {
 
 /* Hero mobile - hauteur augmentée */
 @media (max-width: 767px) {
+  /* Variables d'espacement harmonieux pour mobile */
+  :root {
+    --mobile-section-padding: var(--spacing-2xl);
+    --mobile-content-gap: var(--spacing-lg);
+    --mobile-hero-height: 80vh;
+  }
+  
   .hero {
-    min-height: 100vh;
+    min-height: var(--mobile-hero-height);
     height: auto;
-    padding: calc(5rem + var(--spacing-2xl)) 0 var(--spacing-2xl) 0;
+    padding: calc(4rem + var(--mobile-section-padding)) var(--spacing-lg) var(--mobile-section-padding);
     background: linear-gradient(135deg, 
       rgba(10, 10, 10, 0.95) 0%, 
       rgba(20, 20, 20, 0.90) 50%,
@@ -2110,49 +2225,64 @@ ul, ol {
     justify-content: center !important;
   }
   
-  /* Assurer la visibilité du contenu sur mobile */
+  /* Contenu hero harmonieux */
   .hero-content {
     z-index: 10 !important;
     color: var(--tattoo-pearl) !important;
     width: 100% !important;
     max-width: 100% !important;
-    padding: var(--spacing-lg) !important;
+    padding: 0 !important;
     display: flex !important;
     flex-direction: column !important;
     align-items: center !important;
     justify-content: center !important;
     text-align: center !important;
+    gap: var(--mobile-content-gap) !important;
   }
   
   .hero-text {
     z-index: 10;
     color: var(--tattoo-pearl) !important;
     width: 100%;
+    margin-bottom: 0 !important;
   }
   
   .title-main,
   .title-accent {
     color: var(--tattoo-pearl) !important;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-    font-size: 2.5rem !important;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+    font-size: 2.2rem !important;
+    line-height: 1.25 !important;
+    margin-bottom: var(--spacing-sm) !important;
   }
   
   .hero-description {
     color: var(--tattoo-champagne) !important;
     text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
-    font-size: 1.1rem !important;
-    margin: var(--spacing-lg) 0 !important;
+    font-size: 1rem !important;
+    line-height: 1.6 !important;
+    margin: 0 !important;
+    max-width: 85% !important;
   }
   
   .hero-buttons {
-    margin-top: var(--spacing-lg) !important;
+    margin: 0 !important;
     z-index: 10;
+    display: flex !important;
+    flex-direction: column !important;
+    gap: var(--spacing-md) !important;
+    width: 100% !important;
+    max-width: 280px !important;
   }
   
   .hero-buttons .btn {
+    width: 100% !important;
     background: var(--tattoo-gold) !important;
     color: var(--tattoo-deep-black) !important;
     border: 2px solid var(--tattoo-gold) !important;
+    padding: var(--spacing-sm) var(--spacing-lg) !important;
+    font-size: 0.95rem !important;
+    font-weight: 500 !important;
   }
 }
 
