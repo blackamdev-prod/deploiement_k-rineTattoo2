@@ -2433,13 +2433,29 @@ ul, ol {
     color: var(--tattoo-pearl) !important;
     width: 100% !important;
     max-width: 100% !important;
-    padding: 0 !important;
+    padding: var(--spacing-lg) var(--spacing-md) !important;
     display: flex !important;
     flex-direction: column !important;
     align-items: center !important;
     justify-content: center !important;
     text-align: center !important;
     gap: var(--mobile-content-gap) !important;
+    position: relative !important;
+    min-height: 60vh !important;
+  }
+  
+  /* Container pour les titres avec visibilité forcée */
+  .hero-brand,
+  .hero-title {
+    z-index: 20 !important;
+    position: relative !important;
+    width: 100% !important;
+    text-align: center !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    margin-bottom: var(--spacing-lg) !important;
   }
   
   .hero-text {
@@ -2452,10 +2468,33 @@ ul, ol {
   .title-main,
   .title-accent {
     color: var(--tattoo-pearl) !important;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
-    font-size: 2.2rem !important;
-    line-height: 1.25 !important;
+    text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.9) !important;
+    font-size: 2.8rem !important;
+    line-height: 1.1 !important;
     margin-bottom: var(--spacing-sm) !important;
+    font-weight: 500 !important;
+    z-index: 100 !important;
+    position: relative !important;
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    letter-spacing: 2px !important;
+    text-transform: uppercase !important;
+  }
+  
+  /* Force la visibilité spécifique du titre principal */
+  .title-main {
+    color: #FFFFFF !important;
+    text-shadow: 3px 3px 8px rgba(0, 0, 0, 1) !important;
+    font-size: 3rem !important;
+    margin-bottom: var(--spacing-xs) !important;
+  }
+  
+  /* Force la visibilité du titre accent */
+  .title-accent {
+    color: var(--beige-sable) !important;
+    text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.9) !important;
+    font-size: 2.6rem !important;
   }
   
   .hero-description {
@@ -2603,28 +2642,51 @@ ul, ol {
     min-height: 100vh !important;
     height: auto !important;
     padding: calc(6rem) var(--spacing-md) var(--spacing-2xl) var(--spacing-md) !important;
-    background: #1a1a1a !important;
+    background: linear-gradient(135deg, 
+      rgba(10, 10, 10, 0.98) 0%, 
+      rgba(20, 20, 20, 0.95) 50%,
+      rgba(10, 10, 10, 0.98) 100%) !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
   }
   
   .hero-content {
-    padding: var(--spacing-md) !important;
-    gap: var(--spacing-lg) !important;
+    padding: var(--spacing-xl) var(--spacing-md) !important;
+    gap: var(--spacing-xl) !important;
+    min-height: 70vh !important;
+    justify-content: center !important;
+  }
+  
+  .hero-brand,
+  .hero-title {
+    margin-bottom: var(--spacing-xl) !important;
   }
   
   .title-main {
-    font-size: 2rem !important;
-    line-height: 1.2 !important;
+    font-size: 2.4rem !important;
+    line-height: 1.1 !important;
+    color: #FFFFFF !important;
+    text-shadow: 4px 4px 8px rgba(0, 0, 0, 1) !important;
+    margin-bottom: var(--spacing-sm) !important;
+    letter-spacing: 2px !important;
   }
   
   .title-accent {
-    font-size: 1.8rem !important;
-    line-height: 1.2 !important;
+    font-size: 2.2rem !important;
+    line-height: 1.1 !important;
+    color: var(--beige-sable) !important;
+    text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.9) !important;
+    letter-spacing: 1.5px !important;
   }
   
   .hero-description {
-    font-size: 1rem !important;
-    line-height: 1.5 !important;
-    margin: var(--spacing-md) 0 !important;
+    font-size: 1.1rem !important;
+    line-height: 1.6 !important;
+    margin: var(--spacing-lg) 0 !important;
+    color: var(--tattoo-champagne) !important;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7) !important;
+    max-width: 100% !important;
   }
 }
 
