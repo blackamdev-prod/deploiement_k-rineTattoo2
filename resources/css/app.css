@@ -2533,6 +2533,337 @@ ul, ol {
   }
 }
 
+/* ===== ANDROID MOBILE HARMONIOUS LAYOUT - ADAPTATION COMPLETE ===== */
+@media (max-width: 767px) {
+  /* Base Android optimizations */
+  html {
+    -webkit-text-size-adjust: 100% !important;
+    text-size-adjust: 100% !important;
+    -webkit-tap-highlight-color: transparent !important;
+    touch-action: manipulation !important;
+  }
+  
+  body {
+    -webkit-font-smoothing: antialiased !important;
+    -moz-osx-font-smoothing: grayscale !important;
+    text-rendering: optimizeLegibility !important;
+    overflow-x: hidden !important;
+    position: relative !important;
+  }
+  
+  /* Container principal avec optimisations Android */
+  .container,
+  .main-content,
+  main {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 auto !important;
+    padding: 0 var(--spacing-md) !important;
+    position: relative !important;
+    
+    /* Hardware acceleration pour Android */
+    transform: translateZ(0) !important;
+    -webkit-transform: translateZ(0) !important;
+    will-change: transform !important;
+    backface-visibility: hidden !important;
+    -webkit-backface-visibility: hidden !important;
+  }
+  
+  /* Sections harmonieuses avec espacement Android-optimized */
+  section {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 auto !important;
+    padding: var(--spacing-2xl) var(--spacing-md) !important;
+    position: relative !important;
+    
+    /* Centrage parfait pour Android */
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    text-align: center !important;
+    
+    /* Performance Android */
+    transform: translateZ(0) !important;
+    -webkit-transform: translateZ(0) !important;
+    will-change: transform !important;
+    
+    /* Espacement harmonieux entre sections */
+    margin-bottom: var(--spacing-xl) !important;
+  }
+  
+  /* Header optimisé pour Android */
+  .header {
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    z-index: 1000 !important;
+    
+    /* Performance Android */
+    transform: translateZ(0) !important;
+    -webkit-transform: translateZ(0) !important;
+    will-change: transform !important;
+    
+    /* Background optimisé */
+    background: rgba(254, 252, 250, 0.98) !important;
+    backdrop-filter: blur(12px) !important;
+    -webkit-backdrop-filter: blur(12px) !important;
+  }
+  
+  .header-content {
+    padding: 0 var(--spacing-lg) !important;
+    height: 4rem !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    max-width: 100% !important;
+    margin: 0 auto !important;
+  }
+  
+  /* Hero section avec positionnement Android harmonieux */
+  .hero {
+    min-height: 100vh !important;
+    padding-top: 4rem !important;
+    padding-bottom: var(--spacing-2xl) !important;
+    
+    /* Centrage parfait pour Android */
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    
+    /* Background optimisé Android */
+    background: linear-gradient(135deg, 
+      rgba(10, 10, 10, 0.98) 0%, 
+      rgba(20, 20, 20, 0.95) 50%,
+      rgba(10, 10, 10, 0.98) 100%) !important;
+    
+    /* Performance */
+    transform: translateZ(0) !important;
+    -webkit-transform: translateZ(0) !important;
+    will-change: transform !important;
+  }
+  
+  /* Content sections avec espacement harmonieux */
+  .about-content,
+  .services-content,
+  .portfolio-content,
+  .contact-content {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 auto !important;
+    padding: 0 !important;
+    
+    /* Layout Android-optimized */
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    text-align: center !important;
+    gap: var(--spacing-lg) !important;
+    
+    /* Performance */
+    transform: translateZ(0) !important;
+    -webkit-transform: translateZ(0) !important;
+  }
+  
+  /* Titres de section harmonieux pour Android */
+  .section-title,
+  h1, h2, h3, h4, h5, h6 {
+    width: 100% !important;
+    text-align: center !important;
+    margin: 0 auto var(--spacing-lg) auto !important;
+    padding: 0 var(--spacing-md) !important;
+    
+    /* Typography Android-optimized */
+    -webkit-font-smoothing: antialiased !important;
+    -moz-osx-font-smoothing: grayscale !important;
+    text-rendering: optimizeLegibility !important;
+    
+    /* Performance */
+    transform: translateZ(0) !important;
+    -webkit-transform: translateZ(0) !important;
+  }
+  
+  /* Grilles harmonieuses pour Android */
+  .services-grid,
+  .portfolio-grid,
+  .features-grid {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 auto !important;
+    padding: 0 !important;
+    
+    /* Grid Android-optimized */
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    gap: var(--spacing-xl) !important;
+    place-items: center !important;
+    
+    /* Performance */
+    transform: translateZ(0) !important;
+    -webkit-transform: translateZ(0) !important;
+  }
+  
+  /* Cards harmonieuses pour Android */
+  .service-card,
+  .portfolio-card,
+  .feature-card,
+  .profile-card,
+  .contact-card {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 auto var(--spacing-lg) auto !important;
+    padding: var(--spacing-xl) var(--spacing-lg) !important;
+    
+    /* Layout centré */
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    text-align: center !important;
+    
+    /* Style harmonieux */
+    border-radius: 12px !important;
+    background: rgba(255, 255, 255, 0.02) !important;
+    backdrop-filter: blur(10px) !important;
+    -webkit-backdrop-filter: blur(10px) !important;
+    border: 1px solid rgba(212, 184, 150, 0.1) !important;
+    
+    /* Performance Android */
+    transform: translateZ(0) !important;
+    -webkit-transform: translateZ(0) !important;
+    will-change: transform !important;
+    
+    /* Transition smooth */
+    transition: all 0.3s cubic-bezier(0.25, 0.1, 0.25, 1) !important;
+  }
+  
+  /* Images harmonieuses pour Android */
+  img,
+  .image-container,
+  .hero-image {
+    width: 100% !important;
+    max-width: 100% !important;
+    height: auto !important;
+    margin: 0 auto !important;
+    display: block !important;
+    
+    /* Performance image Android */
+    transform: translateZ(0) !important;
+    -webkit-transform: translateZ(0) !important;
+    will-change: transform !important;
+    
+    /* Optimisation Android */
+    image-rendering: optimizeQuality !important;
+    -webkit-image-rendering: optimizeQuality !important;
+  }
+  
+  /* Boutons harmonieux pour Android */
+  .btn,
+  button {
+    width: 100% !important;
+    max-width: 320px !important;
+    margin: var(--spacing-md) auto !important;
+    padding: var(--spacing-md) var(--spacing-lg) !important;
+    
+    /* Style centré */
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    text-align: center !important;
+    
+    /* Android touch optimization */
+    min-height: 48px !important;
+    touch-action: manipulation !important;
+    -webkit-tap-highlight-color: transparent !important;
+    
+    /* Performance */
+    transform: translateZ(0) !important;
+    -webkit-transform: translateZ(0) !important;
+    will-change: transform !important;
+    
+    /* Transition */
+    transition: all 0.3s cubic-bezier(0.25, 0.1, 0.25, 1) !important;
+  }
+  
+  /* Navigation mobile Android-optimized */
+  .nav-mobile {
+    /* Performance */
+    transform: translateZ(0) !important;
+    -webkit-transform: translateZ(0) !important;
+    will-change: transform !important;
+    
+    /* Position fixe pour Android */
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    bottom: 0 !important;
+    z-index: 2000 !important;
+  }
+  
+  /* Footer harmonieux pour Android */
+  footer,
+  .footer {
+    width: 100% !important;
+    margin: var(--spacing-2xl) auto 0 auto !important;
+    padding: var(--spacing-2xl) var(--spacing-md) !important;
+    text-align: center !important;
+    
+    /* Performance */
+    transform: translateZ(0) !important;
+    -webkit-transform: translateZ(0) !important;
+  }
+  
+  /* Espacement vertical harmonieux entre toutes les sections */
+  .hero + .about {
+    margin-top: 0 !important;
+  }
+  
+  .about + .services {
+    margin-top: var(--spacing-3xl) !important;
+  }
+  
+  .services + .portfolio {
+    margin-top: var(--spacing-3xl) !important;
+  }
+  
+  .portfolio + .contact {
+    margin-top: var(--spacing-3xl) !important;
+  }
+  
+  /* Optimisations de performance globales pour Android */
+  * {
+    box-sizing: border-box !important;
+    -webkit-box-sizing: border-box !important;
+  }
+  
+  /* Scroll smooth pour Android */
+  html {
+    scroll-behavior: smooth !important;
+    -webkit-scroll-behavior: smooth !important;
+  }
+}
+
+/* Règles spécifiques pour Android landscape */
+@media (max-width: 767px) and (orientation: landscape) {
+  .hero {
+    min-height: 100vh !important;
+    padding-top: 4rem !important;
+  }
+  
+  .hero-content {
+    min-height: calc(100vh - 6rem) !important;
+    justify-content: center !important;
+  }
+  
+  section:not(.hero) {
+    padding: var(--spacing-xl) var(--spacing-md) !important;
+  }
+}
+
 /* ===== HERO SECTION - STYLE LOUIS VUITTON ===== */
 .hero {
   position: relative;
