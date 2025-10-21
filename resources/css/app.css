@@ -2479,24 +2479,29 @@ ul, ol {
     backface-visibility: hidden !important;
     -webkit-backface-visibility: hidden !important;
     
-    z-index: 1000 !important;
+    z-index: 10 !important;
     position: relative !important;
     display: flex !important;
     flex-direction: column !important;
     align-items: center !important;
     justify-content: center !important;
     width: 100% !important;
+    margin-top: var(--spacing-2xl) !important;
     margin-bottom: var(--spacing-lg) !important;
-    padding: var(--spacing-md) 0 !important;
+    padding: var(--spacing-lg) var(--spacing-md) !important;
     
     /* Background semi-transparent pour assurer la lisibilité sur Android */
     background: linear-gradient(135deg, 
-      rgba(0, 0, 0, 0.3) 0%, 
-      rgba(0, 0, 0, 0.1) 50%, 
-      rgba(0, 0, 0, 0.3) 100%) !important;
-    border-radius: 12px !important;
-    backdrop-filter: blur(5px) !important;
-    -webkit-backdrop-filter: blur(5px) !important;
+      rgba(0, 0, 0, 0.4) 0%, 
+      rgba(0, 0, 0, 0.2) 50%, 
+      rgba(0, 0, 0, 0.4) 100%) !important;
+    border-radius: 16px !important;
+    backdrop-filter: blur(8px) !important;
+    -webkit-backdrop-filter: blur(8px) !important;
+    
+    /* S'assurer qu'il n'y a pas de débordement */
+    max-width: calc(100vw - var(--spacing-lg)) !important;
+    box-sizing: border-box !important;
   }
   
   /* Hero content avec optimisations Android */
@@ -2625,7 +2630,7 @@ ul, ol {
   /* Hero section avec positionnement Android harmonieux */
   .hero {
     min-height: 100vh !important;
-    padding-top: 4rem !important;
+    padding-top: 6rem !important;
     padding-bottom: var(--spacing-2xl) !important;
     
     /* Centrage parfait pour Android */
@@ -2643,6 +2648,10 @@ ul, ol {
     transform: translateZ(0) !important;
     -webkit-transform: translateZ(0) !important;
     will-change: transform !important;
+    
+    /* Z-index pour éviter le conflit avec header */
+    z-index: 1 !important;
+    position: relative !important;
   }
   
   /* Content sections avec espacement harmonieux */
@@ -2851,16 +2860,49 @@ ul, ol {
 @media (max-width: 767px) and (orientation: landscape) {
   .hero {
     min-height: 100vh !important;
-    padding-top: 4rem !important;
+    padding-top: 5rem !important;
   }
   
   .hero-content {
-    min-height: calc(100vh - 6rem) !important;
+    min-height: calc(100vh - 7rem) !important;
     justify-content: center !important;
+    padding-top: var(--spacing-lg) !important;
+  }
+  
+  .hero-brand,
+  .hero-title {
+    margin-top: var(--spacing-lg) !important;
+    padding: var(--spacing-md) !important;
+  }
+  
+  .title-main {
+    font-size: 3rem !important;
+  }
+  
+  .title-accent {
+    font-size: 2.8rem !important;
   }
   
   section:not(.hero) {
     padding: var(--spacing-xl) var(--spacing-md) !important;
+  }
+}
+
+/* Règles spécifiques pour Android portrait avec correction débordement */
+@media (max-width: 767px) and (orientation: portrait) {
+  .hero {
+    padding-top: 7rem !important;
+  }
+  
+  .hero-content {
+    min-height: calc(100vh - 9rem) !important;
+    padding-top: var(--spacing-2xl) !important;
+  }
+  
+  .hero-brand,
+  .hero-title {
+    margin-top: var(--spacing-3xl) !important;
+    padding: var(--spacing-xl) var(--spacing-lg) !important;
   }
 }
 
@@ -2910,7 +2952,7 @@ ul, ol {
     color: var(--tattoo-pearl) !important;
     width: 100% !important;
     max-width: 100% !important;
-    padding: var(--spacing-lg) var(--spacing-md) !important;
+    padding: var(--spacing-2xl) var(--spacing-md) !important;
     display: flex !important;
     flex-direction: column !important;
     align-items: center !important;
@@ -2918,7 +2960,9 @@ ul, ol {
     text-align: center !important;
     gap: var(--mobile-content-gap) !important;
     position: relative !important;
-    min-height: 60vh !important;
+    min-height: calc(100vh - 8rem) !important;
+    margin-top: 0 !important;
+    padding-top: var(--spacing-xl) !important;
   }
   
   /* Container pour les titres avec visibilité forcée */
