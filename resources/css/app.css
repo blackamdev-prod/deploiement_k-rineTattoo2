@@ -2387,6 +2387,152 @@ ul, ol {
   }
 }
 
+/* ===== ANDROID MOBILE SPECIFIQUE - CORRECTION TITRES HERO ===== */
+@media (max-width: 767px) {
+  /* Détection Android et correction spécifique */
+  .hero {
+    -webkit-text-size-adjust: 100% !important;
+    text-size-adjust: 100% !important;
+    -webkit-font-smoothing: antialiased !important;
+    -moz-osx-font-smoothing: grayscale !important;
+  }
+  
+  /* Titres avec corrections Android-specific */
+  .title-main,
+  .title-accent {
+    /* Force le rendu correct sur Android */
+    transform: translateZ(0) !important;
+    -webkit-transform: translateZ(0) !important;
+    will-change: transform !important;
+    backface-visibility: hidden !important;
+    -webkit-backface-visibility: hidden !important;
+    
+    /* Anti-aliasing forcé pour Android */
+    -webkit-font-smoothing: antialiased !important;
+    -moz-osx-font-smoothing: grayscale !important;
+    text-rendering: optimizeLegibility !important;
+    
+    /* Affichage forcé */
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    
+    /* Positionnement renforcé */
+    position: relative !important;
+    z-index: 1000 !important;
+    
+    /* Tailles agrandies pour Android */
+    font-size: 3.5rem !important;
+    line-height: 0.9 !important;
+    
+    /* Couleurs contrastées pour Android */
+    color: #FFFFFF !important;
+    text-shadow: 
+      4px 4px 0px rgba(0, 0, 0, 1),
+      2px 2px 8px rgba(0, 0, 0, 0.8),
+      0px 0px 20px rgba(0, 0, 0, 0.5) !important;
+    
+    /* Espacement et typography */
+    font-weight: 700 !important;
+    letter-spacing: 3px !important;
+    text-transform: uppercase !important;
+    margin: var(--spacing-xs) 0 !important;
+    padding: var(--spacing-xs) 0 !important;
+    
+    /* Force la largeur pour éviter les coupures */
+    width: 100% !important;
+    max-width: none !important;
+    box-sizing: border-box !important;
+    overflow: visible !important;
+    white-space: nowrap !important;
+  }
+  
+  /* Titre principal K'RINE avec corrections Android */
+  .title-main {
+    font-size: 4rem !important;
+    color: #FFFFFF !important;
+    text-shadow: 
+      5px 5px 0px rgba(0, 0, 0, 1),
+      3px 3px 10px rgba(0, 0, 0, 0.9),
+      0px 0px 25px rgba(0, 0, 0, 0.6) !important;
+    letter-spacing: 4px !important;
+    margin-bottom: var(--spacing-xs) !important;
+  }
+  
+  /* Titre accent TATTOO avec corrections Android */
+  .title-accent {
+    font-size: 3.6rem !important;
+    color: var(--beige-sable) !important;
+    text-shadow: 
+      4px 4px 0px rgba(0, 0, 0, 1),
+      2px 2px 8px rgba(0, 0, 0, 0.8),
+      0px 0px 20px rgba(212, 184, 150, 0.3) !important;
+    letter-spacing: 3px !important;
+  }
+  
+  /* Container des titres avec renforcement Android */
+  .hero-brand,
+  .hero-title {
+    transform: translateZ(0) !important;
+    -webkit-transform: translateZ(0) !important;
+    will-change: transform !important;
+    backface-visibility: hidden !important;
+    -webkit-backface-visibility: hidden !important;
+    
+    z-index: 1000 !important;
+    position: relative !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: 100% !important;
+    margin-bottom: var(--spacing-lg) !important;
+    padding: var(--spacing-md) 0 !important;
+    
+    /* Background semi-transparent pour assurer la lisibilité sur Android */
+    background: linear-gradient(135deg, 
+      rgba(0, 0, 0, 0.3) 0%, 
+      rgba(0, 0, 0, 0.1) 50%, 
+      rgba(0, 0, 0, 0.3) 100%) !important;
+    border-radius: 12px !important;
+    backdrop-filter: blur(5px) !important;
+    -webkit-backdrop-filter: blur(5px) !important;
+  }
+  
+  /* Hero content avec optimisations Android */
+  .hero-content {
+    transform: translateZ(0) !important;
+    -webkit-transform: translateZ(0) !important;
+    will-change: transform !important;
+    min-height: 80vh !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    padding: var(--spacing-2xl) var(--spacing-md) !important;
+  }
+}
+
+/* Règles spécifiques pour Android portrait */
+@media (max-width: 480px) and (orientation: portrait) {
+  .title-main {
+    font-size: 3.5rem !important;
+  }
+  
+  .title-accent {
+    font-size: 3.2rem !important;
+  }
+  
+  .hero-brand,
+  .hero-title {
+    padding: var(--spacing-lg) var(--spacing-md) !important;
+    background: linear-gradient(135deg, 
+      rgba(0, 0, 0, 0.4) 0%, 
+      rgba(0, 0, 0, 0.2) 50%, 
+      rgba(0, 0, 0, 0.4) 100%) !important;
+  }
+}
+
 /* ===== HERO SECTION - STYLE LOUIS VUITTON ===== */
 .hero {
   position: relative;
