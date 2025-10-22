@@ -1846,16 +1846,17 @@ ul, ol {
   border-bottom: none;
 }
 
-/* Portfolio Showcase Mobile - Style harmonisé avec couleurs du site */
-.mobile-portfolio-showcase {
+/* Navigation mobile simplifiée - CTA optimisé */
+.mobile-cta-section {
   padding: 32px 20px 24px;
   margin: 20px 0;
-  background: rgba(254, 252, 250, 0.8);
-  border: 1px solid rgba(212, 184, 150, 0.2);
-  border-radius: 12px;
+  background: rgba(254, 252, 250, 0.95);
+  border: 1px solid rgba(212, 184, 150, 0.3);
+  border-radius: 16px;
+  text-align: center;
   box-shadow: 
-    0 4px 16px rgba(212, 184, 150, 0.1),
-    0 2px 8px rgba(212, 184, 150, 0.05);
+    0 4px 20px rgba(212, 184, 150, 0.15),
+    0 2px 8px rgba(212, 184, 150, 0.08);
 }
 
 .showcase-title {
@@ -2326,6 +2327,31 @@ ul, ol {
     box-sizing: border-box !important;
   }
   
+  /* ===== HIÉRARCHIE TYPOGRAPHIQUE MOBILE OPTIMISÉE ===== */
+  h1, .title-main {
+    font-size: 2.5rem !important; /* 40px */
+    line-height: 1.2 !important;
+    margin-bottom: 0.5rem !important;
+  }
+  
+  h2, .title-accent, .section-title {
+    font-size: 2rem !important; /* 32px */
+    line-height: 1.3 !important;
+    margin-bottom: 1rem !important;
+  }
+  
+  h3 {
+    font-size: 1.5rem !important; /* 24px */
+    line-height: 1.4 !important;
+    margin-bottom: 0.75rem !important;
+  }
+  
+  h4, h5, h6 {
+    font-size: 1.25rem !important; /* 20px */
+    line-height: 1.4 !important;
+    margin-bottom: 0.5rem !important;
+  }
+  
   /* Textes et titres centrés */
   h1, h2, h3, h4, h5, h6,
   .title-main, .title-accent, .section-title {
@@ -2334,28 +2360,78 @@ ul, ol {
     margin-left: auto !important;
     margin-right: auto !important;
     position: relative !important;
+    font-weight: 600 !important; /* Contraste renforcé */
   }
   
   /* Paragraphes et descriptions centrés */
   p, .description, .hero-description {
+    font-size: 1.1rem !important; /* 17.6px - Plus lisible */
+    line-height: 1.7 !important; /* Espacement confortable */
+    margin-bottom: 1rem !important;
     text-align: center !important;
     width: 100% !important;
+    max-width: 90% !important; /* Éviter texte trop long */
     margin-left: auto !important;
     margin-right: auto !important;
     position: relative !important;
+    color: var(--noir-profond) !important; /* Meilleur contraste */
   }
   
-  /* Boutons parfaitement centrés */
-  .btn, button, .hero-buttons {
+  /* Texte de description hero spécifique */
+  .hero-description {
+    font-size: 1.05rem !important; /* 16.8px */
+    max-width: 85% !important; /* Ligne plus courte pour hero */
+    margin-bottom: 2rem !important;
+  }
+  
+  /* ===== BOUTONS OPTIMISÉS POUR TOUCH MOBILE ===== */
+  .btn, button {
+    /* Taille optimisée pour touch (recommandation Apple/Google) */
+    min-height: 48px !important; /* Minimum recommandé */
+    min-width: 48px !important;
+    padding: 14px 24px !important; /* Touch confortable */
+    
+    /* Typography mobile optimisée */
+    font-size: 1.1rem !important; /* 17.6px - Lisible sans zoom */
+    font-weight: 600 !important;
+    line-height: 1.2 !important;
+    
+    /* Layout et espacement */
     width: 100% !important;
-    max-width: 280px !important;
-    margin: var(--spacing-sm) auto !important;
+    max-width: 320px !important; /* Plus large pour touch */
+    margin: 1rem auto !important;
     text-align: center !important;
     display: flex !important;
     align-items: center !important;
     justify-content: center !important;
     position: relative !important;
     box-sizing: border-box !important;
+    
+    /* Touch optimization */
+    touch-action: manipulation !important; /* Évite délai 300ms */
+    -webkit-tap-highlight-color: transparent !important; /* Pas de highlight webkit */
+    cursor: pointer !important;
+    
+    /* Visual touch feedback */
+    border-radius: 12px !important; /* Plus moderne */
+    transition: all 0.2s cubic-bezier(0.25, 0.1, 0.25, 1) !important; /* Plus rapide pour touch */
+  }
+  
+  /* États actifs pour touch feedback */
+  .btn:active, button:active {
+    transform: scale(0.98) !important; /* Feedback visuel immédiat */
+    transition: transform 0.1s ease !important; /* Très rapide */
+  }
+  
+  /* Container boutons hero avec espacement touch */
+  .hero-buttons {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 1rem !important; /* Espacement suffisant pour éviter erreurs touch */
+    width: 100% !important;
+    max-width: 320px !important;
+    margin: 2rem auto !important;
+    align-items: center !important;
   }
   
   /* Images et médias uniformes */
@@ -3987,17 +4063,20 @@ ul, ol {
   }
 }
 
-/* ===== MOBILE DESIGN HARMONIEUX - CENTRAGE PARFAIT DE TOUS LES ELEMENTS ===== */
+/* ===== TYPOGRAPHY MOBILE OPTIMISÉE + CENTRAGE PARFAIT ===== */
 @media (max-width: 767px) {
   
-  /* ===== BASE CENTERING SYSTEM - MOBILE HARMONIE ===== */
+  /* ===== BASE TYPOGRAPHY SYSTEM - LISIBILITÉ MOBILE ===== */
   html {
+    font-size: 16px !important; /* Base optimisée pour mobile */
     text-align: center !important;
     scroll-behavior: smooth !important;
     -webkit-scroll-behavior: smooth !important;
   }
   
   body {
+    font-size: 1rem !important; /* 16px responsive */
+    line-height: 1.6 !important; /* Meilleure lisibilité */
     text-align: center !important;
     display: flex !important;
     flex-direction: column !important;
@@ -6407,6 +6486,43 @@ ul, ol {
     rgba(212, 184, 150, 0.1) 0%, 
     rgba(254, 252, 250, 0.08) 50%, 
     rgba(212, 184, 150, 0.1) 100%);
+}
+
+/* ===== NAVIGATION MOBILE SIMPLIFIÉE - UX OPTIMISÉE ===== */
+.mobile-cta-btn {
+  display: inline-block !important;
+  width: 100% !important;
+  max-width: 280px !important;
+  padding: 16px 24px !important;
+  font-size: 1.1rem !important;
+  font-weight: 600 !important;
+  border-radius: 25px !important;
+  background: linear-gradient(135deg, var(--beige-sable) 0%, var(--tattoo-gold) 100%) !important;
+  border: none !important;
+  color: white !important;
+  text-transform: uppercase !important;
+  letter-spacing: 1px !important;
+  transition: all 0.3s cubic-bezier(0.25, 0.1, 0.25, 1) !important;
+  margin-bottom: 16px !important;
+  
+  /* Zone de touch optimisée pour mobile */
+  min-height: 56px !important;
+  touch-action: manipulation !important;
+}
+
+.mobile-cta-btn:hover,
+.mobile-cta-btn:active {
+  transform: translateY(-2px) !important;
+  box-shadow: 0 8px 25px rgba(212, 184, 150, 0.4) !important;
+}
+
+.mobile-tagline {
+  font-size: 0.95rem !important;
+  color: var(--beige-sable) !important;
+  font-style: italic !important;
+  margin: 0 !important;
+  line-height: 1.4 !important;
+  font-weight: 400 !important;
 }
 
 /* ===== ABOUT SECTION - STYLE LOUIS VUITTON ===== */
@@ -9862,6 +9978,302 @@ ul, ol {
     grid-template-columns: 1fr;
   }
 }
+
+/* ===== PORTFOLIO MOBILE ULTRA-SIMPLIFIÉ (très petits écrans) ===== */
+@media (max-width: 480px) {
+  .portfolio-grid {
+    grid-template-columns: 1fr !important; /* Une seule colonne */
+    gap: 1.5rem !important; /* Espacement généreux */
+    padding: 0 1rem !important;
+    margin: 2rem auto !important;
+    max-width: 100% !important;
+  }
+  
+  .portfolio-card, .portfolio-item {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 auto 1.5rem auto !important;
+    border-radius: 16px !important;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1) !important;
+    transition: transform 0.3s ease !important;
+  }
+  
+  .portfolio-card:hover, .portfolio-item:hover {
+    transform: translateY(-4px) !important;
+  }
+  
+  /* Filtres portfolio simplifiés */
+  .portfolio-filters {
+    flex-direction: column !important;
+    gap: 0.75rem !important;
+    margin-bottom: 2rem !important;
+    align-items: center !important;
+  }
+  
+  .filter-btn {
+    min-width: 120px !important;
+    min-height: 44px !important; /* Zone touch confortable */
+    padding: 12px 20px !important;
+    font-size: 1rem !important;
+    border-radius: 22px !important;
+    touch-action: manipulation !important;
+  }
+  
+  /* Images portfolio optimisées mobile */
+  .portfolio-image {
+    width: 100% !important;
+    height: 250px !important; /* Hauteur fixe pour consistance */
+    object-fit: cover !important;
+    border-radius: 12px 12px 0 0 !important;
+  }
+  
+  .portfolio-content {
+    padding: 1.5rem !important;
+    text-align: center !important;
+  }
+  
+  .portfolio-title {
+    font-size: 1.25rem !important;
+    margin-bottom: 0.5rem !important;
+    font-weight: 600 !important;
+  }
+  
+  .portfolio-description {
+    font-size: 1rem !important;
+    line-height: 1.6 !important;
+    color: var(--beige-sable) !important;
+    margin-bottom: 1rem !important;
+  }
+  
+  .portfolio-tag {
+    display: inline-block !important;
+    padding: 6px 12px !important;
+    background: var(--beige-sable) !important;
+    color: white !important;
+    border-radius: 20px !important;
+    font-size: 0.85rem !important;
+    font-weight: 500 !important;
+  }
+}
+
+/* ===== FORMULAIRE CONTACT MOBILE OPTIMISÉ ===== */
+@media (max-width: 767px) {
+  .contact-form-card {
+    margin: 1rem !important;
+    padding: 1.5rem !important;
+    border-radius: 20px !important;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1) !important;
+  }
+  
+  .form-title {
+    font-size: 1.5rem !important;
+    text-align: center !important;
+    margin-bottom: 2rem !important;
+    color: var(--noir-profond) !important;
+  }
+  
+  /* Grille une colonne sur mobile */
+  .form-row {
+    grid-template-columns: 1fr !important;
+    gap: 1rem !important;
+  }
+  
+  .form-group {
+    margin-bottom: 1.5rem !important;
+  }
+  
+  .form-group label {
+    font-size: 1rem !important;
+    font-weight: 600 !important;
+    color: var(--noir-profond) !important;
+    margin-bottom: 0.5rem !important;
+    text-align: left !important;
+  }
+  
+  /* Champs de saisie optimisés mobile */
+  .form-group input,
+  .form-group select,
+  .form-group textarea {
+    width: 100% !important;
+    min-height: 48px !important; /* Zone touch recommandée */
+    padding: 14px 16px !important;
+    font-size: 16px !important; /* Évite zoom iOS */
+    border: 2px solid rgba(212, 184, 150, 0.3) !important;
+    border-radius: 12px !important;
+    background: white !important;
+    transition: all 0.3s ease !important;
+    box-sizing: border-box !important;
+    
+    /* Optimisation touch */
+    touch-action: manipulation !important;
+    -webkit-appearance: none !important;
+    -moz-appearance: none !important;
+  }
+  
+  .form-group textarea {
+    min-height: 120px !important;
+    resize: vertical !important;
+    line-height: 1.6 !important;
+  }
+  
+  /* États focus optimisés */
+  .form-group input:focus,
+  .form-group select:focus,
+  .form-group textarea:focus {
+    outline: none !important;
+    border-color: var(--beige-sable) !important;
+    box-shadow: 
+      0 0 0 3px rgba(212, 184, 150, 0.2),
+      0 4px 12px rgba(212, 184, 150, 0.15) !important;
+    transform: translateY(-1px) !important;
+  }
+  
+  /* Bouton submit optimisé mobile */
+  .contact-form .btn {
+    width: 100% !important;
+    min-height: 56px !important;
+    padding: 16px 24px !important;
+    font-size: 1.1rem !important;
+    font-weight: 600 !important;
+    border-radius: 16px !important;
+    background: linear-gradient(135deg, var(--beige-sable) 0%, var(--tattoo-gold) 100%) !important;
+    border: none !important;
+    color: white !important;
+    text-transform: uppercase !important;
+    letter-spacing: 1px !important;
+    margin-top: 1rem !important;
+    
+    /* Touch optimization */
+    touch-action: manipulation !important;
+    cursor: pointer !important;
+    transition: all 0.3s cubic-bezier(0.25, 0.1, 0.25, 1) !important;
+  }
+  
+  .contact-form .btn:hover,
+  .contact-form .btn:active {
+    transform: translateY(-2px) !important;
+    box-shadow: 0 8px 25px rgba(212, 184, 150, 0.4) !important;
+  }
+  
+  /* Notes et texte d'aide */
+  .form-note {
+    font-size: 0.9rem !important;
+    color: var(--beige-sable) !important;
+    text-align: center !important;
+    margin-top: 1rem !important;
+    line-height: 1.5 !important;
+  }
+  
+  /* Validation et messages d'erreur */
+  .form-error {
+    color: #e74c3c !important;
+    font-size: 0.85rem !important;
+    margin-top: 0.25rem !important;
+    text-align: left !important;
+  }
+  
+  .form-success {
+    color: #27ae60 !important;
+    font-size: 0.9rem !important;
+    text-align: center !important;
+    margin-top: 1rem !important;
+  }
+}
+
+/* ===== OPTIMISATION IMAGES MOBILE - PERFORMANCE ===== */
+@media (max-width: 767px) {
+  /* Images lazy loading et optimisation */
+  img {
+    loading: lazy !important;
+    decoding: async !important;
+    /* Optimisation rendu */
+    image-rendering: -webkit-optimize-contrast !important;
+    image-rendering: crisp-edges !important;
+  }
+  
+  /* Images portfolio avec compression visuelle */
+  .portfolio-image,
+  .showcase-image img,
+  .hero-image img,
+  .featured-img {
+    /* Compression via CSS pour mobile */
+    filter: contrast(1.05) brightness(1.02) !important;
+    /* Optimisation GPU */
+    transform: translateZ(0) !important;
+    will-change: transform !important;
+    backface-visibility: hidden !important;
+  }
+  
+  /* Placeholder pendant chargement */
+  .portfolio-image[loading="lazy"],
+  .showcase-image img[loading="lazy"] {
+    background: linear-gradient(90deg, 
+      rgba(212, 184, 150, 0.1) 0%, 
+      rgba(212, 184, 150, 0.2) 50%, 
+      rgba(212, 184, 150, 0.1) 100%) !important;
+    background-size: 200% 100% !important;
+    animation: shimmer 1.5s infinite !important;
+  }
+  
+  /* Animation loading */
+  @keyframes shimmer {
+    0% { background-position: -200% 0; }
+    100% { background-position: 200% 0; }
+  }
+  
+  /* Images responsive avec srcset simulation */
+  .hero-image img,
+  .featured-img {
+    /* Taille réduite pour mobile */
+    max-width: 100% !important;
+    height: auto !important;
+    object-fit: cover !important;
+    object-position: center !important;
+  }
+  
+  /* Portfolio grid avec images optimisées */
+  .portfolio-grid img {
+    width: 100% !important;
+    height: 250px !important;
+    object-fit: cover !important;
+    border-radius: 12px !important;
+    transition: all 0.3s ease !important;
+  }
+  
+  /* Éviter chargement images hors viewport */
+  .portfolio-item:not(.visible) img {
+    visibility: hidden !important;
+  }
+}
+
+/* Instructions développeur pour optimisation images */
+/*
+RECOMMANDATIONS OPTIMISATION IMAGES:
+
+1. Convertir PNG -> WebP:
+   - Réduction 30-50% de taille
+   - Support modern browsers
+   
+2. Responsive images:
+   <picture>
+     <source srcset="image-mobile.webp" media="(max-width: 768px)">
+     <source srcset="image.webp" type="image/webp">
+     <img src="image.jpg" alt="" loading="lazy">
+   </picture>
+   
+3. Compression recommandée:
+   - Portfolio: 400x300px, 80% qualité WebP < 200KB
+   - Hero: 600x400px, 85% qualité WebP < 300KB
+   - Thumbnails: 200x150px, 75% qualité WebP < 50KB
+
+4. Lazy loading natif:
+   - loading="lazy" sur toutes les images
+   - Intersection Observer pour fallback
+
+5. CDN recommandé:
+   - Utiliser service comme Cloudinary/ImageKit
+   - Optimisation automatique par device
+*/
 
 /* ===== SMOOTH SCROLLING ===== */
 @media (prefers-reduced-motion: no-preference) {

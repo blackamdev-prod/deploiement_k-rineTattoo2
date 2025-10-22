@@ -61,96 +61,11 @@
                     <a href="#contact" class="nav-link-mobile">Contact</a>
                 @endisset
                 
-                <!-- Portfolio Showcase Mobile -->
-                @isset($mobileShowcase)
-                    {!! $mobileShowcase !!}
-                @else
-                    <div class="mobile-portfolio-showcase">
-                        <h4 class="showcase-title">Découvrez mes créations</h4>
-                        <div class="showcase-grid">
-                            @php
-                                // Portfolio mobile showcase avec sélection aléatoire
-                                $showcasePortfolio = collect([
-                                    (object) [
-                                        'title' => 'Line-art Floral Élégant',
-                                        'description' => 'Composition délicate',
-                                        'image' => 'assets/images/portfolio/image1.jpg',
-                                        'category' => 'Line-art',
-                                        'alt' => 'Tatouage floral délicat'
-                                    ],
-                                    (object) [
-                                        'title' => 'Tatouages Minimalistes',
-                                        'description' => 'Symboles significatifs',
-                                        'image' => 'assets/images/portfolio/image2.jpg',
-                                        'category' => 'Minimaliste',
-                                        'alt' => 'Petits tatouages minimalistes'
-                                    ],
-                                    (object) [
-                                        'title' => 'Branche Line-art',
-                                        'description' => 'Motif végétal fin',
-                                        'image' => 'assets/images/portfolio/image3.jpg',
-                                        'category' => 'Line-art',
-                                        'alt' => 'Branche en traits fins'
-                                    ],
-                                    (object) [
-                                        'title' => 'Phénix Aquarelle',
-                                        'description' => 'Couleurs vibrantes',
-                                        'image' => 'assets/images/portfolio/image4.jpg',
-                                        'category' => 'Couleur',
-                                        'alt' => 'Phénix coloré style aquarelle'
-                                    ],
-                                    (object) [
-                                        'title' => 'Design Minimaliste',
-                                        'description' => 'Épuré et délicat',
-                                        'image' => 'assets/images/portfolio/image5.jpg',
-                                        'category' => 'Line-art',
-                                        'alt' => 'Design minimaliste rouge'
-                                    ],
-                                    (object) [
-                                        'title' => 'Portrait Réaliste',
-                                        'description' => 'Technique détaillée',
-                                        'image' => 'assets/images/portfolio/image6.jpg',
-                                        'category' => 'Réaliste',
-                                        'alt' => 'Portrait féminin réaliste'
-                                    ],
-                                    (object) [
-                                        'title' => 'Calligraphie et Roses',
-                                        'description' => 'Art et lettrage',
-                                        'image' => 'assets/images/portfolio/image7.jpg',
-                                        'category' => 'Réaliste',
-                                        'alt' => 'Calligraphie avec roses'
-                                    ],
-                                    (object) [
-                                        'title' => 'Design Tribal Moderne',
-                                        'description' => 'Géométrie contemporaine',
-                                        'image' => 'assets/images/portfolio/image8.jpg',
-                                        'category' => 'Réaliste',
-                                        'alt' => 'Motifs géométriques tribaux'
-                                    ]
-                                ]);
-                                
-                                // Sélection aléatoire de 4 éléments pour la vitrine mobile
-                                $randomShowcase = $showcasePortfolio->shuffle()->take(4);
-                            @endphp
-                            
-                            @foreach($randomShowcase as $item)
-                                <div class="showcase-item">
-                                    <div class="showcase-image">
-                                        <img src="{{ asset($item->image) }}" alt="{{ $item->alt }}" loading="lazy">
-                                        <div class="showcase-overlay">
-                                            <span class="showcase-tag">{{ $item->category }}</span>
-                                        </div>
-                                    </div>
-                                    <div class="showcase-content">
-                                        <h5>{{ $item->title }}</h5>
-                                        <p>{{ $item->description }}</p>
-                                    </div>
-                                </div>
-                            @endforeach
-                        </div>
-                        <a href="#portfolio" class="showcase-link nav-link-mobile">Voir tout le portfolio</a>
-                    </div>
-                @endisset
+                <!-- Navigation simplifiée mobile - CTA optimisé -->
+                <div class="mobile-cta-section">
+                    <a href="#contact" class="btn btn-primary mobile-cta-btn">Prendre Rendez-vous</a>
+                    <p class="mobile-tagline">Créons ensemble votre œuvre d'art corporelle unique</p>
+                </div>
             </div>
         </div>
         
