@@ -11333,6 +11333,8 @@ button.mobile-menu-btn.active::after,
   .about-description p::after {
     display: none !important;
     content: none !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
   }
   
   /* Force le centrage sur tous les enfants about */
@@ -11712,6 +11714,17 @@ button.mobile-menu-btn.active::after,
     flex-direction: column !important;
     gap: var(--lv-mobile-lg) !important;
     text-align: center !important;
+    position: relative !important; /* Reset position */
+  }
+  
+  /* Force la suppression du ::before sur mobile */
+  .about-description::before {
+    display: none !important;
+    content: none !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
+    width: 0 !important;
+    height: 0 !important;
   }
   
   .about-description p {
