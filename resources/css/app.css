@@ -2906,6 +2906,414 @@ ul, ol {
   }
 }
 
+/* ===== ANDROID SECTIONS HARMONIZATION - STRUCTURE COMPLETE ===== */
+@media (max-width: 767px) {
+  
+  /* ===== SECTION ABOUT - HARMONISATION ANDROID ===== */
+  .about {
+    padding: var(--spacing-3xl) var(--spacing-md) !important;
+    background: linear-gradient(135deg, 
+      rgba(254, 252, 250, 0.02) 0%, 
+      rgba(254, 252, 250, 0.05) 50%, 
+      rgba(254, 252, 250, 0.02) 100%) !important;
+    
+    /* Performance Android */
+    transform: translateZ(0) !important;
+    -webkit-transform: translateZ(0) !important;
+    will-change: transform !important;
+  }
+  
+  .about-content {
+    max-width: 100% !important;
+    gap: var(--spacing-2xl) !important;
+    text-align: center !important;
+  }
+  
+  .about .section-title {
+    font-size: 2.5rem !important;
+    margin-bottom: var(--spacing-2xl) !important;
+    color: var(--noir-profond) !important;
+    font-weight: 600 !important;
+  }
+  
+  .profile-card {
+    width: 100% !important;
+    max-width: 100% !important;
+    padding: var(--spacing-2xl) var(--spacing-lg) !important;
+    margin: 0 auto var(--spacing-xl) auto !important;
+    
+    /* Style harmonieux Android */
+    border-radius: 20px !important;
+    background: rgba(254, 252, 250, 0.95) !important;
+    backdrop-filter: blur(15px) !important;
+    -webkit-backdrop-filter: blur(15px) !important;
+    border: 2px solid rgba(212, 184, 150, 0.2) !important;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1) !important;
+    
+    /* Performance */
+    transform: translateZ(0) !important;
+    -webkit-transform: translateZ(0) !important;
+    transition: all 0.4s cubic-bezier(0.25, 0.1, 0.25, 1) !important;
+  }
+  
+  .profile-image {
+    width: 120px !important;
+    height: 120px !important;
+    margin: 0 auto var(--spacing-lg) auto !important;
+    border-radius: 50% !important;
+    border: 3px solid var(--beige-sable) !important;
+    box-shadow: 0 4px 20px rgba(212, 184, 150, 0.3) !important;
+  }
+  
+  /* ===== SECTION SERVICES - HARMONISATION ANDROID ===== */
+  .services {
+    padding: var(--spacing-3xl) var(--spacing-md) !important;
+    background: linear-gradient(135deg, 
+      rgba(212, 184, 150, 0.03) 0%, 
+      rgba(212, 184, 150, 0.08) 50%, 
+      rgba(212, 184, 150, 0.03) 100%) !important;
+    
+    /* Performance Android */
+    transform: translateZ(0) !important;
+    -webkit-transform: translateZ(0) !important;
+  }
+  
+  .services .section-title {
+    font-size: 2.5rem !important;
+    margin-bottom: var(--spacing-2xl) !important;
+    color: var(--noir-profond) !important;
+    font-weight: 600 !important;
+  }
+  
+  .services-grid {
+    gap: var(--spacing-2xl) !important;
+    margin-top: var(--spacing-xl) !important;
+  }
+  
+  .service-card {
+    width: 100% !important;
+    max-width: 100% !important;
+    padding: var(--spacing-2xl) var(--spacing-lg) !important;
+    margin: 0 auto var(--spacing-lg) auto !important;
+    
+    /* Style harmonieux Android */
+    border-radius: 18px !important;
+    background: rgba(254, 252, 250, 0.9) !important;
+    backdrop-filter: blur(12px) !important;
+    -webkit-backdrop-filter: blur(12px) !important;
+    border: 1px solid rgba(212, 184, 150, 0.3) !important;
+    box-shadow: 0 6px 25px rgba(0, 0, 0, 0.08) !important;
+    
+    /* Performance */
+    transform: translateZ(0) !important;
+    -webkit-transform: translateZ(0) !important;
+    transition: all 0.4s cubic-bezier(0.25, 0.1, 0.25, 1) !important;
+  }
+  
+  .service-card:hover {
+    transform: translateY(-5px) translateZ(0) !important;
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15) !important;
+  }
+  
+  .service-icon {
+    width: 80px !important;
+    height: 80px !important;
+    margin: 0 auto var(--spacing-lg) auto !important;
+    background: linear-gradient(135deg, var(--beige-sable) 0%, var(--tattoo-gold) 100%) !important;
+    border-radius: 50% !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    font-size: 2rem !important;
+    color: white !important;
+  }
+  
+  /* ===== SECTION PORTFOLIO - HARMONISATION ANDROID ===== */
+  .portfolio {
+    padding: var(--spacing-3xl) var(--spacing-md) !important;
+    background: linear-gradient(135deg, 
+      rgba(10, 10, 10, 0.02) 0%, 
+      rgba(10, 10, 10, 0.05) 50%, 
+      rgba(10, 10, 10, 0.02) 100%) !important;
+    
+    /* Performance Android */
+    transform: translateZ(0) !important;
+    -webkit-transform: translateZ(0) !important;
+  }
+  
+  .portfolio .section-title {
+    font-size: 2.5rem !important;
+    margin-bottom: var(--spacing-xl) !important;
+    color: var(--noir-profond) !important;
+    font-weight: 600 !important;
+  }
+  
+  .portfolio-filters {
+    margin-bottom: var(--spacing-2xl) !important;
+    display: flex !important;
+    flex-wrap: wrap !important;
+    justify-content: center !important;
+    gap: var(--spacing-sm) !important;
+  }
+  
+  .filter-btn {
+    padding: var(--spacing-sm) var(--spacing-lg) !important;
+    border-radius: 25px !important;
+    background: rgba(254, 252, 250, 0.9) !important;
+    border: 1px solid rgba(212, 184, 150, 0.4) !important;
+    color: var(--noir-profond) !important;
+    font-size: 0.9rem !important;
+    font-weight: 500 !important;
+    
+    /* Performance */
+    transform: translateZ(0) !important;
+    -webkit-transform: translateZ(0) !important;
+    transition: all 0.3s cubic-bezier(0.25, 0.1, 0.25, 1) !important;
+    
+    /* Touch optimization pour Android */
+    min-height: 44px !important;
+    touch-action: manipulation !important;
+  }
+  
+  .filter-btn.active,
+  .filter-btn:hover {
+    background: var(--beige-sable) !important;
+    color: white !important;
+    transform: translateY(-2px) translateZ(0) !important;
+    box-shadow: 0 4px 15px rgba(212, 184, 150, 0.4) !important;
+  }
+  
+  .portfolio-grid {
+    gap: var(--spacing-2xl) !important;
+    margin-top: var(--spacing-xl) !important;
+  }
+  
+  .portfolio-card {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 auto var(--spacing-lg) auto !important;
+    
+    /* Style harmonieux Android */
+    border-radius: 20px !important;
+    background: rgba(254, 252, 250, 0.95) !important;
+    backdrop-filter: blur(15px) !important;
+    -webkit-backdrop-filter: blur(15px) !important;
+    border: 1px solid rgba(212, 184, 150, 0.2) !important;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1) !important;
+    overflow: hidden !important;
+    
+    /* Performance */
+    transform: translateZ(0) !important;
+    -webkit-transform: translateZ(0) !important;
+    transition: all 0.4s cubic-bezier(0.25, 0.1, 0.25, 1) !important;
+  }
+  
+  .portfolio-card:hover {
+    transform: translateY(-8px) translateZ(0) !important;
+    box-shadow: 0 15px 50px rgba(0, 0, 0, 0.2) !important;
+  }
+  
+  .portfolio-image {
+    width: 100% !important;
+    height: 250px !important;
+    object-fit: cover !important;
+    border-radius: 16px 16px 0 0 !important;
+  }
+  
+  .portfolio-content {
+    padding: var(--spacing-lg) !important;
+    text-align: center !important;
+  }
+  
+  .portfolio-title {
+    font-size: 1.3rem !important;
+    font-weight: 600 !important;
+    margin-bottom: var(--spacing-sm) !important;
+    color: var(--noir-profond) !important;
+  }
+  
+  .portfolio-description {
+    font-size: 0.95rem !important;
+    color: rgba(0, 0, 0, 0.7) !important;
+    line-height: 1.6 !important;
+    margin-bottom: var(--spacing-md) !important;
+  }
+  
+  .portfolio-tag {
+    display: inline-block !important;
+    padding: var(--spacing-xs) var(--spacing-sm) !important;
+    background: var(--beige-sable) !important;
+    color: white !important;
+    border-radius: 15px !important;
+    font-size: 0.8rem !important;
+    font-weight: 500 !important;
+  }
+  
+  /* ===== SECTION CONTACT - HARMONISATION ANDROID ===== */
+  .contact {
+    padding: var(--spacing-3xl) var(--spacing-md) !important;
+    background: linear-gradient(135deg, 
+      rgba(212, 184, 150, 0.05) 0%, 
+      rgba(212, 184, 150, 0.1) 50%, 
+      rgba(212, 184, 150, 0.05) 100%) !important;
+    
+    /* Performance Android */
+    transform: translateZ(0) !important;
+    -webkit-transform: translateZ(0) !important;
+  }
+  
+  .contact .section-title {
+    font-size: 2.5rem !important;
+    margin-bottom: var(--spacing-2xl) !important;
+    color: var(--noir-profond) !important;
+    font-weight: 600 !important;
+  }
+  
+  .contact-content {
+    gap: var(--spacing-2xl) !important;
+    text-align: center !important;
+  }
+  
+  .contact-card {
+    width: 100% !important;
+    max-width: 100% !important;
+    padding: var(--spacing-2xl) var(--spacing-lg) !important;
+    margin: 0 auto var(--spacing-lg) auto !important;
+    
+    /* Style harmonieux Android */
+    border-radius: 18px !important;
+    background: rgba(254, 252, 250, 0.95) !important;
+    backdrop-filter: blur(15px) !important;
+    -webkit-backdrop-filter: blur(15px) !important;
+    border: 2px solid rgba(212, 184, 150, 0.2) !important;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1) !important;
+    
+    /* Performance */
+    transform: translateZ(0) !important;
+    -webkit-transform: translateZ(0) !important;
+    transition: all 0.4s cubic-bezier(0.25, 0.1, 0.25, 1) !important;
+  }
+  
+  .contact-info {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: var(--spacing-lg) !important;
+    margin: var(--spacing-xl) 0 !important;
+  }
+  
+  .contact-item {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: var(--spacing-sm) !important;
+    padding: var(--spacing-md) var(--spacing-lg) !important;
+    background: rgba(212, 184, 150, 0.1) !important;
+    border-radius: 12px !important;
+    color: var(--noir-profond) !important;
+    font-weight: 500 !important;
+    
+    /* Touch optimization pour Android */
+    min-height: 48px !important;
+    touch-action: manipulation !important;
+    
+    /* Performance */
+    transform: translateZ(0) !important;
+    -webkit-transform: translateZ(0) !important;
+    transition: all 0.3s cubic-bezier(0.25, 0.1, 0.25, 1) !important;
+  }
+  
+  .contact-item:hover {
+    background: var(--beige-sable) !important;
+    color: white !important;
+    transform: translateY(-2px) translateZ(0) !important;
+  }
+  
+  /* ===== BOUTONS HARMONIEUX POUR TOUTES LES SECTIONS ===== */
+  .btn-primary {
+    padding: var(--spacing-md) var(--spacing-2xl) !important;
+    font-size: 1.1rem !important;
+    font-weight: 600 !important;
+    border-radius: 25px !important;
+    background: linear-gradient(135deg, var(--beige-sable) 0%, var(--tattoo-gold) 100%) !important;
+    border: none !important;
+    color: white !important;
+    
+    /* Style harmonieux */
+    box-shadow: 0 6px 20px rgba(212, 184, 150, 0.4) !important;
+    
+    /* Touch optimization pour Android */
+    min-height: 52px !important;
+    touch-action: manipulation !important;
+    -webkit-tap-highlight-color: transparent !important;
+    
+    /* Performance */
+    transform: translateZ(0) !important;
+    -webkit-transform: translateZ(0) !important;
+    transition: all 0.4s cubic-bezier(0.25, 0.1, 0.25, 1) !important;
+  }
+  
+  .btn-primary:hover {
+    transform: translateY(-3px) translateZ(0) !important;
+    box-shadow: 0 10px 30px rgba(212, 184, 150, 0.6) !important;
+  }
+  
+  .btn-outline {
+    padding: var(--spacing-md) var(--spacing-2xl) !important;
+    font-size: 1.1rem !important;
+    font-weight: 600 !important;
+    border-radius: 25px !important;
+    background: transparent !important;
+    border: 2px solid var(--beige-sable) !important;
+    color: var(--beige-sable) !important;
+    
+    /* Touch optimization pour Android */
+    min-height: 52px !important;
+    touch-action: manipulation !important;
+    -webkit-tap-highlight-color: transparent !important;
+    
+    /* Performance */
+    transform: translateZ(0) !important;
+    -webkit-transform: translateZ(0) !important;
+    transition: all 0.4s cubic-bezier(0.25, 0.1, 0.25, 1) !important;
+  }
+  
+  .btn-outline:hover {
+    background: var(--beige-sable) !important;
+    color: white !important;
+    transform: translateY(-3px) translateZ(0) !important;
+    box-shadow: 0 8px 25px rgba(212, 184, 150, 0.4) !important;
+  }
+  
+  /* ===== ESPACEMENT VERTICAL HARMONIEUX ENTRE SECTIONS ===== */
+  .hero + .about {
+    margin-top: 0 !important;
+  }
+  
+  .about + .services {
+    margin-top: var(--spacing-4xl) !important;
+  }
+  
+  .services + .portfolio {
+    margin-top: var(--spacing-4xl) !important;
+  }
+  
+  .portfolio + .contact {
+    margin-top: var(--spacing-4xl) !important;
+  }
+  
+  /* ===== OPTIMISATIONS GLOBALES ANDROID ===== */
+  section {
+    scroll-margin-top: 5rem !important;
+  }
+  
+  /* Smooth transitions pour toutes les interactions */
+  * {
+    -webkit-font-smoothing: antialiased !important;
+    -moz-osx-font-smoothing: grayscale !important;
+    text-rendering: optimizeLegibility !important;
+  }
+}
+
 /* ===== HERO SECTION - STYLE LOUIS VUITTON ===== */
 .hero {
   position: relative;
