@@ -2865,11 +2865,15 @@ ul, ol {
 /* Règles spécifiques pour Android landscape - CORRECTION HERO VISIBLE */
 @media (max-width: 767px) and (orientation: landscape) {
   /* Force la visibilité et le bon positionnement du hero */
-  .hero {
+  #home.hero,
+  .hero,
+  section.hero {
     min-height: 100vh !important;
     height: 100vh !important;
+    width: 100vw !important;
     padding-top: 4rem !important;
     padding-bottom: 0 !important;
+    margin: 0 !important;
     
     /* S'assurer que le hero est visible */
     display: flex !important;
@@ -2877,23 +2881,38 @@ ul, ol {
     justify-content: center !important;
     position: relative !important;
     z-index: 1 !important;
+    visibility: visible !important;
+    opacity: 1 !important;
     
     /* Background visible pour landscape */
-    background: linear-gradient(135deg, 
+    background: #1a1a1a !important;
+    background-image: linear-gradient(135deg, 
       rgba(10, 10, 10, 0.98) 0%, 
       rgba(20, 20, 20, 0.95) 50%,
       rgba(15, 15, 15, 0.97) 100%) !important;
     
     /* Overflow pour éviter les débordements */
     overflow: hidden !important;
+    
+    /* Anti-bugs Android landscape */
+    transform: translateZ(0) !important;
+    -webkit-transform: translateZ(0) !important;
+    will-change: transform !important;
+    backface-visibility: hidden !important;
+    -webkit-backface-visibility: hidden !important;
   }
   
-  .hero-content {
+  .hero-content,
+  .hero .hero-content,
+  #home .hero-content,
+  .hero .container,
+  #home .container {
     min-height: calc(100vh - 5rem) !important;
     max-height: calc(100vh - 5rem) !important;
     width: 100% !important;
     max-width: 100% !important;
     padding: var(--spacing-md) var(--spacing-lg) !important;
+    margin: 0 auto !important;
     
     /* Layout adapté au landscape */
     display: flex !important;
@@ -2907,10 +2926,17 @@ ul, ol {
     z-index: 10 !important;
     opacity: 1 !important;
     visibility: visible !important;
+    color: white !important;
+    
+    /* Anti-bugs landscape */
+    transform: translateZ(0) !important;
+    -webkit-transform: translateZ(0) !important;
   }
   
-  /* Section texte du hero en landscape */
-  .hero-text {
+  /* Section texte du hero en landscape - FORCE VISIBILITY */
+  .hero-text,
+  .hero .hero-text,
+  #home .hero-text {
     flex: 1 !important;
     display: flex !important;
     flex-direction: column !important;
@@ -2919,59 +2945,168 @@ ul, ol {
     text-align: left !important;
     height: 100% !important;
     padding-right: var(--spacing-lg) !important;
+    
+    /* Force visibility landscape */
+    opacity: 1 !important;
+    visibility: visible !important;
+    z-index: 20 !important;
+    position: relative !important;
+    color: white !important;
+    
+    /* Anti-bugs landscape */
+    transform: translateZ(0) !important;
+    -webkit-transform: translateZ(0) !important;
   }
   
   .hero-brand,
-  .hero-title {
+  .hero-title,
+  .hero .hero-brand,
+  .hero .hero-title,
+  #home .hero-brand,
+  #home .hero-title {
     margin: 0 0 var(--spacing-md) 0 !important;
     padding: var(--spacing-lg) var(--spacing-md) !important;
     width: 100% !important;
     
+    /* Force visibility landscape */
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    justify-content: center !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    z-index: 30 !important;
+    position: relative !important;
+    
     /* Background visible pour landscape */
     background: linear-gradient(135deg, 
-      rgba(0, 0, 0, 0.7) 0%, 
-      rgba(0, 0, 0, 0.4) 50%, 
-      rgba(0, 0, 0, 0.7) 100%) !important;
+      rgba(0, 0, 0, 0.8) 0%, 
+      rgba(0, 0, 0, 0.5) 50%, 
+      rgba(0, 0, 0, 0.8) 100%) !important;
     border-radius: 16px !important;
-    backdrop-filter: blur(10px) !important;
-    -webkit-backdrop-filter: blur(10px) !important;
+    backdrop-filter: blur(15px) !important;
+    -webkit-backdrop-filter: blur(15px) !important;
+    border: 2px solid rgba(255, 255, 255, 0.1) !important;
+    
+    /* Anti-bugs landscape */
+    transform: translateZ(0) !important;
+    -webkit-transform: translateZ(0) !important;
   }
   
-  .title-main {
+  .title-main,
+  .hero .title-main,
+  #home .title-main,
+  h1.title-main {
     font-size: 2.5rem !important;
     line-height: 1.1 !important;
     margin-bottom: var(--spacing-xs) !important;
+    padding: 0 !important;
+    
+    /* Force visibility landscape */
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    z-index: 40 !important;
+    position: relative !important;
+    
+    /* Colors forcées landscape */
     color: #FFFFFF !important;
-    text-shadow: 3px 3px 6px rgba(0, 0, 0, 1) !important;
+    text-shadow: 4px 4px 8px rgba(0, 0, 0, 1) !important;
+    text-align: left !important;
+    width: 100% !important;
+    
+    /* Typography landscape */
+    font-weight: 700 !important;
+    text-transform: uppercase !important;
+    letter-spacing: 2px !important;
+    
+    /* Anti-bugs landscape */
+    -webkit-font-smoothing: antialiased !important;
+    -moz-osx-font-smoothing: grayscale !important;
+    text-rendering: optimizeLegibility !important;
+    transform: translateZ(0) !important;
+    -webkit-transform: translateZ(0) !important;
   }
   
-  .title-accent {
+  .title-accent,
+  .hero .title-accent,
+  #home .title-accent,
+  h1.title-accent {
     font-size: 2.2rem !important;
     line-height: 1.1 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    
+    /* Force visibility landscape */
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    z-index: 40 !important;
+    position: relative !important;
+    
+    /* Colors forcées landscape */
     color: var(--beige-sable) !important;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8) !important;
+    text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.9) !important;
+    text-align: left !important;
+    width: 100% !important;
+    
+    /* Typography landscape */
+    font-weight: 700 !important;
+    text-transform: uppercase !important;
+    letter-spacing: 1.5px !important;
+    
+    /* Anti-bugs landscape */
+    -webkit-font-smoothing: antialiased !important;
+    -moz-osx-font-smoothing: grayscale !important;
+    text-rendering: optimizeLegibility !important;
+    transform: translateZ(0) !important;
+    -webkit-transform: translateZ(0) !important;
   }
   
-  .hero-description {
+  .hero-description,
+  .hero .hero-description,
+  #home .hero-description {
     font-size: 1rem !important;
     line-height: 1.6 !important;
     margin: var(--spacing-lg) 0 !important;
     padding: 0 !important;
+    
+    /* Force visibility landscape */
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    z-index: 30 !important;
+    position: relative !important;
+    
+    /* Colors forcées landscape */
     color: var(--tattoo-champagne) !important;
-    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7) !important;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8) !important;
+    text-align: left !important;
+    width: 100% !important;
+    max-width: 100% !important;
   }
   
-  .hero-buttons {
+  .hero-buttons,
+  .hero .hero-buttons,
+  #home .hero-buttons {
     display: flex !important;
     flex-direction: row !important;
     gap: var(--spacing-md) !important;
     margin-top: var(--spacing-lg) !important;
     justify-content: flex-start !important;
     width: 100% !important;
+    
+    /* Force visibility landscape */
+    opacity: 1 !important;
+    visibility: visible !important;
+    z-index: 30 !important;
+    position: relative !important;
   }
   
-  /* Section image du hero en landscape */
-  .hero-image {
+  /* Section image du hero en landscape - FORCE VISIBILITY */
+  .hero-image,
+  .hero .hero-image,
+  #home .hero-image {
     flex: 1 !important;
     display: flex !important;
     align-items: center !important;
@@ -2979,26 +3114,74 @@ ul, ol {
     height: 100% !important;
     max-height: calc(100vh - 6rem) !important;
     padding-left: var(--spacing-lg) !important;
+    
+    /* Force visibility landscape */
+    opacity: 1 !important;
+    visibility: visible !important;
+    z-index: 20 !important;
+    position: relative !important;
+    
+    /* Anti-bugs landscape */
+    transform: translateZ(0) !important;
+    -webkit-transform: translateZ(0) !important;
   }
   
-  .image-container {
+  .image-container,
+  .hero .image-container,
+  #home .image-container {
     width: 100% !important;
     max-width: 100% !important;
     height: auto !important;
     max-height: calc(100vh - 8rem) !important;
+    
+    /* Force visibility landscape */
     display: flex !important;
     align-items: center !important;
     justify-content: center !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    z-index: 30 !important;
+    position: relative !important;
+    
+    /* Anti-bugs landscape */
+    transform: translateZ(0) !important;
+    -webkit-transform: translateZ(0) !important;
   }
   
-  .featured-img {
+  .featured-img,
+  .hero .featured-img,
+  #home .featured-img,
+  .hero-image img,
+  .image-container img {
     width: 100% !important;
     max-width: 100% !important;
     height: auto !important;
     max-height: calc(100vh - 8rem) !important;
+    
+    /* Force visibility landscape */
+    display: block !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    z-index: 40 !important;
+    position: relative !important;
+    
+    /* Image properties landscape */
     object-fit: contain !important;
     border-radius: 12px !important;
     box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3) !important;
+    
+    /* Anti-bugs landscape */
+    transform: translateZ(0) !important;
+    -webkit-transform: translateZ(0) !important;
+  }
+  
+  /* Désactiver overlay en landscape */
+  .hero-overlay,
+  .hero .hero-overlay,
+  #home .hero-overlay {
+    display: none !important;
+    opacity: 0 !important;
+    visibility: hidden !important;
   }
   
   /* Autres sections en landscape */
