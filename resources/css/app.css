@@ -90,18 +90,21 @@
 
 html {
   scroll-behavior: smooth;
-  font-size: 14px; /* Taille de base mobile */
+  font-size: 16px; /* Louis Vuitton base - consistent across devices */
+  -webkit-text-size-adjust: 100%;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 @media (min-width: 640px) {
   html {
-    font-size: 15px;
+    font-size: 17px; /* Slightly larger for tablet readability */
   }
 }
 
 @media (min-width: 768px) {
   html {
-    font-size: 16px; /* Taille de référence */
+    font-size: 18px; /* Desktop base for luxury feel */
   }
 }
 
@@ -2257,20 +2260,43 @@ ul, ol {
     box-sizing: border-box !important;
   }
   
-  /* Section unifiée avec centrage absolu */
+  /* ===== SECTIONS LOUIS VUITTON - RESPIRATION ET ÉLÉGANCE ===== */
   section {
     width: 100% !important;
     max-width: 100% !important;
     margin: 0 auto !important;
-    padding-left: var(--spacing-md) !important;
-    padding-right: var(--spacing-md) !important;
-    text-align: center !important;
-    display: flex !important;
-    flex-direction: column !important;
-    align-items: center !important;
-    justify-content: center !important;
+    padding: var(--lv-spacing-xl) var(--lv-spacing-md) !important; /* 64px top/bottom, 24px côtés */
+    background: var(--lv-white) !important;
     position: relative !important;
     box-sizing: border-box !important;
+    
+    /* Séparateurs subtils entre sections */
+    border-bottom: 1px solid rgba(26, 26, 26, 0.05) !important;
+  }
+  
+  /* Section Hero sans bordure */
+  .hero {
+    border-bottom: none !important;
+    background: var(--lv-cream) !important;
+    padding: var(--lv-spacing-2xl) var(--lv-spacing-md) !important; /* Plus d'espace pour hero */
+  }
+  
+  /* Alternance background sections */
+  .about {
+    background: var(--lv-light-gray) !important;
+  }
+  
+  .services {
+    background: var(--lv-white) !important;
+  }
+  
+  .portfolio {
+    background: var(--lv-light-gray) !important;
+  }
+  
+  .contact {
+    background: var(--lv-white) !important;
+    border-bottom: none !important; /* Dernière section */
   }
   
   /* Content wrappers uniformes */
@@ -2327,122 +2353,257 @@ ul, ol {
     box-sizing: border-box !important;
   }
   
-  /* ===== HIÉRARCHIE TYPOGRAPHIQUE MOBILE OPTIMISÉE ===== */
+  /* ===== TYPOGRAPHY LOUIS VUITTON - HIÉRARCHIE ÉLÉGANTE ===== */
   h1, .title-main {
-    font-size: 2.5rem !important; /* 40px */
+    font-family: 'Helvetica Neue', sans-serif !important;
+    font-size: 2.25rem !important; /* 36px - proportions LV */
+    font-weight: 300 !important; /* Light comme LV */
     line-height: 1.2 !important;
-    margin-bottom: 0.5rem !important;
+    letter-spacing: 0.02em !important; /* Espacement subtil */
+    margin-bottom: var(--lv-spacing-md) !important;
+    color: var(--lv-black) !important;
+    text-align: center !important;
   }
   
   h2, .title-accent, .section-title {
-    font-size: 2rem !important; /* 32px */
+    font-family: 'Helvetica Neue', sans-serif !important;
+    font-size: 1.75rem !important; /* 28px */
+    font-weight: 300 !important;
     line-height: 1.3 !important;
-    margin-bottom: 1rem !important;
+    letter-spacing: 0.01em !important;
+    margin-bottom: var(--lv-spacing-lg) !important;
+    color: var(--lv-black) !important;
+    text-align: center !important;
   }
   
   h3 {
-    font-size: 1.5rem !important; /* 24px */
+    font-family: 'Helvetica Neue', sans-serif !important;
+    font-size: 1.25rem !important; /* 20px */
+    font-weight: 400 !important;
     line-height: 1.4 !important;
-    margin-bottom: 0.75rem !important;
+    margin-bottom: var(--lv-spacing-md) !important;
+    color: var(--lv-black) !important;
+    text-align: center !important;
   }
   
   h4, h5, h6 {
-    font-size: 1.25rem !important; /* 20px */
+    font-family: 'Helvetica Neue', sans-serif !important;
+    font-size: 1.125rem !important; /* 18px */
+    font-weight: 400 !important;
     line-height: 1.4 !important;
-    margin-bottom: 0.5rem !important;
-  }
-  
-  /* Textes et titres centrés */
-  h1, h2, h3, h4, h5, h6,
-  .title-main, .title-accent, .section-title {
+    margin-bottom: var(--lv-spacing-sm) !important;
+    color: var(--lv-gray) !important;
     text-align: center !important;
-    width: 100% !important;
-    margin-left: auto !important;
-    margin-right: auto !important;
-    position: relative !important;
-    font-weight: 600 !important; /* Contraste renforcé */
   }
   
-  /* Paragraphes et descriptions centrés */
+  /* Accent doré pour certains titres */
+  .title-accent {
+    color: var(--lv-gold) !important;
+    font-weight: 400 !important;
+  }
+  
+  /* ===== PARAGRAPHES LOUIS VUITTON - LISIBILITÉ PREMIUM ===== */
   p, .description, .hero-description {
-    font-size: 1.1rem !important; /* 17.6px - Plus lisible */
-    line-height: 1.7 !important; /* Espacement confortable */
-    margin-bottom: 1rem !important;
+    font-family: 'Helvetica Neue', sans-serif !important;
+    font-size: 1rem !important; /* 16px - standard LV */
+    font-weight: 300 !important; /* Light weight */
+    line-height: 1.8 !important; /* Aération généreuse */
+    margin-bottom: var(--lv-spacing-lg) !important;
     text-align: center !important;
-    width: 100% !important;
-    max-width: 90% !important; /* Éviter texte trop long */
+    max-width: 320px !important; /* Largeur optimale lecture mobile */
     margin-left: auto !important;
     margin-right: auto !important;
-    position: relative !important;
-    color: var(--noir-profond) !important; /* Meilleur contraste */
+    color: var(--lv-gray) !important;
+    letter-spacing: 0.01em !important;
   }
   
   /* Texte de description hero spécifique */
   .hero-description {
-    font-size: 1.05rem !important; /* 16.8px */
-    max-width: 85% !important; /* Ligne plus courte pour hero */
-    margin-bottom: 2rem !important;
+    font-size: 1.125rem !important; /* 18px - plus grand pour hero */
+    max-width: 280px !important;
+    margin-bottom: var(--lv-spacing-xl) !important;
+    color: var(--lv-black) !important;
+    font-weight: 400 !important;
   }
   
-  /* ===== BOUTONS OPTIMISÉS POUR TOUCH MOBILE ===== */
+  /* ===== BOUTONS LOUIS VUITTON - ÉLÉGANCE MINIMALISTE ===== */
   .btn, button {
-    /* Taille optimisée pour touch (recommandation Apple/Google) */
-    min-height: 48px !important; /* Minimum recommandé */
-    min-width: 48px !important;
-    padding: 14px 24px !important; /* Touch confortable */
+    /* Taille Louis Vuitton */
+    min-height: 52px !important;
+    padding: var(--lv-spacing-sm) var(--lv-spacing-lg) !important; /* 16px 40px */
     
-    /* Typography mobile optimisée */
-    font-size: 1.1rem !important; /* 17.6px - Lisible sans zoom */
-    font-weight: 600 !important;
+    /* Typography LV */
+    font-family: 'Helvetica Neue', sans-serif !important;
+    font-size: 0.875rem !important; /* 14px - taille LV */
+    font-weight: 400 !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.1em !important; /* Espacement LV caractéristique */
     line-height: 1.2 !important;
     
-    /* Layout et espacement */
-    width: 100% !important;
-    max-width: 320px !important; /* Plus large pour touch */
-    margin: 1rem auto !important;
+    /* Layout Louis Vuitton */
+    width: auto !important;
+    max-width: 280px !important;
+    margin: var(--lv-spacing-lg) auto !important;
     text-align: center !important;
-    display: flex !important;
+    display: inline-flex !important;
     align-items: center !important;
     justify-content: center !important;
     position: relative !important;
     box-sizing: border-box !important;
     
+    /* Style visuel LV */
+    background: transparent !important;
+    border: 1px solid var(--lv-black) !important;
+    color: var(--lv-black) !important;
+    border-radius: 0 !important; /* Pas de border-radius = style LV */
+    
     /* Touch optimization */
-    touch-action: manipulation !important; /* Évite délai 300ms */
-    -webkit-tap-highlight-color: transparent !important; /* Pas de highlight webkit */
+    touch-action: manipulation !important;
+    -webkit-tap-highlight-color: transparent !important;
     cursor: pointer !important;
     
-    /* Visual touch feedback */
-    border-radius: 12px !important; /* Plus moderne */
-    transition: all 0.2s cubic-bezier(0.25, 0.1, 0.25, 1) !important; /* Plus rapide pour touch */
+    /* Transition subtile */
+    transition: all 0.3s ease !important;
   }
   
-  /* États actifs pour touch feedback */
+  /* États hover/active Louis Vuitton */
+  .btn:hover, button:hover {
+    background: var(--lv-black) !important;
+    color: var(--lv-white) !important;
+  }
+  
   .btn:active, button:active {
-    transform: scale(0.98) !important; /* Feedback visuel immédiat */
-    transition: transform 0.1s ease !important; /* Très rapide */
+    transform: translateY(1px) !important; /* Feedback subtil */
+    transition: transform 0.1s ease !important;
   }
   
-  /* Container boutons hero avec espacement touch */
+  /* Bouton primaire doré */
+  .btn-primary {
+    background: var(--lv-gold) !important;
+    border: 1px solid var(--lv-gold) !important;
+    color: var(--lv-white) !important;
+  }
+  
+  .btn-primary:hover {
+    background: var(--lv-black) !important;
+    border-color: var(--lv-black) !important;
+    color: var(--lv-white) !important;
+  }
+  
+  /* Bouton outline */
+  .btn-outline {
+    background: transparent !important;
+    border: 1px solid var(--lv-gold) !important;
+    color: var(--lv-gold) !important;
+  }
+  
+  .btn-outline:hover {
+    background: var(--lv-gold) !important;
+    color: var(--lv-white) !important;
+  }
+  
+  /* ===== CONTAINERS BOUTONS LOUIS VUITTON ===== */
   .hero-buttons {
     display: flex !important;
     flex-direction: column !important;
-    gap: 1rem !important; /* Espacement suffisant pour éviter erreurs touch */
+    gap: var(--lv-spacing-md) !important; /* 24px entre boutons */
     width: 100% !important;
-    max-width: 320px !important;
-    margin: 2rem auto !important;
+    max-width: 280px !important;
+    margin: var(--lv-spacing-xl) auto !important;
     align-items: center !important;
   }
   
-  /* Images et médias uniformes */
+  /* ===== CARDS ET CONTENEURS LOUIS VUITTON ===== */
+  .service-card,
+  .portfolio-card,
+  .feature-card,
+  .profile-card,
+  .contact-card {
+    background: var(--lv-white) !important;
+    border: 1px solid rgba(26, 26, 26, 0.1) !important;
+    border-radius: 0 !important; /* Pas de radius = style LV */
+    padding: var(--lv-spacing-lg) !important; /* 40px */
+    margin: 0 auto var(--lv-spacing-lg) auto !important;
+    box-shadow: 0 2px 16px rgba(0, 0, 0, 0.04) !important; /* Ombre très subtile */
+    transition: all 0.3s ease !important;
+    
+    /* Layout centré */
+    text-align: center !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    max-width: 320px !important;
+  }
+  
+  .service-card:hover,
+  .portfolio-card:hover,
+  .feature-card:hover,
+  .profile-card:hover {
+    transform: translateY(-4px) !important;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08) !important;
+  }
+  
+  /* ===== IMAGES LOUIS VUITTON STYLE ===== */
   img, .image-container, .hero-image {
     width: 100% !important;
     max-width: 100% !important;
     margin: 0 auto !important;
-    text-align: center !important;
     display: block !important;
     position: relative !important;
     box-sizing: border-box !important;
+    filter: contrast(1.05) saturation(0.95) !important; /* Tons moins saturés, plus élégants */
+  }
+  
+  /* Images portfolio style LV */
+  .portfolio-image, .featured-img {
+    aspect-ratio: 4/3 !important;
+    object-fit: cover !important;
+    object-position: center !important;
+  }
+  
+  /* ===== HEADER NAVIGATION LOUIS VUITTON ===== */
+  .header {
+    background: var(--lv-white) !important;
+    border-bottom: 1px solid rgba(26, 26, 26, 0.08) !important;
+    padding: var(--lv-spacing-sm) 0 !important;
+    position: fixed !important;
+    top: 0 !important;
+    width: 100% !important;
+    z-index: 1000 !important;
+    backdrop-filter: blur(10px) !important;
+  }
+  
+  .header-content {
+    max-width: 100% !important;
+    padding: 0 var(--lv-spacing-md) !important;
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+  }
+  
+  /* Logo mobile LV style */
+  .logo-img {
+    height: 32px !important;
+    width: auto !important;
+  }
+  
+  /* Menu hamburger minimaliste */
+  .mobile-menu-btn {
+    width: 32px !important;
+    height: 32px !important;
+    background: transparent !important;
+    border: none !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+    gap: 4px !important;
+  }
+  
+  .hamburger-line {
+    width: 20px !important;
+    height: 1px !important;
+    background: var(--lv-black) !important;
+    transition: all 0.3s ease !important;
   }
   
   /* Navigation mobile uniforme */
@@ -4128,24 +4289,40 @@ ul, ol {
   }
 }
 
-/* ===== TYPOGRAPHY MOBILE OPTIMISÉE + CENTRAGE PARFAIT ===== */
+/* ===== DESIGN MOBILE LOUIS VUITTON - ÉLÉGANCE ET ÉQUILIBRE ===== */
 @media (max-width: 767px) {
   
-  /* ===== BASE TYPOGRAPHY SYSTEM - LISIBILITÉ MOBILE ===== */
+  /* ===== VARIABLES LOUIS VUITTON MOBILE ===== */
+  :root {
+    --lv-spacing-xs: 8px;   /* 0.5rem */
+    --lv-spacing-sm: 16px;  /* 1rem */
+    --lv-spacing-md: 24px;  /* 1.5rem */
+    --lv-spacing-lg: 40px;  /* 2.5rem */
+    --lv-spacing-xl: 64px;  /* 4rem */
+    --lv-spacing-2xl: 96px; /* 6rem */
+    
+    /* Couleurs Louis Vuitton Premium */
+    --lv-black: #1a1a1a;
+    --lv-gold: #d4af37;
+    --lv-cream: #faf8f5;
+    --lv-gray: #666666;
+    --lv-light-gray: #f8f8f8;
+    --lv-white: #ffffff;
+  }
+  
+  /* ===== BASE SYSTEM INSPIRED BY LOUIS VUITTON ===== */
   html {
-    font-size: 16px !important; /* Base optimisée pour mobile */
-    text-align: center !important;
+    font-size: 16px !important;
     scroll-behavior: smooth !important;
     -webkit-scroll-behavior: smooth !important;
   }
   
   body {
-    font-size: 1rem !important; /* 16px responsive */
-    line-height: 1.6 !important; /* Meilleure lisibilité */
-    text-align: center !important;
-    display: flex !important;
-    flex-direction: column !important;
-    align-items: center !important;
+    font-family: 'Helvetica Neue', 'Arial', sans-serif !important; /* Typography LV-style */
+    font-size: 1rem !important;
+    line-height: 1.7 !important; /* Aération style LV */
+    color: var(--lv-black) !important;
+    background: var(--lv-cream) !important;
     margin: 0 auto !important;
     padding: 0 !important;
     width: 100% !important;
@@ -10596,4 +10773,330 @@ button.mobile-menu-btn.active::before,
 button.mobile-menu-btn.active::after,
 #mobileMenuBtn.active::after {
   transform: translate(-50%, -50%) rotate(-45deg) !important;
+}
+
+/* ===== LOUIS VUITTON-INSPIRED MOBILE DESIGN SYSTEM ===== */
+/* Modern luxury mobile experience with refined typography and spacing */
+
+/* ===== LV COLOR PALETTE FOR MOBILE ===== */
+:root {
+  /* Louis Vuitton-inspired color system */
+  --lv-black: #19110B;        /* Louis Vuitton signature black */
+  --lv-white: #FFFFFF;        /* Pure white for contrast */
+  --lv-grey: #767676;         /* Subtle grey for secondary text */
+  --lv-champagne: #F5F1EB;    /* Luxury champagne background */
+  --lv-gold-accent: #D4B896;  /* Elegant gold accent */
+  --lv-warm-white: #FEFEFE;   /* Warm white for backgrounds */
+  
+  /* Mobile-specific luxury spacing */
+  --lv-mobile-xs: 8px;
+  --lv-mobile-sm: 16px;
+  --lv-mobile-md: 24px;
+  --lv-mobile-lg: 32px;
+  --lv-mobile-xl: 48px;
+  --lv-mobile-2xl: 64px;
+  
+  /* Luxury typography scale for mobile */
+  --lv-text-xs: 0.75rem;     /* 12px - captions */
+  --lv-text-sm: 0.875rem;    /* 14px - small text */
+  --lv-text-base: 1rem;      /* 16px - body text */
+  --lv-text-lg: 1.125rem;    /* 18px - emphasis */
+  --lv-text-xl: 1.25rem;     /* 20px - subheadings */
+  --lv-text-2xl: 1.5rem;     /* 24px - headings */
+  --lv-text-3xl: 1.875rem;   /* 30px - large headings */
+  --lv-text-4xl: 2.25rem;    /* 36px - hero text */
+  --lv-text-5xl: 3rem;       /* 48px - main titles */
+}
+
+/* ===== MOBILE TYPOGRAPHY REFINEMENT ===== */
+@media (max-width: 767px) {
+  /* Louis Vuitton font family override for mobile elegance */
+  body {
+    font-family: 'Helvetica Neue', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif !important;
+    font-weight: 300 !important;
+    line-height: 1.6 !important;
+    color: var(--lv-black) !important;
+    letter-spacing: 0.01em !important;
+    background-color: var(--lv-warm-white) !important;
+  }
+  
+  /* Hero typography - Louis Vuitton elegance */
+  .hero-title,
+  .title-main {
+    font-size: var(--lv-text-4xl) !important;
+    font-weight: 200 !important;
+    line-height: 1.2 !important;
+    letter-spacing: 0.02em !important;
+    color: var(--lv-white) !important;
+    margin-bottom: var(--lv-mobile-md) !important;
+    text-align: center !important;
+  }
+  
+  .hero-subtitle,
+  .title-accent {
+    font-size: var(--lv-text-xl) !important;
+    font-weight: 300 !important;
+    line-height: 1.4 !important;
+    color: var(--lv-champagne) !important;
+    margin-bottom: var(--lv-mobile-lg) !important;
+    opacity: 0.9 !important;
+  }
+  
+  /* Section titles - luxury refinement */
+  .section-title,
+  h2 {
+    font-size: var(--lv-text-3xl) !important;
+    font-weight: 200 !important;
+    line-height: 1.3 !important;
+    color: var(--lv-black) !important;
+    margin-bottom: var(--lv-mobile-xl) !important;
+    text-align: center !important;
+    letter-spacing: 0.05em !important;
+    text-transform: uppercase !important;
+  }
+  
+  /* Body text optimization */
+  p, .description, .about-description {
+    font-size: var(--lv-text-base) !important;
+    line-height: 1.7 !important;
+    color: var(--lv-grey) !important;
+    margin-bottom: var(--lv-mobile-md) !important;
+    max-width: 100% !important;
+    text-align: center !important;
+  }
+  
+  /* Navigation text */
+  .nav-link-mobile {
+    font-size: var(--lv-text-lg) !important;
+    font-weight: 300 !important;
+    letter-spacing: 0.02em !important;
+    color: var(--lv-black) !important;
+  }
+}
+
+/* ===== LOUIS VUITTON MOBILE SPACING SYSTEM ===== */
+@media (max-width: 767px) {
+  /* Container refinement for luxury feel */
+  .container {
+    padding: 0 var(--lv-mobile-md) !important;
+    max-width: 100% !important;
+    margin: 0 auto !important;
+  }
+  
+  /* Section spacing harmony */
+  section {
+    padding: var(--lv-mobile-2xl) var(--lv-mobile-md) !important;
+    margin-bottom: 0 !important;
+  }
+  
+  .hero {
+    padding: var(--lv-mobile-2xl) var(--lv-mobile-md) var(--lv-mobile-xl) !important;
+    min-height: 100vh !important;
+  }
+  
+  /* Card and component spacing */
+  .feature,
+  .service-card,
+  .portfolio-item {
+    padding: var(--lv-mobile-lg) !important;
+    margin-bottom: var(--lv-mobile-lg) !important;
+    border-radius: 8px !important;
+    background: var(--lv-warm-white) !important;
+    border: 1px solid rgba(118, 118, 118, 0.1) !important;
+  }
+}
+
+/* ===== ENHANCED MOBILE TOUCH TARGETS (LOUIS VUITTON STYLE) ===== */
+@media (max-width: 767px) {
+  /* Primary CTA buttons - luxury feel */
+  .btn,
+  .mobile-cta-btn,
+  button[type="submit"] {
+    min-height: 56px !important;
+    padding: var(--lv-mobile-md) var(--lv-mobile-lg) !important;
+    font-size: var(--lv-text-base) !important;
+    font-weight: 400 !important;
+    letter-spacing: 0.02em !important;
+    border-radius: 2px !important;
+    background: var(--lv-black) !important;
+    color: var(--lv-white) !important;
+    border: 1px solid var(--lv-black) !important;
+    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94) !important;
+    text-transform: uppercase !important;
+    width: 100% !important;
+    max-width: 320px !important;
+    margin: var(--lv-mobile-md) auto !important;
+    display: block !important;
+    text-align: center !important;
+    touch-action: manipulation !important;
+  }
+  
+  .btn:hover,
+  .btn:active {
+    background: var(--lv-gold-accent) !important;
+    color: var(--lv-black) !important;
+    border-color: var(--lv-gold-accent) !important;
+    transform: translateY(-2px) !important;
+    box-shadow: 0 8px 25px rgba(212, 184, 150, 0.3) !important;
+  }
+  
+  /* Navigation touch targets */
+  .nav-link-mobile {
+    min-height: 60px !important;
+    padding: var(--lv-mobile-md) var(--lv-mobile-lg) !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    border-bottom: 1px solid rgba(118, 118, 118, 0.1) !important;
+    touch-action: manipulation !important;
+  }
+  
+  /* Menu button optimization */
+  .mobile-menu-btn {
+    width: 48px !important;
+    height: 48px !important;
+    border-radius: 4px !important;
+    background: transparent !important;
+    border: 1px solid rgba(25, 17, 11, 0.1) !important;
+    touch-action: manipulation !important;
+  }
+}
+
+/* ===== MOBILE NAVIGATION UX ENHANCEMENT ===== */
+@media (max-width: 767px) {
+  /* Header optimization */
+  .header {
+    background: rgba(254, 254, 254, 0.98) !important;
+    backdrop-filter: blur(20px) !important;
+    -webkit-backdrop-filter: blur(20px) !important;
+    border-bottom: 1px solid rgba(118, 118, 118, 0.1) !important;
+    padding: var(--lv-mobile-sm) 0 !important;
+  }
+  
+  /* Mobile menu overlay */
+  .nav-mobile {
+    background: linear-gradient(180deg, 
+      rgba(254, 254, 254, 0.98) 0%, 
+      rgba(245, 241, 235, 0.98) 100%) !important;
+    backdrop-filter: blur(20px) !important;
+    -webkit-backdrop-filter: blur(20px) !important;
+  }
+  
+  .nav-mobile-content {
+    padding: var(--lv-mobile-2xl) var(--lv-mobile-lg) !important;
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 0 !important;
+    max-width: 400px !important;
+    margin: 0 auto !important;
+  }
+  
+  /* Contact section in mobile menu */
+  .mobile-contact {
+    padding: var(--lv-mobile-xl) var(--lv-mobile-lg) var(--lv-mobile-lg) !important;
+    background: rgba(245, 241, 235, 0.5) !important;
+    border-radius: 8px !important;
+    margin-top: var(--lv-mobile-lg) !important;
+    border: 1px solid rgba(118, 118, 118, 0.1) !important;
+  }
+}
+
+/* ===== VISUAL HIERARCHY ENHANCEMENT ===== */
+@media (max-width: 767px) {
+  /* Grid improvements */
+  .features-grid,
+  .services-grid,
+  .portfolio-grid {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    gap: var(--lv-mobile-lg) !important;
+    padding: 0 !important;
+    margin: var(--lv-mobile-xl) auto !important;
+    max-width: 400px !important;
+  }
+  
+  /* Form improvements */
+  .form-group {
+    margin-bottom: var(--lv-mobile-md) !important;
+  }
+  
+  .form-group input,
+  .form-group textarea {
+    min-height: 56px !important;
+    padding: var(--lv-mobile-md) !important;
+    font-size: var(--lv-text-base) !important;
+    border: 1px solid rgba(118, 118, 118, 0.2) !important;
+    border-radius: 4px !important;
+    background: var(--lv-warm-white) !important;
+    color: var(--lv-black) !important;
+    width: 100% !important;
+  }
+  
+  .form-group label {
+    font-size: var(--lv-text-sm) !important;
+    color: var(--lv-grey) !important;
+    margin-bottom: var(--lv-mobile-xs) !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.05em !important;
+  }
+}
+
+/* ===== PERFORMANCE OPTIMIZATIONS FOR MOBILE ===== */
+@media (max-width: 767px) {
+  /* Hardware acceleration for smooth animations */
+  .hero,
+  .nav-mobile,
+  .btn,
+  .mobile-menu-btn {
+    transform: translateZ(0) !important;
+    -webkit-transform: translateZ(0) !important;
+    will-change: transform !important;
+  }
+  
+  /* Disable problematic animations on older devices */
+  @media (max-width: 480px) {
+    * {
+      animation-duration: 0.3s !important;
+      transition-duration: 0.3s !important;
+    }
+  }
+  
+  /* Improve touch responsiveness */
+  a, button, [role="button"], [tabindex] {
+    touch-action: manipulation !important;
+    -webkit-tap-highlight-color: rgba(212, 184, 150, 0.2) !important;
+  }
+}
+
+/* ===== ACCESSIBILITY & CONTRAST IMPROVEMENTS ===== */
+@media (max-width: 767px) {
+  /* Focus states for better accessibility */
+  .btn:focus,
+  .nav-link-mobile:focus,
+  .mobile-menu-btn:focus {
+    outline: 2px solid var(--lv-gold-accent) !important;
+    outline-offset: 2px !important;
+    box-shadow: 0 0 0 4px rgba(212, 184, 150, 0.2) !important;
+  }
+  
+  /* High contrast mode support */
+  @media (prefers-contrast: high) {
+    .hero-title, .section-title {
+      color: var(--lv-black) !important;
+      text-shadow: none !important;
+    }
+    
+    .hero {
+      background: var(--lv-white) !important;
+    }
+  }
+  
+  /* Reduced motion support */
+  @media (prefers-reduced-motion: reduce) {
+    * {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
 }
