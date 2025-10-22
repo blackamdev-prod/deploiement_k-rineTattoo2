@@ -11100,3 +11100,176 @@ button.mobile-menu-btn.active::after,
     }
   }
 }
+
+/* ===== CORRECTION CENTRAGE SECTION ABOUT PETITS ÉCRANS ===== */
+@media (max-width: 767px) {
+  /* Force le centrage parfait de la section about */
+  .about {
+    text-align: center !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    padding: var(--lv-mobile-2xl) var(--lv-mobile-md) !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 auto !important;
+    box-sizing: border-box !important;
+  }
+  
+  /* Container about centré */
+  .about .container {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    text-align: center !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 auto !important;
+    padding: 0 var(--lv-mobile-md) !important;
+  }
+  
+  /* Contenu about parfaitement centré */
+  .about-content {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    text-align: center !important;
+    width: 100% !important;
+    max-width: 400px !important;
+    margin: 0 auto !important;
+    padding: 0 !important;
+    gap: var(--lv-mobile-lg) !important;
+  }
+  
+  /* Header section about centré */
+  .about .section-header {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    text-align: center !important;
+    width: 100% !important;
+    margin: 0 auto var(--lv-mobile-xl) auto !important;
+    padding: 0 !important;
+  }
+  
+  /* Titre section about centré */
+  .about .section-title {
+    text-align: center !important;
+    width: 100% !important;
+    margin: 0 auto var(--lv-mobile-lg) auto !important;
+    padding: 0 var(--lv-mobile-sm) !important;
+    display: block !important;
+  }
+  
+  /* Description about centrée */
+  .about-description {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    text-align: center !important;
+    width: 100% !important;
+    max-width: 350px !important;
+    margin: 0 auto !important;
+    padding: 0 var(--lv-mobile-sm) !important;
+    gap: var(--lv-mobile-md) !important;
+  }
+  
+  /* Paragraphes about centrés */
+  .about-description p {
+    text-align: center !important;
+    width: 100% !important;
+    margin: 0 auto var(--lv-mobile-sm) auto !important;
+    padding: 0 !important;
+    line-height: 1.6 !important;
+    font-size: var(--lv-text-base) !important;
+    color: var(--lv-grey) !important;
+  }
+  
+  /* Premier paragraphe about centré */
+  .about-description p:first-child {
+    font-size: var(--lv-text-lg) !important;
+    color: var(--lv-black) !important;
+    font-weight: 400 !important;
+    margin-bottom: var(--lv-mobile-md) !important;
+  }
+  
+  /* Profile card centrée */
+  .profile-card {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    text-align: center !important;
+    width: 100% !important;
+    max-width: 350px !important;
+    margin: var(--lv-mobile-lg) auto 0 auto !important;
+    padding: var(--lv-mobile-lg) !important;
+    border-radius: 8px !important;
+    background: var(--lv-warm-white) !important;
+    border: 1px solid rgba(118, 118, 118, 0.1) !important;
+  }
+  
+  /* Supprimer tous les éléments décoratifs qui peuvent décaler */
+  .about::before,
+  .about::after,
+  .about .section-header::before,
+  .about .section-header::after,
+  .about-description::before,
+  .about-description::after,
+  .about-description p::before,
+  .about-description p::after {
+    display: none !important;
+    content: none !important;
+  }
+  
+  /* Force le centrage sur tous les enfants about */
+  .about * {
+    box-sizing: border-box !important;
+    text-align: center !important;
+  }
+  
+  /* Grilles et listes about centrées */
+  .about .features-grid,
+  .about .about-grid,
+  .about ul,
+  .about ol {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    text-align: center !important;
+    width: 100% !important;
+    max-width: 350px !important;
+    margin: 0 auto !important;
+    padding: 0 !important;
+    gap: var(--lv-mobile-md) !important;
+  }
+}
+
+/* Correction spécifique pour très petits écrans */
+@media (max-width: 480px) {
+  .about {
+    padding: var(--lv-mobile-xl) var(--lv-mobile-sm) !important;
+  }
+  
+  .about-content {
+    max-width: 100% !important;
+    padding: 0 var(--lv-mobile-xs) !important;
+  }
+  
+  .about-description {
+    max-width: 100% !important;
+    padding: 0 var(--lv-mobile-xs) !important;
+  }
+  
+  .profile-card {
+    max-width: 100% !important;
+    margin-left: var(--lv-mobile-xs) !important;
+    margin-right: var(--lv-mobile-xs) !important;
+  }
+}
