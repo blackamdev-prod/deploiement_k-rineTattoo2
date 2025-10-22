@@ -3433,9 +3433,74 @@ ul, ol {
   .about .section-header::before,
   .about .section-header::after,
   .about-description::before,
-  .about-description::after {
+  .about-description::after,
+  .about-description p::before,
+  .about-description p::after {
     display: none !important;
     content: none !important;
+  }
+  
+  /* Section header about parfaitement centrée */
+  .about .section-header {
+    text-align: center !important;
+    width: 100% !important;
+    margin: 0 auto var(--spacing-2xl) auto !important;
+    padding: 0 !important;
+    position: relative !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+  }
+  
+  /* Description about centrée sans lignes */
+  .about-description {
+    max-width: 90% !important;
+    margin: 0 auto !important;
+    text-align: center !important;
+    padding: var(--spacing-lg) !important;
+    background: none !important;
+    border: none !important;
+    position: relative !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    gap: var(--spacing-lg) !important;
+  }
+  
+  /* Paragraphes about centrés */
+  .about-description p {
+    text-align: center !important;
+    max-width: 100% !important;
+    margin: 0 auto var(--spacing-md) auto !important;
+    padding: 0 !important;
+    line-height: 1.7 !important;
+    font-size: 1.1rem !important;
+    color: var(--noir-profond) !important;
+    position: relative !important;
+  }
+  
+  /* Éléments additionnels about centrés */
+  .about .container,
+  .about-content,
+  .about-text,
+  .about-image,
+  .about-grid {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 auto !important;
+    text-align: center !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    padding-left: var(--spacing-md) !important;
+    padding-right: var(--spacing-md) !important;
+  }
+  
+  /* Suppression des marges latérales pour éviter débordement */
+  .about * {
+    box-sizing: border-box !important;
   }
   
   .profile-card {
