@@ -3445,6 +3445,253 @@ ul, ol {
   }
 }
 
+/* ===== CORRECTION CRITIQUE HERO MOBILE - FORCE VISIBILITY ===== */
+@media (max-width: 767px) {
+  /* Force absolue de visibilité hero sur tous mobiles */
+  #home.hero,
+  .hero,
+  section.hero {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    position: relative !important;
+    z-index: 1 !important;
+    
+    /* Dimensions forcées */
+    width: 100vw !important;
+    min-height: 100vh !important;
+    height: auto !important;
+    
+    /* Background forcé visible */
+    background: #1a1a1a !important;
+    background-image: linear-gradient(135deg, 
+      rgba(10, 10, 10, 0.98) 0%, 
+      rgba(20, 20, 20, 0.95) 50%,
+      rgba(15, 15, 15, 0.97) 100%) !important;
+    
+    /* Padding mobile adapté */
+    padding: 5rem var(--spacing-md) var(--spacing-2xl) var(--spacing-md) !important;
+    margin: 0 !important;
+    
+    /* Layout forcé */
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    flex-direction: column !important;
+    
+    /* Anti-bugs Android */
+    transform: translateZ(0) !important;
+    -webkit-transform: translateZ(0) !important;
+    will-change: transform !important;
+    backface-visibility: hidden !important;
+    -webkit-backface-visibility: hidden !important;
+  }
+  
+  /* Container hero forcé visible */
+  .hero .container,
+  .hero-content,
+  #home .container,
+  #home .hero-content {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    text-align: center !important;
+    
+    width: 100% !important;
+    max-width: 100% !important;
+    height: auto !important;
+    min-height: 60vh !important;
+    
+    padding: var(--spacing-2xl) var(--spacing-md) !important;
+    margin: 0 auto !important;
+    
+    /* Force visibility */
+    opacity: 1 !important;
+    visibility: visible !important;
+    position: relative !important;
+    z-index: 10 !important;
+    
+    /* Colors forcées */
+    color: white !important;
+    
+    /* Anti-bugs */
+    transform: translateZ(0) !important;
+    -webkit-transform: translateZ(0) !important;
+  }
+  
+  /* Hero text forcé visible */
+  .hero-text,
+  .hero .hero-text,
+  #home .hero-text {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    text-align: center !important;
+    
+    width: 100% !important;
+    padding: 0 !important;
+    margin: 0 auto var(--spacing-xl) auto !important;
+    
+    /* Force visibility */
+    opacity: 1 !important;
+    visibility: visible !important;
+    z-index: 20 !important;
+    position: relative !important;
+    
+    /* Colors */
+    color: white !important;
+  }
+  
+  /* Hero brand/title containers forcés */
+  .hero-brand,
+  .hero-title,
+  .hero .hero-brand,
+  .hero .hero-title,
+  #home .hero-brand,
+  #home .hero-title {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    text-align: center !important;
+    
+    width: 100% !important;
+    margin: 0 auto var(--spacing-xl) auto !important;
+    padding: var(--spacing-2xl) var(--spacing-lg) !important;
+    
+    /* Force visibility */
+    opacity: 1 !important;
+    visibility: visible !important;
+    z-index: 30 !important;
+    position: relative !important;
+    
+    /* Background visible */
+    background: rgba(0, 0, 0, 0.8) !important;
+    border-radius: 20px !important;
+    backdrop-filter: blur(15px) !important;
+    -webkit-backdrop-filter: blur(15px) !important;
+    border: 2px solid rgba(255, 255, 255, 0.1) !important;
+    
+    /* Anti-bugs */
+    transform: translateZ(0) !important;
+    -webkit-transform: translateZ(0) !important;
+  }
+  
+  /* Titres forcés visibles */
+  .title-main,
+  .title-accent,
+  .hero .title-main,
+  .hero .title-accent,
+  #home .title-main,
+  #home .title-accent,
+  h1.title-main,
+  h1.title-accent {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    position: relative !important;
+    z-index: 40 !important;
+    
+    /* Typography forcée */
+    font-size: 3rem !important;
+    line-height: 1.1 !important;
+    font-weight: 700 !important;
+    text-transform: uppercase !important;
+    letter-spacing: 2px !important;
+    
+    /* Colors forcées */
+    color: #FFFFFF !important;
+    text-shadow: 4px 4px 8px rgba(0, 0, 0, 1) !important;
+    
+    /* Spacing */
+    margin: var(--spacing-sm) 0 !important;
+    padding: 0 !important;
+    
+    /* Box model */
+    width: 100% !important;
+    text-align: center !important;
+    
+    /* Anti-bugs Android */
+    -webkit-font-smoothing: antialiased !important;
+    -moz-osx-font-smoothing: grayscale !important;
+    text-rendering: optimizeLegibility !important;
+    transform: translateZ(0) !important;
+    -webkit-transform: translateZ(0) !important;
+    will-change: transform !important;
+    backface-visibility: hidden !important;
+    -webkit-backface-visibility: hidden !important;
+  }
+  
+  /* Titre accent spécifique */
+  .title-accent,
+  .hero .title-accent,
+  #home .title-accent,
+  h1.title-accent {
+    color: var(--beige-sable) !important;
+    font-size: 2.8rem !important;
+  }
+  
+  /* Description hero forcée */
+  .hero-description,
+  .hero .hero-description,
+  #home .hero-description {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    position: relative !important;
+    z-index: 20 !important;
+    
+    /* Typography */
+    font-size: 1.2rem !important;
+    line-height: 1.7 !important;
+    
+    /* Colors */
+    color: var(--tattoo-champagne) !important;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8) !important;
+    
+    /* Spacing */
+    margin: var(--spacing-xl) auto !important;
+    padding: 0 var(--spacing-lg) !important;
+    
+    /* Layout */
+    width: 100% !important;
+    max-width: 100% !important;
+    text-align: center !important;
+  }
+  
+  /* Boutons hero forcés */
+  .hero-buttons,
+  .hero .hero-buttons,
+  #home .hero-buttons {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: var(--spacing-lg) !important;
+    
+    width: 100% !important;
+    margin: var(--spacing-2xl) auto 0 auto !important;
+    padding: 0 !important;
+    
+    /* Force visibility */
+    opacity: 1 !important;
+    visibility: visible !important;
+    z-index: 20 !important;
+    position: relative !important;
+  }
+  
+  /* Désactiver overlay si présent */
+  .hero-overlay,
+  .hero .hero-overlay,
+  #home .hero-overlay {
+    display: none !important;
+    opacity: 0 !important;
+    visibility: hidden !important;
+  }
+}
+
 /* ===== ANDROID PORTRAIT MODE - HARMONISATION COMPLETE DES SECTIONS ===== */
 @media (max-width: 767px) and (orientation: portrait) {
   
