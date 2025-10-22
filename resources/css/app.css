@@ -11283,7 +11283,7 @@ button.mobile-menu-btn.active::after,
     width: 100% !important;
     max-width: 350px !important;
     margin: 0 auto !important;
-    padding: 0 var(--lv-mobile-sm) !important;
+    padding: 0 var(--lv-mobile-xs) !important; /* Réduit de 16px à 8px */
     gap: var(--lv-mobile-md) !important;
   }
   
@@ -11707,6 +11707,7 @@ button.mobile-menu-btn.active::after,
     width: 100% !important;
     max-width: 400px !important;
     margin: 0 auto !important;
+    padding: 0 var(--lv-mobile-xs) !important; /* Réduit l'espace latéral de 16px à 8px */
     display: flex !important;
     flex-direction: column !important;
     gap: var(--lv-mobile-lg) !important;
