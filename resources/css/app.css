@@ -3306,13 +3306,20 @@ ul, ol {
 /* ===== ANDROID SECTIONS HARMONIZATION - STRUCTURE COMPLETE ===== */
 @media (max-width: 767px) {
   
-  /* ===== SECTION ABOUT - HARMONISATION ANDROID ===== */
+  /* ===== SECTION ABOUT - MOBILE CENTRAGE PARFAIT ===== */
   .about {
     padding: var(--spacing-3xl) var(--spacing-md) !important;
     background: linear-gradient(135deg, 
       rgba(254, 252, 250, 0.02) 0%, 
       rgba(254, 252, 250, 0.05) 50%, 
       rgba(254, 252, 250, 0.02) 100%) !important;
+    
+    /* Centrage parfait sur mobile */
+    text-align: center !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
     
     /* Performance Android */
     transform: translateZ(0) !important;
@@ -3324,6 +3331,12 @@ ul, ol {
     max-width: 100% !important;
     gap: var(--spacing-2xl) !important;
     text-align: center !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: 100% !important;
+    margin: 0 auto !important;
   }
   
   .about .section-title {
@@ -3331,6 +3344,22 @@ ul, ol {
     margin-bottom: var(--spacing-2xl) !important;
     color: var(--noir-profond) !important;
     font-weight: 600 !important;
+    text-align: center !important;
+    width: 100% !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    display: block !important;
+  }
+  
+  /* Retirer toutes les lignes décoratives sur mobile */
+  .about::before,
+  .about::after,
+  .about .section-header::before,
+  .about .section-header::after,
+  .about-description::before,
+  .about-description::after {
+    display: none !important;
+    content: none !important;
   }
   
   .profile-card {
@@ -6452,20 +6481,23 @@ ul, ol {
   text-align: center;
 }
 
-.about .section-header::before {
-  content: '';
-  position: absolute;
-  top: 50%;
-  left: 0;
-  right: 0;
-  height: 0.5px;
-  background: linear-gradient(90deg, 
-    transparent 0%, 
-    rgba(212, 184, 150, 0.3) 20%, 
-    rgba(212, 184, 150, 0.6) 50%, 
-    rgba(212, 184, 150, 0.3) 80%, 
-    transparent 100%);
-  z-index: 1;
+/* Ligne retirée sur mobile - visible seulement sur desktop */
+@media (min-width: 768px) {
+  .about .section-header::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    height: 0.5px;
+    background: linear-gradient(90deg, 
+      transparent 0%, 
+      rgba(212, 184, 150, 0.3) 20%, 
+      rgba(212, 184, 150, 0.6) 50%, 
+      rgba(212, 184, 150, 0.3) 80%, 
+      transparent 100%);
+    z-index: 1;
+  }
 }
 
 .about .section-header .section-title {
