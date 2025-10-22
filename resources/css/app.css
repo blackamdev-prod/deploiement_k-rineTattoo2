@@ -2515,6 +2515,12 @@ ul, ol {
     align-items: center !important;
     justify-content: center !important;
     padding: var(--spacing-2xl) var(--spacing-md) !important;
+    
+    /* Force la visibilité sur Android */
+    opacity: 1 !important;
+    visibility: visible !important;
+    position: relative !important;
+    z-index: 10 !important;
   }
 }
 
@@ -2856,35 +2862,160 @@ ul, ol {
   }
 }
 
-/* Règles spécifiques pour Android landscape */
+/* Règles spécifiques pour Android landscape - CORRECTION HERO VISIBLE */
 @media (max-width: 767px) and (orientation: landscape) {
+  /* Force la visibilité et le bon positionnement du hero */
   .hero {
     min-height: 100vh !important;
-    padding-top: 5rem !important;
+    height: 100vh !important;
+    padding-top: 4rem !important;
+    padding-bottom: 0 !important;
+    
+    /* S'assurer que le hero est visible */
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    position: relative !important;
+    z-index: 1 !important;
+    
+    /* Background visible pour landscape */
+    background: linear-gradient(135deg, 
+      rgba(10, 10, 10, 0.98) 0%, 
+      rgba(20, 20, 20, 0.95) 50%,
+      rgba(15, 15, 15, 0.97) 100%) !important;
+    
+    /* Overflow pour éviter les débordements */
+    overflow: hidden !important;
   }
   
   .hero-content {
-    min-height: calc(100vh - 7rem) !important;
+    min-height: calc(100vh - 5rem) !important;
+    max-height: calc(100vh - 5rem) !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    padding: var(--spacing-md) var(--spacing-lg) !important;
+    
+    /* Layout adapté au landscape */
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    gap: var(--spacing-xl) !important;
+    
+    /* Force la visibilité */
+    position: relative !important;
+    z-index: 10 !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+  }
+  
+  /* Section texte du hero en landscape */
+  .hero-text {
+    flex: 1 !important;
+    display: flex !important;
+    flex-direction: column !important;
     justify-content: center !important;
-    padding-top: var(--spacing-lg) !important;
+    align-items: flex-start !important;
+    text-align: left !important;
+    height: 100% !important;
+    padding-right: var(--spacing-lg) !important;
   }
   
   .hero-brand,
   .hero-title {
-    margin-top: var(--spacing-lg) !important;
-    padding: var(--spacing-md) !important;
+    margin: 0 0 var(--spacing-md) 0 !important;
+    padding: var(--spacing-lg) var(--spacing-md) !important;
+    width: 100% !important;
+    
+    /* Background visible pour landscape */
+    background: linear-gradient(135deg, 
+      rgba(0, 0, 0, 0.7) 0%, 
+      rgba(0, 0, 0, 0.4) 50%, 
+      rgba(0, 0, 0, 0.7) 100%) !important;
+    border-radius: 16px !important;
+    backdrop-filter: blur(10px) !important;
+    -webkit-backdrop-filter: blur(10px) !important;
   }
   
   .title-main {
-    font-size: 3rem !important;
+    font-size: 2.5rem !important;
+    line-height: 1.1 !important;
+    margin-bottom: var(--spacing-xs) !important;
+    color: #FFFFFF !important;
+    text-shadow: 3px 3px 6px rgba(0, 0, 0, 1) !important;
   }
   
   .title-accent {
-    font-size: 2.8rem !important;
+    font-size: 2.2rem !important;
+    line-height: 1.1 !important;
+    color: var(--beige-sable) !important;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8) !important;
   }
   
+  .hero-description {
+    font-size: 1rem !important;
+    line-height: 1.6 !important;
+    margin: var(--spacing-lg) 0 !important;
+    padding: 0 !important;
+    color: var(--tattoo-champagne) !important;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7) !important;
+  }
+  
+  .hero-buttons {
+    display: flex !important;
+    flex-direction: row !important;
+    gap: var(--spacing-md) !important;
+    margin-top: var(--spacing-lg) !important;
+    justify-content: flex-start !important;
+    width: 100% !important;
+  }
+  
+  /* Section image du hero en landscape */
+  .hero-image {
+    flex: 1 !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    height: 100% !important;
+    max-height: calc(100vh - 6rem) !important;
+    padding-left: var(--spacing-lg) !important;
+  }
+  
+  .image-container {
+    width: 100% !important;
+    max-width: 100% !important;
+    height: auto !important;
+    max-height: calc(100vh - 8rem) !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+  }
+  
+  .featured-img {
+    width: 100% !important;
+    max-width: 100% !important;
+    height: auto !important;
+    max-height: calc(100vh - 8rem) !important;
+    object-fit: contain !important;
+    border-radius: 12px !important;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3) !important;
+  }
+  
+  /* Autres sections en landscape */
   section:not(.hero) {
     padding: var(--spacing-xl) var(--spacing-md) !important;
+    margin-top: 0 !important;
+  }
+  
+  /* Header landscape optimisé */
+  .header {
+    height: 4rem !important;
+    z-index: 1000 !important;
+  }
+  
+  .header-content {
+    height: 4rem !important;
+    padding: 0 var(--spacing-lg) !important;
   }
 }
 
