@@ -128,6 +128,8 @@ body {
   overflow-x: hidden;
   font-weight: 300;
   letter-spacing: 0.01em;
+  min-width: 320px; /* Largeur minimum pour éviter les bugs sur très petits écrans */
+  max-width: 100vw; /* Évite le débordement horizontal */
 }
 
 img {
@@ -10778,6 +10780,58 @@ button.mobile-menu-btn.active::after,
 /* ===== LOUIS VUITTON-INSPIRED MOBILE DESIGN SYSTEM ===== */
 /* Modern luxury mobile experience with refined typography and spacing */
 
+/* ===== MOBILE RESPONSIVE FIXES & RESET ===== */
+@media (max-width: 767px) {
+  /* Reset global pour éviter les conflits */
+  * {
+    box-sizing: border-box !important;
+    max-width: 100% !important;
+  }
+  
+  /* Body mobile optimisé */
+  body {
+    overflow-x: hidden !important;
+    width: 100% !important;
+    max-width: 100vw !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+  
+  /* HTML mobile optimisé */
+  html {
+    overflow-x: hidden !important;
+    width: 100% !important;
+    max-width: 100vw !important;
+  }
+  
+  /* Containers globaux */
+  .container {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 auto !important;
+    padding: 0 var(--lv-mobile-md) !important;
+    box-sizing: border-box !important;
+  }
+  
+  /* Images responsives */
+  img {
+    max-width: 100% !important;
+    height: auto !important;
+    width: auto !important;
+    display: block !important;
+  }
+  
+  /* Suppression des débordements */
+  section, 
+  div, 
+  article, 
+  main {
+    max-width: 100% !important;
+    overflow-x: hidden !important;
+    box-sizing: border-box !important;
+  }
+}
+
 /* ===== LV COLOR PALETTE FOR MOBILE ===== */
 :root {
   /* Louis Vuitton-inspired color system */
@@ -11044,16 +11098,29 @@ button.mobile-menu-btn.active::after,
 
 /* ===== VISUAL HIERARCHY ENHANCEMENT ===== */
 @media (max-width: 767px) {
-  /* Grid improvements */
+  /* Grid improvements - correction des débordements */
   .features-grid,
   .services-grid,
   .portfolio-grid {
     display: grid !important;
     grid-template-columns: 1fr !important;
     gap: var(--lv-mobile-lg) !important;
-    padding: 0 !important;
+    padding: 0 var(--lv-mobile-sm) !important;
     margin: var(--lv-mobile-xl) auto !important;
-    max-width: 400px !important;
+    width: 100% !important;
+    max-width: calc(100vw - var(--lv-mobile-md) * 2) !important;
+    box-sizing: border-box !important;
+    overflow: visible !important;
+  }
+  
+  /* Items de grille optimisés */
+  .features-grid > *,
+  .services-grid > *,
+  .portfolio-grid > * {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 auto !important;
+    box-sizing: border-box !important;
   }
   
   /* Form improvements */
@@ -11312,5 +11379,124 @@ button.mobile-menu-btn.active::after,
     max-width: 100% !important;
     margin-left: var(--lv-mobile-xs) !important;
     margin-right: var(--lv-mobile-xs) !important;
+  }
+}
+
+/* ===== CORRECTIONS DÉBORDEMENTS SECTIONS MOBILES ===== */
+@media (max-width: 767px) {
+  /* Hero section fixes */
+  .hero {
+    width: 100vw !important;
+    max-width: 100vw !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    padding-left: var(--lv-mobile-md) !important;
+    padding-right: var(--lv-mobile-md) !important;
+    overflow-x: hidden !important;
+    box-sizing: border-box !important;
+  }
+  
+  .hero-content {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 auto !important;
+    padding: 0 !important;
+    box-sizing: border-box !important;
+  }
+  
+  /* About section fixes */
+  .about {
+    width: 100vw !important;
+    max-width: 100vw !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    overflow-x: hidden !important;
+    box-sizing: border-box !important;
+  }
+  
+  /* Services section fixes */
+  .services {
+    width: 100vw !important;
+    max-width: 100vw !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    overflow-x: hidden !important;
+    box-sizing: border-box !important;
+  }
+  
+  /* Portfolio section fixes */
+  .portfolio {
+    width: 100vw !important;
+    max-width: 100vw !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    overflow-x: hidden !important;
+    box-sizing: border-box !important;
+  }
+  
+  /* Contact section fixes */
+  .contact {
+    width: 100vw !important;
+    max-width: 100vw !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    overflow-x: hidden !important;
+    box-sizing: border-box !important;
+  }
+  
+  /* Main content container */
+  .main-content {
+    width: 100vw !important;
+    max-width: 100vw !important;
+    overflow-x: hidden !important;
+    margin: 0 !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    box-sizing: border-box !important;
+  }
+}
+
+/* ===== CORRECTIONS VIEWPORT SPÉCIFIQUES ===== */
+@media (max-width: 480px) {
+  /* Très petits écrans - corrections supplémentaires */
+  .hero,
+  .about,
+  .services,
+  .portfolio,
+  .contact {
+    padding-left: var(--lv-mobile-sm) !important;
+    padding-right: var(--lv-mobile-sm) !important;
+  }
+  
+  .container {
+    padding: 0 var(--lv-mobile-sm) !important;
+  }
+  
+  /* Grilles très petits écrans */
+  .features-grid,
+  .services-grid,
+  .portfolio-grid {
+    padding: 0 var(--lv-mobile-xs) !important;
+    gap: var(--lv-mobile-md) !important;
+  }
+}
+
+/* ===== CORRECTIONS LANDSCAPE MOBILE ===== */
+@media (max-width: 767px) and (orientation: landscape) {
+  /* Mode paysage mobile */
+  .hero {
+    min-height: 100vh !important;
+    max-height: none !important;
+  }
+  
+  .hero-content {
+    padding-top: calc(56px + var(--lv-mobile-sm)) !important;
+    padding-bottom: var(--lv-mobile-sm) !important;
+  }
+  
+  /* Réduction des espacements en landscape */
+  section {
+    padding-top: var(--lv-mobile-lg) !important;
+    padding-bottom: var(--lv-mobile-lg) !important;
   }
 }
