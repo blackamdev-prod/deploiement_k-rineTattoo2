@@ -10890,8 +10890,13 @@ button.mobile-menu-btn.active::after,
   }
   
   .hero {
-    padding: var(--lv-mobile-2xl) var(--lv-mobile-md) var(--lv-mobile-xl) !important;
+    padding: calc(56px + var(--lv-mobile-md)) var(--lv-mobile-md) var(--lv-mobile-xl) !important; /* Ajusté pour header 56px */
     min-height: 100vh !important;
+  }
+  
+  /* Main content ajusté pour header réduit */
+  .main-content {
+    padding-top: 56px !important; /* Correspond à la hauteur du header */
   }
   
   /* Card and component spacing */
@@ -10964,13 +10969,49 @@ button.mobile-menu-btn.active::after,
 
 /* ===== MOBILE NAVIGATION UX ENHANCEMENT ===== */
 @media (max-width: 767px) {
-  /* Header optimization */
+  /* Header optimization - hauteur réduite pour mobile */
   .header {
     background: rgba(254, 254, 254, 0.98) !important;
     backdrop-filter: blur(20px) !important;
     -webkit-backdrop-filter: blur(20px) !important;
     border-bottom: 1px solid rgba(118, 118, 118, 0.1) !important;
-    padding: var(--lv-mobile-sm) 0 !important;
+    padding: var(--lv-mobile-xs) 0 !important; /* Réduit de 16px à 8px */
+    height: 56px !important; /* Hauteur fixe optimisée mobile */
+    min-height: 56px !important;
+  }
+  
+  /* Header content ajusté pour la nouvelle hauteur */
+  .header-content {
+    height: 56px !important;
+    padding: 0 var(--lv-mobile-md) !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+  }
+  
+  /* Logo optimisé pour header réduit */
+  .mobile-logo,
+  .logo-img {
+    height: 28px !important; /* Réduit pour s'adapter au header 56px */
+    width: auto !important;
+    max-height: 28px !important;
+  }
+  
+  /* Bouton menu ajusté */
+  .mobile-menu-btn {
+    width: 40px !important; /* Légèrement réduit de 48px à 40px */
+    height: 40px !important;
+    border-radius: 4px !important;
+    background: transparent !important;
+    border: 1px solid rgba(25, 17, 11, 0.1) !important;
+    touch-action: manipulation !important;
+  }
+  
+  /* Lignes hamburger ajustées */
+  .mobile-menu-btn .hamburger-line {
+    width: 18px !important; /* Réduit de 22px à 18px */
+    height: 1.5px !important;
+    margin: 2.5px 0 !important; /* Réduit l'espacement */
   }
   
   /* Mobile menu overlay */
