@@ -3626,12 +3626,12 @@ ul, ol {
     justify-content: center !important;
   }
   
-  /* Description about alignée à gauche sur mobile */
+  /* Description about sans décalage sur mobile */
   .about-description {
     max-width: 100% !important;
     margin: 0 !important;
     text-align: left !important;
-    padding: 0 var(--spacing-md) !important;
+    padding: 0 !important; /* Suppression complète du padding */
     background: none !important;
     border: none !important;
     position: relative !important;
@@ -3641,12 +3641,12 @@ ul, ol {
     gap: var(--spacing-lg) !important;
   }
   
-  /* Paragraphes about alignés à gauche sur mobile */
+  /* Paragraphes about parfaitement alignés sans décalage */
   .about-description p {
     text-align: left !important;
     max-width: 100% !important;
     margin: 0 0 var(--spacing-md) 0 !important;
-    padding: 0 !important;
+    padding: 0 var(--spacing-xs) !important; /* Padding minimal pour lisibilité */
     line-height: 1.7 !important;
     font-size: 1.1rem !important;
     color: var(--noir-profond) !important;
@@ -11719,12 +11719,12 @@ button.mobile-menu-btn.active::after,
     display: none !important;
   }
   
-  /* ===== ABOUT DESCRIPTION ALIGNÉE À GAUCHE ===== */
+  /* ===== ABOUT DESCRIPTION PARFAITEMENT ALIGNÉE ===== */
   .about-description {
     width: 100% !important;
     max-width: 100% !important;
     margin: 0 !important;
-    padding: 0 var(--lv-mobile-sm) !important; /* Padding minimal à gauche */
+    padding: 0 !important; /* Aucun padding pour éliminer tout décalage */
     display: flex !important;
     flex-direction: column !important;
     gap: var(--lv-mobile-lg) !important;
