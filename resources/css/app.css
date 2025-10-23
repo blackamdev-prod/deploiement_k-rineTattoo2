@@ -3609,7 +3609,7 @@ ul, ol {
     display: block;
   }
   
-  /* Suppression TOTALE lignes décoratives mobile - FORCE */
+  /* SUPPRESSION TOTALE - TOUS éléments décoratifs mobile */
   .about::before,
   .about::after,
   .about .section-header::before,
@@ -3619,7 +3619,29 @@ ul, ol {
   .about-description p::before,
   .about-description p::after,
   .about .title-underline,
-  .section-header .title-underline {
+  .section-header .title-underline,
+  .feature::before,
+  .feature::after,
+  .feature-title::before,
+  .feature-title::after,
+  .profile-card::before,
+  .profile-card::after,
+  .profile-logo::before,
+  .profile-logo::after,
+  .profile-name::before,
+  .profile-name::after,
+  .profile-title::before,
+  .profile-title::after,
+  .profile-credentials::before,
+  .profile-credentials::after,
+  .profile-credentials p::before,
+  .profile-credentials p::after,
+  .profile-quote::before,
+  .profile-quote::after,
+  .profile-quote blockquote::before,
+  .profile-quote blockquote::after,
+  .quote-signature::before,
+  .quote-signature::after {
     display: none !important;
     content: none !important;
     visibility: hidden !important;
@@ -3628,6 +3650,55 @@ ul, ol {
     height: 0 !important;
     border: none !important;
     background: none !important;
+    box-shadow: none !important;
+    border-radius: 0 !important;
+    transform: none !important;
+  }
+  
+  /* Suppression backgrounds décoratifs mobile */
+  .about,
+  .feature,
+  .profile-card {
+    background: var(--lv-warm-white) !important;
+    box-shadow: none !important;
+    border: none !important;
+    backdrop-filter: none !important;
+  }
+  
+  /* Suppression effets hover mobile */
+  .about .feature:hover,
+  .about .profile-card:hover,
+  .about .highlight-word:hover {
+    transform: none !important;
+    box-shadow: none !important;
+    background: inherit !important;
+  }
+  
+  /* Override FORCER - tous pseudo-éléments desktop neutralisés mobile */
+  .about::before,
+  .about::after {
+    content: none !important;
+    display: none !important;
+    position: static !important;
+    width: 0 !important;
+    height: 0 !important;
+    background: none !important;
+  }
+  
+  /* SÉCURITÉ MAXIMALE - suppression totale pseudo-éléments */
+  .about *::before,
+  .about *::after {
+    content: none !important;
+    display: none !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
+    width: 0 !important;
+    height: 0 !important;
+    position: static !important;
+    background: none !important;
+    border: none !important;
+    box-shadow: none !important;
+    transform: none !important;
   }
   
   /* Section header about centrée - espacement réduit */
