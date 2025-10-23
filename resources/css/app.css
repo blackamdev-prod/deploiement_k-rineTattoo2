@@ -2303,7 +2303,7 @@ ul, ol {
     border-bottom: none !important; /* Dernière section */
   }
   
-  /* Content wrappers uniformes */
+  /* Content wrappers sans décalage mobile */
   .hero-content,
   .about-content,
   .services-content,
@@ -2311,8 +2311,8 @@ ul, ol {
   .contact-content {
     width: 100% !important;
     max-width: 100% !important;
-    margin: 0 auto !important;
-    padding: 0 !important;
+    margin: 0 !important;
+    padding: 0 var(--spacing-xs) !important; /* Padding minimal uniforme */
     text-align: center !important;
     display: flex !important;
     flex-direction: column !important;
@@ -5691,13 +5691,14 @@ ul, ol {
     justify-content: center !important;
   }
   
-  /* Contenu hero harmonieux */
+  /* Contenu hero sans décalage mobile */
   .hero-content {
     z-index: 10 !important;
     color: var(--tattoo-pearl) !important;
     width: 100% !important;
-    max-width: 320px !important;
-    padding: var(--spacing-lg) var(--spacing-sm) !important;
+    max-width: 100% !important;
+    padding: 0 var(--spacing-xs) !important; /* Padding minimal pour éviter le débordement */
+    margin: 0 !important;
     display: flex !important;
     flex-direction: column !important;
     align-items: center !important;
@@ -5706,8 +5707,7 @@ ul, ol {
     gap: var(--mobile-content-gap) !important;
     position: relative !important;
     min-height: calc(100vh - 8rem) !important;
-    margin-top: 0 !important;
-    padding-top: var(--spacing-xl) !important;
+    box-sizing: border-box !important;
   }
   
   /* Container pour les titres avec visibilité forcée */
@@ -11358,10 +11358,11 @@ button.mobile-menu-btn.active::after,
     opacity: 0 !important;
   }
   
-  /* Force le centrage sur tous les enfants about */
+  /* Force l'alignement correct pour about sans décalage */
   .about * {
     box-sizing: border-box !important;
-    text-align: center !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
   }
   
   /* Grilles et listes about centrées */
@@ -12154,8 +12155,11 @@ button.mobile-menu-btn.active::after,
   }
   
   .hero-content {
-    padding: calc(56px + var(--lv-mobile-md)) var(--lv-mobile-md) var(--lv-mobile-lg) !important;
+    padding: calc(56px + var(--lv-mobile-xs)) var(--lv-mobile-xs) var(--lv-mobile-lg) !important;
     gap: var(--lv-mobile-lg) !important;
+    margin: 0 !important;
+    width: 100% !important;
+    max-width: 100% !important;
   }
   
   .hero-text {
