@@ -2102,7 +2102,7 @@ ul, ol {
     font-size: 1.8rem !important;
     margin-bottom: var(--mobile-content-gap) !important;
     text-align: center !important;
-    padding: 0 var(--spacing-sm) !important;
+    padding: 0 var(--spacing-md) !important;
   }
   
   /* Contenu des sections avec centrage parfait */
@@ -2123,7 +2123,7 @@ ul, ol {
   
   /* Container optimisé pour mobile avec centrage parfait */
   .container {
-    padding: 0 var(--spacing-sm) !important;
+    padding: 0 var(--spacing-md) !important;
     max-width: 100% !important;
     margin: 0 auto !important;
     width: 100% !important;
@@ -2812,7 +2812,7 @@ ul, ol {
     width: 100% !important;
     max-width: 100% !important;
     margin: 0 auto !important;
-    padding: 0 var(--spacing-sm) !important;
+    padding: 0 var(--spacing-md) !important;
     position: relative !important;
     
     /* Hardware acceleration pour Android */
@@ -2867,7 +2867,7 @@ ul, ol {
   }
   
   .header-content {
-    padding: 0 var(--spacing-sm) !important;
+    padding: 0 var(--spacing-lg) !important;
     height: 4rem !important;
     display: flex !important;
     align-items: center !important;
@@ -2932,7 +2932,7 @@ ul, ol {
     width: 100% !important;
     text-align: center !important;
     margin: 0 auto var(--spacing-lg) auto !important;
-    padding: 0 var(--spacing-sm) !important;
+    padding: 0 var(--spacing-md) !important;
     
     /* Typography Android-optimized */
     -webkit-font-smoothing: antialiased !important;
@@ -3448,7 +3448,7 @@ ul, ol {
   
   .header-content {
     height: 4rem !important;
-    padding: 0 var(--spacing-sm) !important;
+    padding: 0 var(--spacing-lg) !important;
     display: flex !important;
     align-items: center !important;
     justify-content: space-between !important;
@@ -3540,77 +3540,77 @@ ul, ol {
     min-height: calc(100vh - 9rem) !important;
     padding: var(--spacing-2xl) var(--spacing-lg) 0 var(--spacing-lg) !important;
     margin: 0 auto !important;
-    max-width: 100% !important; /* Marge importante des bords */
+    max-width: calc(100% - var(--spacing-xl)) !important; /* Marge importante des bords */
   }
   
   .hero-brand,
   .hero-title {
     margin-top: var(--spacing-3xl) !important;
     padding: var(--spacing-xl) var(--spacing-md) !important;
-    max-width: 100% !important;
+    max-width: calc(100% - var(--spacing-lg)) !important;
   }
   
   .about-content {
-    padding: 0 var(--spacing-sm) !important;
+    padding: 0 var(--spacing-lg) !important;
     margin: 0 auto !important;
-    max-width: 100% !important;
+    max-width: calc(100% - var(--spacing-xl)) !important;
   }
   
   .about-description {
-    padding: 0 var(--spacing-sm) !important;
-    max-width: 100% !important;
+    padding: 0 var(--spacing-md) !important;
+    max-width: calc(100% - var(--spacing-lg)) !important;
   }
 }
 
 /* ===== ANDROID SECTIONS HARMONIZATION - STRUCTURE COMPLETE ===== */
 @media (max-width: 767px) {
   
-  /* About section mobile optimized - reduced !important usage */
+  /* ===== SECTION ABOUT - MOBILE CENTRAGE PARFAIT ===== */
   .about {
-    padding: var(--lv-mobile-xl) var(--lv-mobile-md);
+    padding: var(--spacing-3xl) var(--spacing-md) !important;
     background: linear-gradient(135deg, 
       rgba(254, 252, 250, 0.02) 0%, 
       rgba(254, 252, 250, 0.05) 50%, 
-      rgba(254, 252, 250, 0.02) 100%);
+      rgba(254, 252, 250, 0.02) 100%) !important;
     
-    /* Centrage mobile */
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+    /* Centrage parfait sur mobile */
+    text-align: center !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
     
-    /* Performance */
-    transform: translateZ(0);
-    will-change: transform;
+    /* Performance Android */
+    transform: translateZ(0) !important;
+    -webkit-transform: translateZ(0) !important;
+    will-change: transform !important;
   }
   
   .about-content {
-    max-width: 100%;
-    gap: var(--lv-mobile-xl);
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    margin: 0 auto;
-    padding: 0 var(--lv-mobile-sm);
+    max-width: 100% !important;
+    gap: var(--spacing-2xl) !important;
+    text-align: center !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: 100% !important;
+    margin: 0 auto !important;
   }
   
   .about .section-title {
-    font-size: clamp(2rem, 5vw, 2.5rem);
-    margin-bottom: var(--lv-mobile-xl);
-    color: var(--noir-profond);
-    font-weight: 600;
-    text-align: center;
-    width: 100%;
-    margin-left: auto;
-    margin-right: auto;
-    display: block;
+    font-size: 2.5rem !important;
+    margin-bottom: var(--spacing-2xl) !important;
+    color: var(--noir-profond) !important;
+    font-weight: 600 !important;
+    text-align: center !important;
+    width: 100% !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    display: block !important;
   }
   
-  /* SUPPRESSION TOTALE - TOUS éléments décoratifs mobile */
+  /* Retirer TOUTES les lignes décoratives et underlines sur mobile */
   .about::before,
   .about::after,
   .about .section-header::before,
@@ -3620,133 +3620,53 @@ ul, ol {
   .about-description p::before,
   .about-description p::after,
   .about .title-underline,
-  .section-header .title-underline,
-  .feature::before,
-  .feature::after,
-  .feature-title::before,
-  .feature-title::after,
-  .profile-card::before,
-  .profile-card::after,
-  .profile-logo::before,
-  .profile-logo::after,
-  .profile-name::before,
-  .profile-name::after,
-  .profile-title::before,
-  .profile-title::after,
-  .profile-credentials::before,
-  .profile-credentials::after,
-  .profile-credentials p::before,
-  .profile-credentials p::after,
-  .profile-quote::before,
-  .profile-quote::after,
-  .profile-quote blockquote::before,
-  .profile-quote blockquote::after,
-  .quote-signature::before,
-  .quote-signature::after {
+  .section-header .title-underline {
     display: none !important;
     content: none !important;
     visibility: hidden !important;
     opacity: 0 !important;
     width: 0 !important;
     height: 0 !important;
-    border: none !important;
-    background: none !important;
-    box-shadow: none !important;
-    border-radius: 0 !important;
-    transform: none !important;
   }
   
-  /* Suppression backgrounds décoratifs mobile */
-  .about,
-  .feature,
-  .profile-card {
-    background: var(--lv-warm-white) !important;
-    box-shadow: none !important;
-    border: none !important;
-    backdrop-filter: none !important;
-  }
-  
-  /* Suppression effets hover mobile */
-  .about .feature:hover,
-  .about .profile-card:hover,
-  .about .highlight-word:hover {
-    transform: none !important;
-    box-shadow: none !important;
-    background: inherit !important;
-  }
-  
-  /* Override FORCER - tous pseudo-éléments desktop neutralisés mobile */
-  .about::before,
-  .about::after {
-    content: none !important;
-    display: none !important;
-    position: static !important;
-    width: 0 !important;
-    height: 0 !important;
-    background: none !important;
-  }
-  
-  /* SÉCURITÉ MAXIMALE - suppression totale pseudo-éléments */
-  .about *::before,
-  .about *::after {
-    content: none !important;
-    display: none !important;
-    visibility: hidden !important;
-    opacity: 0 !important;
-    width: 0 !important;
-    height: 0 !important;
-    position: static !important;
-    background: none !important;
-    border: none !important;
-    box-shadow: none !important;
-    transform: none !important;
-  }
-  
-  /* Section header about centrée - espacement réduit */
+  /* Section header about parfaitement centrée */
   .about .section-header {
-    text-align: center;
-    width: 100%;
-    margin: 0 auto var(--lv-mobile-lg) auto; /* Réduit de xl à lg */
-    padding: 0 var(--lv-mobile-md); /* Ajout padding latéral */
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+    text-align: center !important;
+    width: 100% !important;
+    margin: 0 auto var(--spacing-2xl) auto !important;
+    padding: 0 !important;
+    position: relative !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
   }
   
-  /* Description about mobile - espacement amélioré */
+  /* Description about centrée sur mobile */
   .about-description {
-    max-width: 100%;
-    margin: 0 auto;
-    text-align: center;
-    padding: 0 var(--lv-mobile-sm);
-    background: none;
-    border: none;
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: var(--lv-mobile-lg);
+    max-width: calc(100% - var(--spacing-md)) !important; /* Marge du bord droit */
+    margin: 0 auto !important;
+    text-align: center !important; /* Centrage du texte */
+    padding: 0 var(--spacing-sm) !important; /* Padding pour éviter les bords */
+    background: none !important;
+    border: none !important;
+    position: relative !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important; /* Centrage des éléments */
+    gap: var(--spacing-lg) !important;
   }
   
-  /* Paragraphes about mobile - lisibilité améliorée */
+  /* Paragraphes about centrés sur mobile */
   .about-description p {
-    text-align: center;
-    max-width: 100%;
-    margin: 0 auto var(--lv-mobile-md) auto;
-    padding: 0;
-    line-height: 1.6;
-    font-size: 1rem;
-    color: var(--noir-profond);
-    position: relative;
-  }
-  
-  /* Premier paragraphe légèrement plus grand */
-  .about-description p:first-child {
-    font-size: 1.1rem;
-    font-weight: 400;
-    margin-bottom: var(--lv-mobile-lg);
+    text-align: center !important; /* Centrage du texte des paragraphes */
+    max-width: 100% !important;
+    margin: 0 auto var(--spacing-md) auto !important; /* Centrage avec marge auto */
+    padding: 0 var(--spacing-sm) !important; /* Padding confortable pour éviter les bords */
+    line-height: 1.7 !important;
+    font-size: 1.1rem !important;
+    color: var(--noir-profond) !important;
+    position: relative !important;
   }
   
   /* TOUS les éléments about parfaitement centrés */
@@ -3758,14 +3678,14 @@ ul, ol {
   .features-grid,
   .profile-card {
     width: 100% !important;
-    max-width: 100% !important;
-    margin: 0 auto !important;
+    max-width: calc(100% - var(--spacing-md)) !important; /* Marge des bords */
+    margin: 0 auto !important; /* Centrage automatique */
     text-align: center !important;
     display: flex !important;
     flex-direction: column !important;
     align-items: center !important;
     justify-content: center !important;
-    padding: 0 var(--lv-mobile-sm) !important;
+    padding: 0 var(--spacing-sm) !important; /* Padding uniforme */
   }
   
   /* Suppression des marges latérales pour éviter débordement */
@@ -3777,9 +3697,9 @@ ul, ol {
   .about .feature,
   .about .feature-card {
     width: 100% !important;
-    max-width: 100% !important;
+    max-width: calc(100% - var(--spacing-lg)) !important;
     margin: 0 auto var(--spacing-lg) auto !important;
-    padding: var(--spacing-md) var(--lv-mobile-sm) !important;
+    padding: var(--spacing-lg) var(--spacing-md) !important;
     text-align: center !important;
     display: flex !important;
     flex-direction: column !important;
@@ -4356,7 +4276,7 @@ ul, ol {
     
     /* Spacing */
     margin: var(--spacing-xl) auto !important;
-    padding: 0 var(--spacing-sm) !important;
+    padding: 0 var(--spacing-lg) !important;
     
     /* Layout */
     width: 100% !important;
@@ -4482,7 +4402,7 @@ ul, ol {
     width: 100% !important;
     max-width: 100% !important;
     margin: 0 auto !important;
-    padding: 0 var(--spacing-sm) !important;
+    padding: 0 var(--spacing-md) !important;
     
     /* Centrage parfait */
     display: flex !important;
@@ -4501,7 +4421,7 @@ ul, ol {
   h1, h2, h3, h4, h5, h6 {
     width: 100% !important;
     margin: 0 auto var(--spacing-2xl) auto !important;
-    padding: 0 var(--spacing-sm) !important;
+    padding: 0 var(--spacing-md) !important;
     
     /* Centrage parfait */
     text-align: center !important;
@@ -4522,7 +4442,7 @@ ul, ol {
     width: 100% !important;
     max-width: 100% !important;
     margin: 0 auto var(--spacing-lg) auto !important;
-    padding: 0 var(--spacing-sm) !important;
+    padding: 0 var(--spacing-md) !important;
     
     /* Centrage parfait */
     text-align: center !important;
@@ -4811,7 +4731,7 @@ ul, ol {
   }
   
   .header-content {
-    padding: 0 var(--spacing-sm) !important;
+    padding: 0 var(--spacing-lg) !important;
     height: 4.5rem !important;
   }
   
@@ -4874,7 +4794,7 @@ ul, ol {
     font-size: 1.1rem !important;
     line-height: 1.7 !important;
     margin: var(--spacing-xl) 0 !important;
-    padding: 0 var(--spacing-sm) !important;
+    padding: 0 var(--spacing-md) !important;
     max-width: 100% !important;
   }
   
@@ -4898,7 +4818,7 @@ ul, ol {
   .about .section-title {
     font-size: 2.2rem !important;
     margin-bottom: var(--spacing-3xl) !important;
-    padding: 0 var(--spacing-sm) !important;
+    padding: 0 var(--spacing-lg) !important;
     line-height: 1.3 !important;
   }
   
@@ -4961,7 +4881,7 @@ ul, ol {
   .services .section-title {
     font-size: 2.2rem !important;
     margin-bottom: var(--spacing-3xl) !important;
-    padding: 0 var(--spacing-sm) !important;
+    padding: 0 var(--spacing-lg) !important;
     line-height: 1.3 !important;
   }
   
@@ -5029,7 +4949,7 @@ ul, ol {
   .portfolio .section-title {
     font-size: 2.2rem !important;
     margin-bottom: var(--spacing-2xl) !important;
-    padding: 0 var(--spacing-sm) !important;
+    padding: 0 var(--spacing-lg) !important;
     line-height: 1.3 !important;
   }
   
@@ -5130,7 +5050,7 @@ ul, ol {
   .contact .section-title {
     font-size: 2.2rem !important;
     margin-bottom: var(--spacing-3xl) !important;
-    padding: 0 var(--spacing-sm) !important;
+    padding: 0 var(--spacing-lg) !important;
     line-height: 1.3 !important;
   }
   
@@ -5260,7 +5180,7 @@ ul, ol {
   }
   
   .header-content {
-    padding: 0 var(--spacing-sm) !important;
+    padding: 0 var(--spacing-md) !important;
     height: 3.5rem !important;
     max-width: 100% !important;
   }
@@ -5791,8 +5711,8 @@ ul, ol {
     z-index: 10 !important;
     color: var(--tattoo-pearl) !important;
     width: 100% !important;
-    max-width: 100% !important; /* Marge des bords */
-    padding: 0 var(--spacing-sm) !important; /* Padding confortable */
+    max-width: calc(100% - var(--spacing-md)) !important; /* Marge des bords */
+    padding: 0 var(--spacing-md) !important; /* Padding confortable */
     margin: 0 auto !important;
     display: flex !important;
     flex-direction: column !important;
@@ -6026,13 +5946,13 @@ ul, ol {
   }
   
   .about-content {
-    padding: 0 var(--spacing-sm) !important;
-    max-width: 100% !important;
+    padding: 0 var(--spacing-lg) !important;
+    max-width: calc(100% - var(--spacing-xl)) !important;
   }
   
   .about-description {
-    padding: 0 var(--spacing-sm) !important;
-    max-width: 100% !important;
+    padding: 0 var(--spacing-md) !important;
+    max-width: calc(100% - var(--spacing-lg)) !important;
   }
   
   .hero-brand,
@@ -6912,7 +6832,12 @@ ul, ol {
   overflow: hidden;
 }
 
-/* Supprimé - redondant avec le bloc principal ligne 3566 */
+@media (max-width: 768px) {
+  .about {
+    overflow: visible;
+    padding: var(--spacing-3xl) 0 var(--spacing-4xl) 0;
+  }
+}
 
 .about::before {
   content: '';
@@ -7222,12 +7147,27 @@ ul, ol {
 }
 
 /* Responsive about-description */
-.about-description p:first-child {
-  font-size: 1.1rem;
-}
-
-.about-description::before {
-  width: 2px;
+@media (max-width: 768px) {
+  .about-description {
+    max-width: 100%;
+    padding: var(--spacing-md) var(--spacing-sm);
+    gap: var(--spacing-lg);
+  }
+  
+  .about-description p {
+    font-size: 1rem;
+    line-height: 1.7;
+    padding-left: var(--spacing-md);
+    text-align: left;
+  }
+  
+  .about-description p:first-child {
+    font-size: 1.1rem;
+  }
+  
+  .about-description::before {
+    width: 2px;
+  }
 }
 
 @media (max-width: 480px) {
@@ -11854,19 +11794,10 @@ button.mobile-menu-btn.active::after,
     margin-bottom: var(--lv-mobile-lg) !important;
   }
   
-  /* Mots surlignés mobile - contraste amélioré */
   .highlight-word {
-    color: var(--noir-profond);
-    font-weight: 500;
-    background: linear-gradient(
-      90deg,
-      rgba(212, 184, 150, 0.2) 0%,
-      rgba(212, 184, 150, 0.3) 50%,
-      rgba(212, 184, 150, 0.2) 100%
-    );
-    padding: 0.1em 0.2em;
-    border-radius: 2px;
-    position: relative;
+    color: var(--lv-gold-accent) !important;
+    font-weight: 400 !important;
+    position: relative !important;
   }
   
   /* ===== FEATURES GRID REDESIGNÉE ===== */
