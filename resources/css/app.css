@@ -2303,16 +2303,16 @@ ul, ol {
     border-bottom: none !important; /* Dernière section */
   }
   
-  /* Content wrappers sans décalage mobile */
+  /* Content wrappers avec marge du bord droit */
   .hero-content,
   .about-content,
   .services-content,
   .portfolio-content,
   .contact-content {
     width: 100% !important;
-    max-width: 100% !important;
-    margin: 0 !important;
-    padding: 0 var(--spacing-xs) !important; /* Padding minimal uniforme */
+    max-width: calc(100% - var(--spacing-sm)) !important; /* Marge du bord droit */
+    margin: 0 auto !important;
+    padding: 0 var(--spacing-sm) !important; /* Padding plus confortable */
     text-align: center !important;
     display: flex !important;
     flex-direction: column !important;
@@ -3626,12 +3626,12 @@ ul, ol {
     justify-content: center !important;
   }
   
-  /* Description about sans décalage sur mobile */
+  /* Description about avec marge du bord droit */
   .about-description {
-    max-width: 100% !important;
-    margin: 0 !important;
+    max-width: calc(100% - var(--spacing-md)) !important; /* Marge du bord droit */
+    margin: 0 auto !important;
     text-align: left !important;
-    padding: 0 !important; /* Suppression complète du padding */
+    padding: 0 var(--spacing-sm) !important; /* Padding pour éviter les bords */
     background: none !important;
     border: none !important;
     position: relative !important;
@@ -3641,12 +3641,12 @@ ul, ol {
     gap: var(--spacing-lg) !important;
   }
   
-  /* Paragraphes about parfaitement alignés sans décalage */
+  /* Paragraphes about avec espacement des bords */
   .about-description p {
     text-align: left !important;
     max-width: 100% !important;
     margin: 0 0 var(--spacing-md) 0 !important;
-    padding: 0 var(--spacing-xs) !important; /* Padding minimal pour lisibilité */
+    padding: 0 var(--spacing-sm) !important; /* Padding confortable pour éviter les bords */
     line-height: 1.7 !important;
     font-size: 1.1rem !important;
     color: var(--noir-profond) !important;
@@ -5691,14 +5691,14 @@ ul, ol {
     justify-content: center !important;
   }
   
-  /* Contenu hero sans décalage mobile */
+  /* Contenu hero avec espacement du bord droit */
   .hero-content {
     z-index: 10 !important;
     color: var(--tattoo-pearl) !important;
     width: 100% !important;
-    max-width: 100% !important;
-    padding: 0 var(--spacing-xs) !important; /* Padding minimal pour éviter le débordement */
-    margin: 0 !important;
+    max-width: calc(100% - var(--spacing-md)) !important; /* Marge des bords */
+    padding: 0 var(--spacing-md) !important; /* Padding confortable */
+    margin: 0 auto !important;
     display: flex !important;
     flex-direction: column !important;
     align-items: center !important;
@@ -12155,11 +12155,11 @@ button.mobile-menu-btn.active::after,
   }
   
   .hero-content {
-    padding: calc(56px + var(--lv-mobile-xs)) var(--lv-mobile-xs) var(--lv-mobile-lg) !important;
+    padding: calc(56px + var(--lv-mobile-sm)) var(--lv-mobile-sm) var(--lv-mobile-lg) !important;
     gap: var(--lv-mobile-lg) !important;
-    margin: 0 !important;
+    margin: 0 auto !important;
     width: 100% !important;
-    max-width: 100% !important;
+    max-width: calc(100% - var(--lv-mobile-md)) !important; /* Marge des bords */
   }
   
   .hero-text {
