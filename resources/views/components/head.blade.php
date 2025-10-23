@@ -13,5 +13,5 @@
     
     <!-- Icônes Lucide -->
     <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
-    <link href="{{ asset('assets/css/styles.css') }}" rel="stylesheet">
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
