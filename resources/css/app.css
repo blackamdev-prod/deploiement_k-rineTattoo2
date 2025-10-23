@@ -2406,7 +2406,7 @@ ul, ol {
     font-weight: 400 !important;
   }
   
-  /* ===== PARAGRAPHES LOUIS VUITTON - LISIBILITÉ PREMIUM ===== */
+  /* ===== PARAGRAPHES LISIBILITÉ PREMIUM ===== */
   p, .description, .hero-description {
     font-family: 'Helvetica Neue', sans-serif !important;
     font-size: 1rem !important; /* 16px - standard LV */
@@ -3594,7 +3594,7 @@ ul, ol {
     display: block !important;
   }
   
-  /* Retirer toutes les lignes décoratives sur mobile */
+  /* Retirer TOUTES les lignes décoratives et underlines sur mobile */
   .about::before,
   .about::after,
   .about .section-header::before,
@@ -3602,9 +3602,15 @@ ul, ol {
   .about-description::before,
   .about-description::after,
   .about-description p::before,
-  .about-description p::after {
+  .about-description p::after,
+  .about .title-underline,
+  .section-header .title-underline {
     display: none !important;
     content: none !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
+    width: 0 !important;
+    height: 0 !important;
   }
   
   /* Section header about parfaitement centrée */
@@ -3620,26 +3626,26 @@ ul, ol {
     justify-content: center !important;
   }
   
-  /* Description about centrée sans lignes */
+  /* Description about alignée à gauche sur mobile */
   .about-description {
-    max-width: 90% !important;
-    margin: 0 auto !important;
-    text-align: center !important;
-    padding: var(--spacing-lg) !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    text-align: left !important;
+    padding: 0 var(--spacing-md) !important;
     background: none !important;
     border: none !important;
     position: relative !important;
     display: flex !important;
     flex-direction: column !important;
-    align-items: center !important;
+    align-items: flex-start !important;
     gap: var(--spacing-lg) !important;
   }
   
-  /* Paragraphes about centrés */
+  /* Paragraphes about alignés à gauche sur mobile */
   .about-description p {
-    text-align: center !important;
+    text-align: left !important;
     max-width: 100% !important;
-    margin: 0 auto var(--spacing-md) auto !important;
+    margin: 0 0 var(--spacing-md) 0 !important;
     padding: 0 !important;
     line-height: 1.7 !important;
     font-size: 1.1rem !important;
@@ -11710,30 +11716,27 @@ button.mobile-menu-btn.active::after,
   }
   
   .title-underline {
-    width: 80px !important;
-    height: 2px !important;
-    background: linear-gradient(90deg, 
-      transparent 0%, 
-      var(--lv-gold-accent) 50%, 
-      transparent 100%) !important;
-    margin: 0 auto !important;
+    display: none !important;
   }
   
-  /* ===== ABOUT DESCRIPTION MODERNE ===== */
+  /* ===== ABOUT DESCRIPTION ALIGNÉE À GAUCHE ===== */
   .about-description {
     width: 100% !important;
-    max-width: 400px !important;
-    margin: 0 auto !important;
-    padding: 0 var(--lv-mobile-xs) !important; /* Réduit l'espace latéral de 16px à 8px */
+    max-width: 100% !important;
+    margin: 0 !important;
+    padding: 0 var(--lv-mobile-sm) !important; /* Padding minimal à gauche */
     display: flex !important;
     flex-direction: column !important;
     gap: var(--lv-mobile-lg) !important;
-    text-align: center !important;
-    position: relative !important; /* Reset position */
+    text-align: left !important;
+    position: relative !important;
   }
   
-  /* Force la suppression du ::before sur mobile */
-  .about-description::before {
+  /* Force la suppression de TOUS les éléments décoratifs about sur mobile */
+  .about-description::before,
+  .about-description::after,
+  .about-description p::before,
+  .about-description p::after {
     display: none !important;
     content: none !important;
     visibility: hidden !important;
@@ -11746,8 +11749,8 @@ button.mobile-menu-btn.active::after,
     font-size: var(--lv-text-base) !important;
     line-height: 1.7 !important;
     color: var(--lv-grey) !important;
-    margin: 0 auto var(--lv-mobile-md) auto !important;
-    text-align: center !important;
+    margin: 0 0 var(--lv-mobile-md) 0 !important;
+    text-align: left !important;
     font-weight: 300 !important;
     letter-spacing: 0.01em !important;
   }
