@@ -2423,11 +2423,13 @@ ul, ol {
   
   /* Texte de description hero spécifique */
   .hero-description {
-    font-size: 1.125rem !important; /* 18px - plus grand pour hero */
-    max-width: 280px !important;
-    margin-bottom: var(--lv-spacing-xl) !important;
-    color: var(--lv-black) !important;
-    font-weight: 400 !important;
+    font-size: 0.9rem !important; /* Réduit pour mobile */
+    max-width: 260px !important; /* Largeur réduite */
+    margin-bottom: var(--lv-spacing-lg) !important;
+    color: rgba(255, 255, 255, 0.9) !important; /* Couleur claire pour mobile */
+    font-weight: 300 !important;
+    text-align: center !important;
+    padding: 0 var(--lv-mobile-sm) !important;
   }
   
   /* ===== BOUTONS LOUIS VUITTON - ÉLÉGANCE MINIMALISTE ===== */
@@ -5671,9 +5673,9 @@ ul, ol {
   }
   
   .hero {
-    min-height: var(--mobile-hero-height);
+    min-height: 80vh;
     height: auto;
-    padding: calc(4rem + var(--mobile-section-padding)) var(--spacing-lg) var(--mobile-section-padding);
+    padding: calc(3rem + var(--spacing-md)) var(--spacing-lg) var(--spacing-lg);
     background: linear-gradient(135deg, 
       rgba(10, 10, 10, 0.95) 0%, 
       rgba(20, 20, 20, 0.90) 50%,
@@ -5688,8 +5690,8 @@ ul, ol {
     z-index: 10 !important;
     color: var(--tattoo-pearl) !important;
     width: 100% !important;
-    max-width: 100% !important;
-    padding: var(--spacing-2xl) var(--spacing-md) !important;
+    max-width: 320px !important;
+    padding: var(--spacing-lg) var(--spacing-sm) !important;
     display: flex !important;
     flex-direction: column !important;
     align-items: center !important;
@@ -6256,34 +6258,45 @@ ul, ol {
   transition: all 0.3s cubic-bezier(0.25, 0.1, 0.25, 1);
 }
 
-.hero-description::before {
-  content: '';
-  position: absolute;
-  left: 0;
-  top: 0;
-  width: 3px;
-  height: 100%;
-  background: linear-gradient(180deg, 
-    var(--beige-sable) 0%, 
-    rgba(212, 184, 150, 0.6) 50%, 
-    var(--beige-sable) 100%);
-  opacity: 0.6;
-  transition: all 0.3s cubic-bezier(0.25, 0.1, 0.25, 1);
+/* Suppression des lignes horizontales sur mobile */
+@media (max-width: 767px) {
+  .hero-description::before,
+  .hero-description::after {
+    display: none !important;
+  }
 }
 
-.hero-description::after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: var(--spacing-lg);
-  right: 0;
-  height: 0.5px;
-  background: linear-gradient(90deg, 
-    transparent 0%, 
-    rgba(212, 184, 150, 0.3) 50%, 
-    transparent 100%);
-  opacity: 0.8;
-  transition: all 0.3s cubic-bezier(0.25, 0.1, 0.25, 1);
+/* Conservation des effets pour desktop */
+@media (min-width: 768px) {
+  .hero-description::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 3px;
+    height: 100%;
+    background: linear-gradient(180deg, 
+      var(--beige-sable) 0%, 
+      rgba(212, 184, 150, 0.6) 50%, 
+      var(--beige-sable) 100%);
+    opacity: 0.6;
+    transition: all 0.3s cubic-bezier(0.25, 0.1, 0.25, 1);
+  }
+
+  .hero-description::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: var(--spacing-lg);
+    right: 0;
+    height: 0.5px;
+    background: linear-gradient(90deg, 
+      transparent 0%, 
+      rgba(212, 184, 150, 0.3) 50%, 
+      transparent 100%);
+    opacity: 0.8;
+    transition: all 0.3s cubic-bezier(0.25, 0.1, 0.25, 1);
+  }
 }
 
 .hero-description:hover {
