@@ -3642,26 +3642,26 @@ ul, ol {
     justify-content: center !important;
   }
   
-  /* Description about avec marge du bord droit */
+  /* Description about centrée sur mobile */
   .about-description {
     max-width: calc(100% - var(--spacing-md)) !important; /* Marge du bord droit */
     margin: 0 auto !important;
-    text-align: left !important;
+    text-align: center !important; /* Centrage du texte */
     padding: 0 var(--spacing-sm) !important; /* Padding pour éviter les bords */
     background: none !important;
     border: none !important;
     position: relative !important;
     display: flex !important;
     flex-direction: column !important;
-    align-items: flex-start !important;
+    align-items: center !important; /* Centrage des éléments */
     gap: var(--spacing-lg) !important;
   }
   
-  /* Paragraphes about avec espacement des bords */
+  /* Paragraphes about centrés sur mobile */
   .about-description p {
-    text-align: left !important;
+    text-align: center !important; /* Centrage du texte des paragraphes */
     max-width: 100% !important;
-    margin: 0 0 var(--spacing-md) 0 !important;
+    margin: 0 auto var(--spacing-md) auto !important; /* Centrage avec marge auto */
     padding: 0 var(--spacing-sm) !important; /* Padding confortable pour éviter les bords */
     line-height: 1.7 !important;
     font-size: 1.1rem !important;
@@ -3669,22 +3669,23 @@ ul, ol {
     position: relative !important;
   }
   
-  /* Éléments additionnels about centrés */
+  /* TOUS les éléments about parfaitement centrés */
   .about .container,
   .about-content,
   .about-text,
   .about-image,
-  .about-grid {
+  .about-grid,
+  .features-grid,
+  .profile-card {
     width: 100% !important;
-    max-width: 100% !important;
-    margin: 0 auto !important;
+    max-width: calc(100% - var(--spacing-md)) !important; /* Marge des bords */
+    margin: 0 auto !important; /* Centrage automatique */
     text-align: center !important;
     display: flex !important;
     flex-direction: column !important;
     align-items: center !important;
     justify-content: center !important;
-    padding-left: var(--spacing-md) !important;
-    padding-right: var(--spacing-md) !important;
+    padding: 0 var(--spacing-sm) !important; /* Padding uniforme */
   }
   
   /* Suppression des marges latérales pour éviter débordement */
@@ -3692,24 +3693,21 @@ ul, ol {
     box-sizing: border-box !important;
   }
   
-  .profile-card {
+  /* Styles pour features et éléments spéciaux about */
+  .about .feature,
+  .about .feature-card {
     width: 100% !important;
-    max-width: 100% !important;
-    padding: var(--spacing-2xl) var(--spacing-lg) !important;
-    margin: 0 auto var(--spacing-xl) auto !important;
-    
-    /* Style harmonieux Android */
-    border-radius: 20px !important;
+    max-width: calc(100% - var(--spacing-lg)) !important;
+    margin: 0 auto var(--spacing-lg) auto !important;
+    padding: var(--spacing-lg) var(--spacing-md) !important;
+    text-align: center !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
     background: rgba(254, 252, 250, 0.95) !important;
-    backdrop-filter: blur(15px) !important;
-    -webkit-backdrop-filter: blur(15px) !important;
-    border: 2px solid rgba(212, 184, 150, 0.2) !important;
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1) !important;
-    
-    /* Performance */
-    transform: translateZ(0) !important;
-    -webkit-transform: translateZ(0) !important;
-    transition: all 0.4s cubic-bezier(0.25, 0.1, 0.25, 1) !important;
+    border-radius: 12px !important;
+    border: 1px solid rgba(212, 184, 150, 0.2) !important;
   }
   
   .profile-image {
