@@ -7224,10 +7224,9 @@ ul, ol {
 .about-description p:first-child {
   font-size: 1.1rem;
 }
-  
-  .about-description::before {
-    width: 2px;
-  }
+
+.about-description::before {
+  width: 2px;
 }
 
 @media (max-width: 480px) {
