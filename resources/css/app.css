@@ -13055,100 +13055,234 @@ button.mobile-menu-btn.active::after,
   }
 }
 
-/* ===== HARMONISATION MOBILE FINALE ===== */
-/* Priorité absolue - Applique le design harmonisé sur tous mobiles */
+/* ===== MOBILE ADAPTATION DU DESIGN DESKTOP ===== */
+/* Respecte l'ancien design desktop avec adaptations mobile nécessaires */
 
 @media (max-width: 767px) {
-  /* ===== HARMONISATION GLOBALE MOBILE ===== */
+  /* ===== PRESERVATION DU DESIGN DESKTOP ORIGINAL ===== */
   
-  /* Sections harmonisées */
-  section {
-    padding: var(--mobile-section-padding) var(--mobile-container-padding) !important;
+  /* About section - Garde le style desktop Louis Vuitton */
+  .about {
+    padding: var(--spacing-4xl) 0 var(--spacing-5xl) 0 !important;
+    background: linear-gradient(135deg, 
+      var(--beige-clair) 0%, 
+      rgba(248, 246, 243, 0.95) 50%,
+      var(--blanc-casse) 100%) !important;
+    position: relative !important;
+    overflow: hidden !important;
   }
   
+  /* Garde les pseudo-elements desktop */
+  .about::before {
+    content: '' !important;
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    height: 0.5px !important;
+    background: linear-gradient(90deg, 
+      transparent, 
+      var(--beige-sable), 
+      transparent) !important;
+  }
+  
+  .about::after {
+    content: '' !important;
+    position: absolute !important;
+    top: 20% !important;
+    right: -15% !important;
+    width: 40% !important;
+    height: 60% !important;
+    background: radial-gradient(circle, rgba(212, 184, 150, 0.03) 0%, transparent 70%) !important;
+    pointer-events: none !important;
+  }
+  
+  /* About content - adaptation mobile minimale */
+  .about-content {
+    display: grid !important;
+    grid-template-columns: 1fr !important; /* Seul changement : 1 colonne au lieu de 2 */
+    gap: var(--spacing-4xl) !important;
+    align-items: center !important;
+    position: relative !important;
+    z-index: 2 !important;
+    padding: 0 var(--spacing-md) !important;
+    margin-bottom: var(--spacing-4xl) !important;
+  }
+  
+  /* Typographie desktop préservée avec ajustements mobiles légers */
+  .title-main {
+    font-size: clamp(3rem, 8vw, 4.5rem) !important; /* Garde la grandeur desktop */
+    font-weight: 700 !important;
+    line-height: 1.1 !important;
+    color: var(--noir-profond) !important;
+  }
+  
+  .section-title {
+    font-size: clamp(2.5rem, 6vw, 3.5rem) !important; /* Style desktop conservé */
+    font-weight: 700 !important;
+    line-height: 1.1 !important;
+    margin-bottom: var(--spacing-lg) !important;
+    color: var(--noir-profond) !important;
+  }
+  
+  /* Features grid - garde le style desktop mais en 1 colonne */
+  .features-grid {
+    display: grid !important;
+    grid-template-columns: 1fr !important; /* Adaptation mobile */
+    gap: var(--spacing-xl) !important; /* Garde l'espacement desktop */
+    margin-top: var(--spacing-2xl) !important;
+  }
+  
+  .feature {
+    padding: var(--spacing-xl) !important; /* Garde le padding desktop */
+    background: rgba(254, 252, 250, 0.8) !important;
+    border-radius: var(--radius-lg) !important;
+    border: 1px solid rgba(212, 184, 150, 0.2) !important;
+    transition: var(--transition-normal) !important;
+    position: relative !important;
+    overflow: hidden !important;
+  }
+  
+  .feature:hover {
+    transform: translateY(-5px) !important; /* Garde les effets desktop */
+    box-shadow: var(--shadow-lg) !important;
+    background: rgba(254, 252, 250, 1) !important;
+  }
+  
+  /* Profile card - garde le style desktop */
+  .profile-card {
+    background: linear-gradient(135deg, var(--blanc-casse) 0%, var(--creme-ecru) 100%) !important;
+    border-radius: var(--radius-xl) !important;
+    padding: var(--spacing-2xl) !important;
+    border: 1px solid rgba(212, 184, 150, 0.2) !important;
+    box-shadow: var(--shadow-lg) !important;
+    position: relative !important;
+    overflow: hidden !important;
+  }
+  
+  .profile-card::before {
+    content: '' !important;
+    position: absolute !important;
+    top: -50% !important;
+    right: -50% !important;
+    width: 100% !important;
+    height: 100% !important;
+    background: radial-gradient(circle, rgba(212, 184, 150, 0.05) 0%, transparent 70%) !important;
+    pointer-events: none !important;
+  }
+  
+  /* Hero section - garde les proportions desktop */
   .hero {
-    padding: calc(var(--mobile-section-padding) + 60px) var(--mobile-container-padding) var(--mobile-section-padding) !important;
+    min-height: 100vh !important;
+    padding: var(--spacing-4xl) var(--spacing-md) !important; /* Adaptation padding minimal */
   }
   
-  /* Containers harmonisés */
-  .container,
-  .hero-content,
-  .about-content,
-  .services-content,
-  .portfolio-content,
-  .contact-content {
-    padding-left: var(--mobile-container-padding) !important;
-    padding-right: var(--mobile-container-padding) !important;
-    max-width: 100% !important;
-  }
-  
-  /* Espacement entre éléments harmonisé */
-  .about-content,
-  .services-content,
-  .portfolio-content,
-  .contact-content {
-    gap: var(--mobile-spacing-xl) !important;
-  }
-  
-  .features-grid,
-  .services-grid,
-  .portfolio-grid {
-    gap: var(--mobile-spacing-lg) !important;
-  }
-  
-  /* Typographie harmonisée */
-  h1, .title-main {
-    font-size: var(--mobile-font-3xl) !important;
-  }
-  
-  h2, .section-title {
-    font-size: var(--mobile-font-2xl) !important;
-  }
-  
-  h3, .feature-title, .service-title {
-    font-size: var(--mobile-font-lg) !important;
-  }
-  
-  p, .feature-description, .service-description, .about-description {
-    font-size: var(--mobile-font-md) !important;
-    line-height: 1.6 !important;
+  .hero-content {
+    text-align: center !important;
+    max-width: 800px !important;
+    margin: 0 auto !important;
   }
   
   .hero-description {
-    font-size: var(--mobile-font-md) !important;
-    max-width: 90% !important;
+    font-size: clamp(1.1rem, 3vw, 1.3rem) !important; /* Garde la taille desktop */
+    line-height: 1.7 !important;
+    color: var(--tattoo-charcoal) !important;
+    margin-bottom: var(--spacing-2xl) !important;
+    max-width: 600px !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
   }
   
-  /* Boutons harmonisés */
+  /* Services - garde le style desktop */
+  .services {
+    padding: var(--spacing-4xl) 0 !important;
+    background: var(--blanc-casse) !important;
+  }
+  
+  .services-grid {
+    display: grid !important;
+    grid-template-columns: 1fr !important; /* Seule adaptation : 1 colonne */
+    gap: var(--spacing-2xl) !important; /* Garde l'espacement desktop */
+    margin-top: var(--spacing-3xl) !important;
+  }
+  
+  .service-card {
+    background: linear-gradient(135deg, var(--blanc-casse) 0%, var(--beige-clair) 100%) !important;
+    border-radius: var(--radius-lg) !important;
+    padding: var(--spacing-2xl) !important; /* Garde le padding desktop */
+    border: 1px solid rgba(212, 184, 150, 0.2) !important;
+    transition: var(--transition-normal) !important;
+    position: relative !important;
+    overflow: hidden !important;
+  }
+  
+  .service-card:hover {
+    transform: translateY(-8px) !important; /* Garde les effets desktop */
+    box-shadow: var(--shadow-xl) !important;
+  }
+  
+  /* Portfolio - garde le style desktop */
+  .portfolio {
+    padding: var(--spacing-4xl) 0 !important;
+    background: linear-gradient(135deg, var(--beige-clair) 0%, var(--creme-ecru) 100%) !important;
+  }
+  
+  .portfolio-grid {
+    display: grid !important;
+    grid-template-columns: 1fr !important; /* Seule adaptation : 1 colonne */
+    gap: var(--spacing-xl) !important; /* Garde l'espacement desktop */
+    margin-top: var(--spacing-3xl) !important;
+  }
+  
+  /* Boutons - garde le style desktop */
   .btn {
-    padding: var(--mobile-spacing-md) var(--mobile-spacing-lg) !important;
-    font-size: var(--mobile-font-md) !important;
-  }
-  
-  /* Cards harmonisées */
-  .feature,
-  .service-card,
-  .portfolio-item {
-    padding: var(--mobile-spacing-lg) !important;
+    padding: var(--spacing-md) var(--spacing-xl) !important; /* Garde le padding desktop */
+    font-family: var(--font-primary) !important;
+    font-weight: 500 !important;
+    font-size: 1rem !important;
     border-radius: var(--radius-md) !important;
+    transition: var(--transition-normal) !important;
   }
   
-  /* Header harmonisé */
-  .header {
-    padding: var(--mobile-spacing-sm) 0 !important;
+  .btn-primary {
+    background: var(--beige-sable) !important;
+    color: var(--blanc-casse) !important;
+    box-shadow: var(--shadow-md) !important;
   }
   
+  .btn-primary:hover {
+    background: var(--noir-profond) !important;
+    transform: translateY(-2px) !important; /* Garde les effets desktop */
+    box-shadow: var(--shadow-lg) !important;
+  }
+  
+  /* Contact - garde le style desktop */
+  .contact {
+    padding: var(--spacing-4xl) 0 !important;
+    background: var(--blanc-casse) !important;
+  }
+  
+  .contact-content {
+    display: grid !important;
+    grid-template-columns: 1fr !important; /* Seule adaptation : 1 colonne */
+    gap: var(--spacing-4xl) !important;
+    align-items: start !important;
+  }
+  
+  .contact-form {
+    background: linear-gradient(135deg, var(--beige-clair) 0%, var(--creme-ecru) 100%) !important;
+    border-radius: var(--radius-lg) !important;
+    padding: var(--spacing-2xl) !important; /* Garde le padding desktop */
+    border: 1px solid rgba(212, 184, 150, 0.2) !important;
+    box-shadow: var(--shadow-md) !important;
+  }
+  
+  /* Header minimal adaptation */
   .header-container {
-    padding: 0 var(--mobile-container-padding) !important;
+    padding: var(--spacing-md) var(--spacing-lg) !important; /* Adaptation légère */
   }
   
-  .nav-link {
-    font-size: var(--mobile-font-sm) !important;
-    padding: var(--mobile-spacing-sm) !important;
-  }
-  
-  /* Logo harmonisé */
-  .logo {
-    height: calc(40px * var(--phi-inverse)) !important; /* ~25px - proportionné */
+  .nav {
+    gap: var(--spacing-lg) !important; /* Garde l'espacement desktop */
   }
 }
