@@ -77,31 +77,6 @@
   --transition-normal: calc(400ms * var(--phi-inverse)) cubic-bezier(0.4, 0, 0.2, 1);
   --transition-slow: calc(600ms * var(--phi-inverse)) cubic-bezier(calc(0.4 * var(--phi-inverse)), 0, calc(0.2 * var(--phi)), var(--phi-inverse));
   --transition-spring: calc(500ms * var(--phi-inverse)) cubic-bezier(calc(0.68 * var(--phi-inverse)), -0.55, calc(0.265 * var(--phi)), calc(1.55 * var(--phi-inverse)));
-
-  /* ===== SYSTÈME MOBILE HARMONISÉ ===== */
-  /* Espacement mobile basé sur le nombre d'or */
-  --mobile-spacing-xs: calc(var(--spacing-xs) * 0.8); /* ~5px */
-  --mobile-spacing-sm: calc(var(--spacing-sm) * 0.9); /* ~9px */
-  --mobile-spacing-md: calc(var(--spacing-md) * 0.9); /* ~14px */
-  --mobile-spacing-lg: calc(var(--spacing-lg) * 0.8); /* ~21px */
-  --mobile-spacing-xl: calc(var(--spacing-xl) * 0.7); /* ~29px */
-  --mobile-spacing-2xl: calc(var(--spacing-2xl) * 0.6); /* ~41px */
-  --mobile-spacing-3xl: calc(var(--spacing-3xl) * 0.5); /* ~55px */
-  --mobile-spacing-4xl: calc(var(--spacing-4xl) * 0.4); /* ~71px */
-  
-  /* Sections mobile harmonieuses */
-  --mobile-section-padding: var(--mobile-spacing-3xl);
-  --mobile-content-gap: var(--mobile-spacing-xl);
-  --mobile-container-padding: var(--mobile-spacing-md);
-  
-  /* Typographie mobile harmonisée */
-  --mobile-font-xs: calc(var(--font-size-xs) * 1.1); /* ~0.42rem */
-  --mobile-font-sm: calc(var(--font-size-sm) * 1.05); /* ~0.65rem */
-  --mobile-font-md: calc(var(--font-size-md) * 0.95); /* ~0.95rem */
-  --mobile-font-lg: calc(var(--font-size-lg) * 0.9); /* ~1.45rem */
-  --mobile-font-xl: calc(var(--font-size-xl) * 0.85); /* ~2.2rem */
-  --mobile-font-2xl: calc(var(--font-size-2xl) * 0.8); /* ~3.4rem */
-  --mobile-font-3xl: calc(var(--font-size-3xl) * 0.75); /* ~5.1rem */
 }
 
 /* ===== RESET & BASE ===== */
@@ -2113,7 +2088,7 @@ ul, ol {
   
   /* Système d'espacement harmonieux pour toutes les sections */
   section:not(.hero) {
-    padding: var(--mobile-section-padding) var(--mobile-container-padding) !important;
+    padding: var(--mobile-section-padding) var(--spacing-lg) !important;
     margin-bottom: 0 !important;
   }
   
@@ -2125,7 +2100,7 @@ ul, ol {
   /* Titres de section harmonieux */
   .section-title {
     font-size: 1.8rem !important;
-    margin-bottom: var(--mobile-spacing-xl) !important;
+    margin-bottom: var(--mobile-content-gap) !important;
     text-align: center !important;
     padding: 0 var(--spacing-sm) !important;
   }
@@ -2135,7 +2110,7 @@ ul, ol {
   .services-content,
   .portfolio-grid,
   .contact-content {
-    gap: var(--mobile-spacing-xl) !important;
+    gap: var(--mobile-content-gap) !important;
     width: 100% !important;
     max-width: 100% !important;
     margin: 0 auto !important;
@@ -2171,16 +2146,16 @@ ul, ol {
   .services-grid,
   .portfolio-grid {
     grid-template-columns: 1fr !important;
-    gap: var(--mobile-spacing-xl) !important;
+    gap: var(--mobile-content-gap) !important;
     padding: 0 !important;
-    margin-bottom: var(--mobile-spacing-xl) !important;
+    margin-bottom: var(--mobile-content-gap) !important;
   }
   
   /* Cards et éléments harmonieux avec centrage */
   .feature,
   .service-card,
   .portfolio-item {
-    margin: 0 auto var(--mobile-spacing-xl) auto !important;
+    margin: 0 auto var(--mobile-content-gap) auto !important;
     padding: var(--spacing-lg) !important;
     width: 100% !important;
     max-width: 100% !important;
@@ -2206,7 +2181,7 @@ ul, ol {
   
   /* Portfolio filters harmonieux */
   .portfolio-filters {
-    margin-bottom: var(--mobile-spacing-xl) !important;
+    margin-bottom: var(--mobile-content-gap) !important;
     gap: var(--spacing-sm) !important;
     flex-wrap: wrap !important;
     justify-content: center !important;
@@ -2220,7 +2195,7 @@ ul, ol {
   
   /* Contact form harmonieux */
   .contact-form {
-    gap: var(--mobile-spacing-xl) !important;
+    gap: var(--mobile-content-gap) !important;
   }
   
   .form-group {
@@ -2249,7 +2224,7 @@ ul, ol {
   /* Profile card harmonieuse */
   .profile-card {
     padding: var(--spacing-lg) !important;
-    margin-top: var(--mobile-spacing-xl) !important;
+    margin-top: var(--mobile-content-gap) !important;
   }
 }
 
@@ -2357,7 +2332,7 @@ ul, ol {
     padding: 0 !important;
     display: grid !important;
     grid-template-columns: 1fr !important;
-    gap: var(--mobile-spacing-xl) !important;
+    gap: var(--mobile-content-gap) !important;
     place-items: center !important;
     text-align: center !important;
     box-sizing: border-box !important;
@@ -2454,7 +2429,7 @@ ul, ol {
     color: rgba(255, 255, 255, 0.9) !important; /* Couleur claire pour mobile */
     font-weight: 300 !important;
     text-align: center !important;
-    padding: 0 var(--mobile-spacing-sm) !important;
+    padding: 0 var(--lv-mobile-sm) !important;
   }
   
   /* ===== BOUTONS LOUIS VUITTON - ÉLÉGANCE MINIMALISTE ===== */
@@ -3590,9 +3565,9 @@ ul, ol {
 /* ===== ANDROID SECTIONS HARMONIZATION - STRUCTURE COMPLETE ===== */
 @media (max-width: 767px) {
   
-  /* About section mobile optimized - système harmonisé */
+  /* About section mobile optimized - reduced !important usage */
   .about {
-    padding: var(--mobile-spacing-3xl) var(--mobile-container-padding);
+    padding: var(--lv-mobile-xl) var(--lv-mobile-md);
     background: linear-gradient(135deg, 
       rgba(254, 252, 250, 0.02) 0%, 
       rgba(254, 252, 250, 0.05) 50%, 
@@ -3612,7 +3587,7 @@ ul, ol {
   
   .about-content {
     max-width: 100%;
-    gap: var(--mobile-spacing-xl);
+    gap: var(--lv-mobile-xl);
     text-align: center;
     display: flex;
     flex-direction: column;
@@ -3620,12 +3595,12 @@ ul, ol {
     justify-content: center;
     width: 100%;
     margin: 0 auto;
-    padding: 0 var(--mobile-spacing-sm);
+    padding: 0 var(--lv-mobile-sm);
   }
   
   .about .section-title {
     font-size: clamp(2rem, 5vw, 2.5rem);
-    margin-bottom: var(--mobile-spacing-xl);
+    margin-bottom: var(--lv-mobile-xl);
     color: var(--noir-profond);
     font-weight: 600;
     text-align: center;
@@ -3731,8 +3706,8 @@ ul, ol {
   .about .section-header {
     text-align: center;
     width: 100%;
-    margin: 0 auto var(--mobile-spacing-lg) auto; /* Réduit de xl à lg */
-    padding: 0 var(--mobile-spacing-md); /* Ajout padding latéral */
+    margin: 0 auto var(--lv-mobile-lg) auto; /* Réduit de xl à lg */
+    padding: 0 var(--lv-mobile-md); /* Ajout padding latéral */
     position: relative;
     display: flex;
     flex-direction: column;
@@ -3745,21 +3720,21 @@ ul, ol {
     max-width: 100%;
     margin: 0 auto;
     text-align: center;
-    padding: 0 var(--mobile-spacing-sm);
+    padding: 0 var(--lv-mobile-sm);
     background: none;
     border: none;
     position: relative;
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: var(--mobile-spacing-lg);
+    gap: var(--lv-mobile-lg);
   }
   
   /* Paragraphes about mobile - lisibilité améliorée */
   .about-description p {
     text-align: center;
     max-width: 100%;
-    margin: 0 auto var(--mobile-spacing-md) auto;
+    margin: 0 auto var(--lv-mobile-md) auto;
     padding: 0;
     line-height: 1.6;
     font-size: 1rem;
@@ -3771,7 +3746,7 @@ ul, ol {
   .about-description p:first-child {
     font-size: 1.1rem;
     font-weight: 400;
-    margin-bottom: var(--mobile-spacing-lg);
+    margin-bottom: var(--lv-mobile-lg);
   }
   
   /* TOUS les éléments about parfaitement centrés */
@@ -3790,7 +3765,7 @@ ul, ol {
     flex-direction: column !important;
     align-items: center !important;
     justify-content: center !important;
-    padding: 0 var(--mobile-spacing-sm) !important;
+    padding: 0 var(--lv-mobile-sm) !important;
   }
   
   /* Suppression des marges latérales pour éviter débordement */
@@ -3804,7 +3779,7 @@ ul, ol {
     width: 100% !important;
     max-width: 100% !important;
     margin: 0 auto var(--spacing-lg) auto !important;
-    padding: var(--spacing-md) var(--mobile-spacing-sm) !important;
+    padding: var(--spacing-md) var(--lv-mobile-sm) !important;
     text-align: center !important;
     display: flex !important;
     flex-direction: column !important;
@@ -5824,7 +5799,7 @@ ul, ol {
     align-items: center !important;
     justify-content: center !important;
     text-align: center !important;
-    gap: var(--mobile-spacing-xl) !important;
+    gap: var(--mobile-content-gap) !important;
     position: relative !important;
     min-height: calc(100vh - 8rem) !important;
     box-sizing: border-box !important;
@@ -10946,7 +10921,7 @@ button.mobile-menu-btn.active::after,
     width: 100% !important;
     max-width: 100% !important;
     margin: 0 auto !important;
-    padding: 0 var(--mobile-spacing-md) !important;
+    padding: 0 var(--lv-mobile-md) !important;
     box-sizing: border-box !important;
   }
   
@@ -11019,7 +10994,7 @@ button.mobile-menu-btn.active::after,
     line-height: 1.2 !important;
     letter-spacing: 0.02em !important;
     color: var(--lv-white) !important;
-    margin-bottom: var(--mobile-spacing-md) !important;
+    margin-bottom: var(--lv-mobile-md) !important;
     text-align: center !important;
   }
   
@@ -11029,7 +11004,7 @@ button.mobile-menu-btn.active::after,
     font-weight: 300 !important;
     line-height: 1.4 !important;
     color: var(--lv-champagne) !important;
-    margin-bottom: var(--mobile-spacing-lg) !important;
+    margin-bottom: var(--lv-mobile-lg) !important;
     opacity: 0.9 !important;
   }
   
@@ -11040,7 +11015,7 @@ button.mobile-menu-btn.active::after,
     font-weight: 200 !important;
     line-height: 1.3 !important;
     color: var(--lv-black) !important;
-    margin-bottom: var(--mobile-spacing-xl) !important;
+    margin-bottom: var(--lv-mobile-xl) !important;
     text-align: center !important;
     letter-spacing: 0.05em !important;
     text-transform: uppercase !important;
@@ -11051,7 +11026,7 @@ button.mobile-menu-btn.active::after,
     font-size: var(--lv-text-base) !important;
     line-height: 1.7 !important;
     color: var(--lv-grey) !important;
-    margin-bottom: var(--mobile-spacing-md) !important;
+    margin-bottom: var(--lv-mobile-md) !important;
     max-width: 100% !important;
     text-align: center !important;
   }
@@ -11069,19 +11044,19 @@ button.mobile-menu-btn.active::after,
 @media (max-width: 767px) {
   /* Container refinement for luxury feel */
   .container {
-    padding: 0 var(--mobile-spacing-md) !important;
+    padding: 0 var(--lv-mobile-md) !important;
     max-width: 100% !important;
     margin: 0 auto !important;
   }
   
   /* Section spacing harmony */
   section {
-    padding: var(--lv-mobile-2xl) var(--mobile-spacing-md) !important;
+    padding: var(--lv-mobile-2xl) var(--lv-mobile-md) !important;
     margin-bottom: 0 !important;
   }
   
   .hero {
-    padding: calc(56px + var(--mobile-spacing-md)) var(--mobile-spacing-md) var(--mobile-spacing-xl) !important; /* Ajusté pour header 56px */
+    padding: calc(56px + var(--lv-mobile-md)) var(--lv-mobile-md) var(--lv-mobile-xl) !important; /* Ajusté pour header 56px */
     min-height: 100vh !important;
   }
   
@@ -11094,8 +11069,8 @@ button.mobile-menu-btn.active::after,
   .feature,
   .service-card,
   .portfolio-item {
-    padding: var(--mobile-spacing-lg) !important;
-    margin-bottom: var(--mobile-spacing-lg) !important;
+    padding: var(--lv-mobile-lg) !important;
+    margin-bottom: var(--lv-mobile-lg) !important;
     border-radius: 8px !important;
     background: var(--lv-warm-white) !important;
     border: 1px solid rgba(118, 118, 118, 0.1) !important;
@@ -11109,7 +11084,7 @@ button.mobile-menu-btn.active::after,
   .mobile-cta-btn,
   button[type="submit"] {
     min-height: 56px !important;
-    padding: var(--mobile-spacing-md) var(--mobile-spacing-lg) !important;
+    padding: var(--lv-mobile-md) var(--lv-mobile-lg) !important;
     font-size: var(--lv-text-base) !important;
     font-weight: 400 !important;
     letter-spacing: 0.02em !important;
@@ -11121,7 +11096,7 @@ button.mobile-menu-btn.active::after,
     text-transform: uppercase !important;
     width: 100% !important;
     max-width: 320px !important;
-    margin: var(--mobile-spacing-md) auto !important;
+    margin: var(--lv-mobile-md) auto !important;
     display: block !important;
     text-align: center !important;
     touch-action: manipulation !important;
@@ -11139,7 +11114,7 @@ button.mobile-menu-btn.active::after,
   /* Navigation touch targets */
   .nav-link-mobile {
     min-height: 60px !important;
-    padding: var(--mobile-spacing-md) var(--mobile-spacing-lg) !important;
+    padding: var(--lv-mobile-md) var(--lv-mobile-lg) !important;
     display: flex !important;
     align-items: center !important;
     justify-content: center !important;
@@ -11174,7 +11149,7 @@ button.mobile-menu-btn.active::after,
   /* Header content ajusté pour la nouvelle hauteur */
   .header-content {
     height: 56px !important;
-    padding: 0 var(--mobile-spacing-md) !important;
+    padding: 0 var(--lv-mobile-md) !important;
     display: flex !important;
     align-items: center !important;
     justify-content: space-between !important;
@@ -11215,7 +11190,7 @@ button.mobile-menu-btn.active::after,
   }
   
   .nav-mobile-content {
-    padding: var(--lv-mobile-2xl) var(--mobile-spacing-lg) !important;
+    padding: var(--lv-mobile-2xl) var(--lv-mobile-lg) !important;
     display: flex !important;
     flex-direction: column !important;
     gap: 0 !important;
@@ -11225,10 +11200,10 @@ button.mobile-menu-btn.active::after,
   
   /* Contact section in mobile menu */
   .mobile-contact {
-    padding: var(--mobile-spacing-xl) var(--mobile-spacing-lg) var(--mobile-spacing-lg) !important;
+    padding: var(--lv-mobile-xl) var(--lv-mobile-lg) var(--lv-mobile-lg) !important;
     background: rgba(245, 241, 235, 0.5) !important;
     border-radius: 8px !important;
-    margin-top: var(--mobile-spacing-lg) !important;
+    margin-top: var(--lv-mobile-lg) !important;
     border: 1px solid rgba(118, 118, 118, 0.1) !important;
   }
 }
@@ -11241,11 +11216,11 @@ button.mobile-menu-btn.active::after,
   .portfolio-grid {
     display: grid !important;
     grid-template-columns: 1fr !important;
-    gap: var(--mobile-spacing-lg) !important;
-    padding: 0 var(--mobile-spacing-sm) !important;
-    margin: var(--mobile-spacing-xl) auto !important;
+    gap: var(--lv-mobile-lg) !important;
+    padding: 0 var(--lv-mobile-sm) !important;
+    margin: var(--lv-mobile-xl) auto !important;
     width: 100% !important;
-    max-width: calc(100vw - var(--mobile-spacing-md) * 2) !important;
+    max-width: calc(100vw - var(--lv-mobile-md) * 2) !important;
     box-sizing: border-box !important;
     overflow: visible !important;
   }
@@ -11262,13 +11237,13 @@ button.mobile-menu-btn.active::after,
   
   /* Form improvements */
   .form-group {
-    margin-bottom: var(--mobile-spacing-md) !important;
+    margin-bottom: var(--lv-mobile-md) !important;
   }
   
   .form-group input,
   .form-group textarea {
     min-height: 56px !important;
-    padding: var(--mobile-spacing-md) !important;
+    padding: var(--lv-mobile-md) !important;
     font-size: var(--lv-text-base) !important;
     border: 1px solid rgba(118, 118, 118, 0.2) !important;
     border-radius: 4px !important;
@@ -11355,7 +11330,7 @@ button.mobile-menu-btn.active::after,
     flex-direction: column !important;
     align-items: center !important;
     justify-content: center !important;
-    padding: var(--lv-mobile-2xl) var(--mobile-spacing-md) !important;
+    padding: var(--lv-mobile-2xl) var(--lv-mobile-md) !important;
     width: 100% !important;
     max-width: 100% !important;
     margin: 0 auto !important;
@@ -11372,7 +11347,7 @@ button.mobile-menu-btn.active::after,
     width: 100% !important;
     max-width: 100% !important;
     margin: 0 auto !important;
-    padding: 0 var(--mobile-spacing-md) !important;
+    padding: 0 var(--lv-mobile-md) !important;
   }
   
   /* Contenu about parfaitement centré */
@@ -11386,7 +11361,7 @@ button.mobile-menu-btn.active::after,
     max-width: 400px !important;
     margin: 0 auto !important;
     padding: 0 !important;
-    gap: var(--mobile-spacing-lg) !important;
+    gap: var(--lv-mobile-lg) !important;
   }
   
   /* Header section about centré */
@@ -11397,7 +11372,7 @@ button.mobile-menu-btn.active::after,
     justify-content: center !important;
     text-align: center !important;
     width: 100% !important;
-    margin: 0 auto var(--mobile-spacing-xl) auto !important;
+    margin: 0 auto var(--lv-mobile-xl) auto !important;
     padding: 0 !important;
   }
   
@@ -11405,8 +11380,8 @@ button.mobile-menu-btn.active::after,
   .about .section-title {
     text-align: center !important;
     width: 100% !important;
-    margin: 0 auto var(--mobile-spacing-lg) auto !important;
-    padding: 0 var(--mobile-spacing-sm) !important;
+    margin: 0 auto var(--lv-mobile-lg) auto !important;
+    padding: 0 var(--lv-mobile-sm) !important;
     display: block !important;
   }
   
@@ -11421,14 +11396,14 @@ button.mobile-menu-btn.active::after,
     max-width: 350px !important;
     margin: 0 auto !important;
     padding: 0 var(--lv-mobile-xs) !important; /* Réduit de 16px à 8px */
-    gap: var(--mobile-spacing-md) !important;
+    gap: var(--lv-mobile-md) !important;
   }
   
   /* Paragraphes about centrés */
   .about-description p {
     text-align: center !important;
     width: 100% !important;
-    margin: 0 auto var(--mobile-spacing-sm) auto !important;
+    margin: 0 auto var(--lv-mobile-sm) auto !important;
     padding: 0 !important;
     line-height: 1.6 !important;
     font-size: var(--lv-text-base) !important;
@@ -11440,7 +11415,7 @@ button.mobile-menu-btn.active::after,
     font-size: var(--lv-text-lg) !important;
     color: var(--lv-black) !important;
     font-weight: 400 !important;
-    margin-bottom: var(--mobile-spacing-md) !important;
+    margin-bottom: var(--lv-mobile-md) !important;
   }
   
   /* Profile card centrée */
@@ -11452,8 +11427,8 @@ button.mobile-menu-btn.active::after,
     text-align: center !important;
     width: 100% !important;
     max-width: 350px !important;
-    margin: var(--mobile-spacing-lg) auto 0 auto !important;
-    padding: var(--mobile-spacing-lg) !important;
+    margin: var(--lv-mobile-lg) auto 0 auto !important;
+    padding: var(--lv-mobile-lg) !important;
     border-radius: 8px !important;
     background: var(--lv-warm-white) !important;
     border: 1px solid rgba(118, 118, 118, 0.1) !important;
@@ -11495,14 +11470,14 @@ button.mobile-menu-btn.active::after,
     max-width: 350px !important;
     margin: 0 auto !important;
     padding: 0 !important;
-    gap: var(--mobile-spacing-md) !important;
+    gap: var(--lv-mobile-md) !important;
   }
 }
 
 /* Correction spécifique pour très petits écrans */
 @media (max-width: 480px) {
   .about {
-    padding: var(--mobile-spacing-xl) var(--mobile-spacing-sm) !important;
+    padding: var(--lv-mobile-xl) var(--lv-mobile-sm) !important;
   }
   
   .about-content {
@@ -11551,7 +11526,7 @@ button.mobile-menu-btn.active::after,
   .hero .container {
     width: 100% !important;
     max-width: 100% !important;
-    padding: 0 var(--mobile-spacing-md) !important;
+    padding: 0 var(--lv-mobile-md) !important;
     margin: 0 !important;
     box-sizing: border-box !important;
   }
@@ -11560,14 +11535,14 @@ button.mobile-menu-btn.active::after,
     width: 100% !important;
     max-width: 100% !important;
     margin: 0 auto !important;
-    padding: calc(56px + var(--mobile-spacing-lg)) 0 var(--lv-mobile-2xl) 0 !important;
+    padding: calc(56px + var(--lv-mobile-lg)) 0 var(--lv-mobile-2xl) 0 !important;
     box-sizing: border-box !important;
     display: flex !important;
     flex-direction: column !important;
     align-items: center !important;
     justify-content: center !important;
     text-align: center !important;
-    gap: var(--mobile-spacing-xl) !important;
+    gap: var(--lv-mobile-xl) !important;
     min-height: calc(100vh - 56px) !important;
   }
   
@@ -11579,7 +11554,7 @@ button.mobile-menu-btn.active::after,
     display: flex !important;
     flex-direction: column !important;
     align-items: center !important;
-    gap: var(--mobile-spacing-lg) !important;
+    gap: var(--lv-mobile-lg) !important;
     text-align: center !important;
   }
   
@@ -11587,8 +11562,8 @@ button.mobile-menu-btn.active::after,
     display: flex !important;
     flex-direction: column !important;
     align-items: center !important;
-    gap: var(--mobile-spacing-md) !important;
-    margin-bottom: var(--mobile-spacing-sm) !important;
+    gap: var(--lv-mobile-md) !important;
+    margin-bottom: var(--lv-mobile-sm) !important;
   }
   
   .hero-title {
@@ -11640,7 +11615,7 @@ button.mobile-menu-btn.active::after,
     font-size: var(--lv-text-base) !important;
     line-height: 1.6 !important;
     color: rgba(255, 255, 255, 0.85) !important;
-    margin: 0 auto var(--mobile-spacing-lg) auto !important;
+    margin: 0 auto var(--lv-mobile-lg) auto !important;
     max-width: 320px !important;
     text-align: center !important;
     font-weight: 300 !important;
@@ -11651,7 +11626,7 @@ button.mobile-menu-btn.active::after,
   .hero-buttons {
     display: flex !important;
     flex-direction: column !important;
-    gap: var(--mobile-spacing-md) !important;
+    gap: var(--lv-mobile-md) !important;
     width: 100% !important;
     max-width: 300px !important;
     margin: 0 auto !important;
@@ -11660,7 +11635,7 @@ button.mobile-menu-btn.active::after,
   .hero-buttons .btn {
     width: 100% !important;
     min-height: 56px !important;
-    padding: var(--mobile-spacing-md) var(--mobile-spacing-lg) !important;
+    padding: var(--lv-mobile-md) var(--lv-mobile-lg) !important;
     border-radius: 4px !important;
     font-size: var(--lv-text-base) !important;
     font-weight: 400 !important;
@@ -11781,7 +11756,7 @@ button.mobile-menu-btn.active::after,
   .about .container {
     width: 100% !important;
     max-width: 100% !important;
-    padding: 0 var(--mobile-spacing-md) !important;
+    padding: 0 var(--lv-mobile-md) !important;
     margin: 0 !important;
     box-sizing: border-box !important;
   }
@@ -11804,12 +11779,12 @@ button.mobile-menu-btn.active::after,
     margin: 0 auto !important;
     display: flex !important;
     flex-direction: column !important;
-    gap: var(--mobile-spacing-xl) !important;
+    gap: var(--lv-mobile-xl) !important;
     text-align: center !important;
   }
   
   .about .section-header {
-    margin: 0 auto var(--mobile-spacing-lg) auto !important;
+    margin: 0 auto var(--lv-mobile-lg) auto !important;
     max-width: 350px !important;
     text-align: center !important;
     position: relative !important;
@@ -11820,7 +11795,7 @@ button.mobile-menu-btn.active::after,
     font-weight: 200 !important;
     line-height: 1.2 !important;
     color: var(--lv-black) !important;
-    margin: 0 auto var(--mobile-spacing-md) auto !important;
+    margin: 0 auto var(--lv-mobile-md) auto !important;
     text-align: center !important;
     letter-spacing: 0.05em !important;
     text-transform: uppercase !important;
@@ -11844,7 +11819,7 @@ button.mobile-menu-btn.active::after,
     padding: 0 !important; /* Aucun padding pour éliminer tout décalage */
     display: flex !important;
     flex-direction: column !important;
-    gap: var(--mobile-spacing-lg) !important;
+    gap: var(--lv-mobile-lg) !important;
     text-align: left !important;
     position: relative !important;
   }
@@ -11866,7 +11841,7 @@ button.mobile-menu-btn.active::after,
     font-size: var(--lv-text-base) !important;
     line-height: 1.7 !important;
     color: var(--lv-grey) !important;
-    margin: 0 0 var(--mobile-spacing-md) 0 !important;
+    margin: 0 0 var(--lv-mobile-md) 0 !important;
     text-align: left !important;
     font-weight: 300 !important;
     letter-spacing: 0.01em !important;
@@ -11876,7 +11851,7 @@ button.mobile-menu-btn.active::after,
     font-size: var(--lv-text-lg) !important;
     color: var(--lv-black) !important;
     font-weight: 400 !important;
-    margin-bottom: var(--mobile-spacing-lg) !important;
+    margin-bottom: var(--lv-mobile-lg) !important;
   }
   
   /* Mots surlignés mobile - contraste amélioré */
@@ -11898,17 +11873,17 @@ button.mobile-menu-btn.active::after,
   .features-grid {
     width: 100% !important;
     max-width: 100% !important;
-    margin: var(--mobile-spacing-xl) auto 0 auto !important;
+    margin: var(--lv-mobile-xl) auto 0 auto !important;
     display: grid !important;
     grid-template-columns: 1fr 1fr !important; /* 2 colonnes sur mobile */
-    gap: var(--mobile-spacing-lg) !important;
-    padding: 0 var(--mobile-spacing-sm) !important;
+    gap: var(--lv-mobile-lg) !important;
+    padding: 0 var(--lv-mobile-sm) !important;
     box-sizing: border-box !important;
   }
   
   .feature {
     background: var(--lv-white) !important;
-    padding: var(--mobile-spacing-lg) var(--mobile-spacing-md) !important;
+    padding: var(--lv-mobile-lg) var(--lv-mobile-md) !important;
     border-radius: 12px !important;
     border: 1px solid rgba(212, 184, 150, 0.2) !important;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05) !important;
@@ -11916,7 +11891,7 @@ button.mobile-menu-btn.active::after,
     flex-direction: column !important;
     align-items: center !important;
     text-align: center !important;
-    gap: var(--mobile-spacing-md) !important;
+    gap: var(--lv-mobile-md) !important;
     transition: all 0.3s ease !important;
     box-sizing: border-box !important;
     width: 100% !important;
@@ -11963,7 +11938,7 @@ button.mobile-menu-btn.active::after,
       var(--lv-white) 0%, 
       rgba(245, 241, 235, 0.8) 100%) !important;
     border-radius: 16px !important;
-    padding: var(--mobile-spacing-xl) var(--mobile-spacing-lg) !important;
+    padding: var(--lv-mobile-xl) var(--lv-mobile-lg) !important;
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08) !important;
     border: 1px solid rgba(212, 184, 150, 0.3) !important;
     position: relative !important;
@@ -11989,8 +11964,8 @@ button.mobile-menu-btn.active::after,
     flex-direction: column !important;
     align-items: center !important;
     text-align: center !important;
-    gap: var(--mobile-spacing-md) !important;
-    margin-bottom: var(--mobile-spacing-lg) !important;
+    gap: var(--lv-mobile-md) !important;
+    margin-bottom: var(--lv-mobile-lg) !important;
   }
   
   .profile-logo {
@@ -12033,17 +12008,17 @@ button.mobile-menu-btn.active::after,
   
   .profile-quote {
     background: rgba(212, 184, 150, 0.1) !important;
-    padding: var(--mobile-spacing-lg) !important;
+    padding: var(--lv-mobile-lg) !important;
     border-radius: 12px !important;
     border-left: 4px solid var(--lv-gold-accent) !important;
-    margin-top: var(--mobile-spacing-lg) !important;
+    margin-top: var(--lv-mobile-lg) !important;
   }
   
   .profile-quote blockquote {
     font-size: var(--lv-text-sm) !important;
     line-height: 1.6 !important;
     color: var(--lv-black) !important;
-    margin: 0 0 var(--mobile-spacing-md) 0 !important;
+    margin: 0 0 var(--lv-mobile-md) 0 !important;
     font-style: italic !important;
     font-weight: 300 !important;
     text-align: center !important;
@@ -12107,12 +12082,12 @@ button.mobile-menu-btn.active::after,
   .services,
   .portfolio,
   .contact {
-    padding-left: var(--mobile-spacing-sm) !important;
-    padding-right: var(--mobile-spacing-sm) !important;
+    padding-left: var(--lv-mobile-sm) !important;
+    padding-right: var(--lv-mobile-sm) !important;
   }
   
   .container {
-    padding: 0 var(--mobile-spacing-sm) !important;
+    padding: 0 var(--lv-mobile-sm) !important;
   }
   
   /* Grilles très petits écrans */
@@ -12120,7 +12095,7 @@ button.mobile-menu-btn.active::after,
   .services-grid,
   .portfolio-grid {
     padding: 0 var(--lv-mobile-xs) !important;
-    gap: var(--mobile-spacing-md) !important;
+    gap: var(--lv-mobile-md) !important;
   }
 }
 
@@ -12280,11 +12255,11 @@ button.mobile-menu-btn.active::after,
   }
   
   .hero-content {
-    padding: calc(56px + var(--mobile-spacing-sm)) var(--mobile-spacing-sm) var(--mobile-spacing-lg) !important;
-    gap: var(--mobile-spacing-lg) !important;
+    padding: calc(56px + var(--lv-mobile-sm)) var(--lv-mobile-sm) var(--lv-mobile-lg) !important;
+    gap: var(--lv-mobile-lg) !important;
     margin: 0 auto !important;
     width: 100% !important;
-    max-width: calc(100% - var(--mobile-spacing-md)) !important; /* Marge des bords */
+    max-width: calc(100% - var(--lv-mobile-md)) !important; /* Marge des bords */
   }
   
   .hero-text {
@@ -12297,16 +12272,16 @@ button.mobile-menu-btn.active::after,
   }
   
   .about {
-    padding: var(--mobile-spacing-xl) 0 !important;
+    padding: var(--lv-mobile-xl) 0 !important;
   }
   
   .features-grid {
     grid-template-columns: repeat(4, 1fr) !important;
-    gap: var(--mobile-spacing-md) !important;
+    gap: var(--lv-mobile-md) !important;
   }
   
   .feature {
-    padding: var(--mobile-spacing-md) var(--mobile-spacing-sm) !important;
+    padding: var(--lv-mobile-md) var(--lv-mobile-sm) !important;
   }
   
   .feature-title {
@@ -12334,7 +12309,7 @@ button.mobile-menu-btn.active::after,
   
   .features-grid {
     grid-template-columns: 1fr !important;
-    gap: var(--mobile-spacing-md) !important;
+    gap: var(--lv-mobile-md) !important;
   }
   
   .hero-image {
@@ -12410,8 +12385,8 @@ button.mobile-menu-btn.active::after,
     display: grid !important;
     -webkit-grid-template-columns: 1fr 1fr !important;
     grid-template-columns: 1fr 1fr !important;
-    -webkit-grid-gap: var(--mobile-spacing-lg) !important;
-    grid-gap: var(--mobile-spacing-lg) !important;
+    -webkit-grid-gap: var(--lv-mobile-lg) !important;
+    grid-gap: var(--lv-mobile-lg) !important;
   }
   
   /* Correction flexbox Android */
@@ -12687,7 +12662,7 @@ button.mobile-menu-btn.active::after,
   and (device-height: 844px) 
   and (-webkit-device-pixel-ratio: 3) {
   .hero-content {
-    padding-top: calc(56px + var(--mobile-spacing-xl)) !important;
+    padding-top: calc(56px + var(--lv-mobile-xl)) !important;
   }
 }
 
@@ -12698,7 +12673,7 @@ button.mobile-menu-btn.active::after,
   and (-webkit-device-pixel-ratio: 3) {
   .features-grid {
     grid-template-columns: 1fr 1fr !important;
-    gap: var(--mobile-spacing-xl) !important;
+    gap: var(--lv-mobile-xl) !important;
   }
 }
 
@@ -12770,7 +12745,7 @@ button.mobile-menu-btn.active::after,
   
   /* About section ultra-compact */
   .about {
-    padding: var(--mobile-spacing-xl) 0 !important;
+    padding: var(--lv-mobile-xl) 0 !important;
   }
   
   .about .section-title {
@@ -12816,7 +12791,7 @@ button.mobile-menu-btn.active::after,
 /* ===== PETITS ÉCRANS 321-375px ===== */
 @media (min-width: 321px) and (max-width: 375px) {
   .hero-content {
-    gap: var(--mobile-spacing-md) !important;
+    gap: var(--lv-mobile-md) !important;
   }
   
   .title-main {
@@ -12842,11 +12817,11 @@ button.mobile-menu-btn.active::after,
   
   .features-grid {
     grid-template-columns: 1fr 1fr !important;
-    gap: var(--mobile-spacing-md) !important;
+    gap: var(--lv-mobile-md) !important;
   }
   
   .feature {
-    padding: var(--mobile-spacing-md) var(--mobile-spacing-sm) !important;
+    padding: var(--lv-mobile-md) var(--lv-mobile-sm) !important;
   }
   
   .feature-title {
@@ -12861,7 +12836,7 @@ button.mobile-menu-btn.active::after,
 /* ===== ÉCRANS MOYENS 376-480px ===== */
 @media (min-width: 376px) and (max-width: 480px) {
   .hero-content {
-    gap: var(--mobile-spacing-lg) !important;
+    gap: var(--lv-mobile-lg) !important;
   }
   
   .title-main {
@@ -12886,7 +12861,7 @@ button.mobile-menu-btn.active::after,
   
   .features-grid {
     grid-template-columns: 1fr 1fr !important;
-    gap: var(--mobile-spacing-lg) !important;
+    gap: var(--lv-mobile-lg) !important;
   }
   
   .profile-card {
@@ -12897,7 +12872,7 @@ button.mobile-menu-btn.active::after,
 /* ===== ÉCRANS LARGES MOBILE 481-640px ===== */
 @media (min-width: 481px) and (max-width: 640px) {
   .hero-content {
-    gap: var(--mobile-spacing-xl) !important;
+    gap: var(--lv-mobile-xl) !important;
     max-width: 500px !important;
   }
   
@@ -12932,12 +12907,12 @@ button.mobile-menu-btn.active::after,
   
   .features-grid {
     grid-template-columns: 1fr 1fr !important;
-    gap: var(--mobile-spacing-xl) !important;
+    gap: var(--lv-mobile-xl) !important;
     max-width: 500px !important;
   }
   
   .feature {
-    padding: var(--mobile-spacing-xl) var(--mobile-spacing-lg) !important;
+    padding: var(--lv-mobile-xl) var(--lv-mobile-lg) !important;
   }
   
   .feature-title {
@@ -12957,13 +12932,13 @@ button.mobile-menu-btn.active::after,
 @media (max-width: 640px) and (orientation: landscape) and (max-height: 500px) {
   .hero {
     min-height: 100vh !important;
-    padding: calc(56px + var(--mobile-spacing-sm)) var(--mobile-spacing-md) var(--mobile-spacing-sm) !important;
+    padding: calc(56px + var(--lv-mobile-sm)) var(--lv-mobile-md) var(--lv-mobile-sm) !important;
   }
   
   .hero-content {
     flex-direction: row !important;
     align-items: center !important;
-    gap: var(--mobile-spacing-lg) !important;
+    gap: var(--lv-mobile-lg) !important;
     max-width: 100% !important;
   }
   
@@ -12992,16 +12967,16 @@ button.mobile-menu-btn.active::after,
   }
   
   .about {
-    padding: var(--mobile-spacing-lg) 0 !important;
+    padding: var(--lv-mobile-lg) 0 !important;
   }
   
   .features-grid {
     grid-template-columns: repeat(4, 1fr) !important;
-    gap: var(--mobile-spacing-sm) !important;
+    gap: var(--lv-mobile-sm) !important;
   }
   
   .feature {
-    padding: var(--mobile-spacing-sm) !important;
+    padding: var(--lv-mobile-sm) !important;
   }
   
   .feature-title {
@@ -13052,237 +13027,5 @@ button.mobile-menu-btn.active::after,
   .features-grid {
     grid-template-columns: 1fr !important;
     gap: 8px !important;
-  }
-}
-
-/* ===== MOBILE ADAPTATION DU DESIGN DESKTOP ===== */
-/* Respecte l'ancien design desktop avec adaptations mobile nécessaires */
-
-@media (max-width: 767px) {
-  /* ===== PRESERVATION DU DESIGN DESKTOP ORIGINAL ===== */
-  
-  /* About section - Garde le style desktop Louis Vuitton */
-  .about {
-    padding: var(--spacing-4xl) 0 var(--spacing-5xl) 0 !important;
-    background: linear-gradient(135deg, 
-      var(--beige-clair) 0%, 
-      rgba(248, 246, 243, 0.95) 50%,
-      var(--blanc-casse) 100%) !important;
-    position: relative !important;
-    overflow: hidden !important;
-  }
-  
-  /* Garde les pseudo-elements desktop */
-  .about::before {
-    content: '' !important;
-    position: absolute !important;
-    top: 0 !important;
-    left: 0 !important;
-    right: 0 !important;
-    height: 0.5px !important;
-    background: linear-gradient(90deg, 
-      transparent, 
-      var(--beige-sable), 
-      transparent) !important;
-  }
-  
-  .about::after {
-    content: '' !important;
-    position: absolute !important;
-    top: 20% !important;
-    right: -15% !important;
-    width: 40% !important;
-    height: 60% !important;
-    background: radial-gradient(circle, rgba(212, 184, 150, 0.03) 0%, transparent 70%) !important;
-    pointer-events: none !important;
-  }
-  
-  /* About content - adaptation mobile minimale */
-  .about-content {
-    display: grid !important;
-    grid-template-columns: 1fr !important; /* Seul changement : 1 colonne au lieu de 2 */
-    gap: var(--spacing-4xl) !important;
-    align-items: center !important;
-    position: relative !important;
-    z-index: 2 !important;
-    padding: 0 var(--spacing-md) !important;
-    margin-bottom: var(--spacing-4xl) !important;
-  }
-  
-  /* Typographie desktop préservée avec ajustements mobiles légers */
-  .title-main {
-    font-size: clamp(3rem, 8vw, 4.5rem) !important; /* Garde la grandeur desktop */
-    font-weight: 700 !important;
-    line-height: 1.1 !important;
-    color: var(--noir-profond) !important;
-  }
-  
-  .section-title {
-    font-size: clamp(2.5rem, 6vw, 3.5rem) !important; /* Style desktop conservé */
-    font-weight: 700 !important;
-    line-height: 1.1 !important;
-    margin-bottom: var(--spacing-lg) !important;
-    color: var(--noir-profond) !important;
-  }
-  
-  /* Features grid - garde le style desktop mais en 1 colonne */
-  .features-grid {
-    display: grid !important;
-    grid-template-columns: 1fr !important; /* Adaptation mobile */
-    gap: var(--spacing-xl) !important; /* Garde l'espacement desktop */
-    margin-top: var(--spacing-2xl) !important;
-  }
-  
-  .feature {
-    padding: var(--spacing-xl) !important; /* Garde le padding desktop */
-    background: rgba(254, 252, 250, 0.8) !important;
-    border-radius: var(--radius-lg) !important;
-    border: 1px solid rgba(212, 184, 150, 0.2) !important;
-    transition: var(--transition-normal) !important;
-    position: relative !important;
-    overflow: hidden !important;
-  }
-  
-  .feature:hover {
-    transform: translateY(-5px) !important; /* Garde les effets desktop */
-    box-shadow: var(--shadow-lg) !important;
-    background: rgba(254, 252, 250, 1) !important;
-  }
-  
-  /* Profile card - garde le style desktop */
-  .profile-card {
-    background: linear-gradient(135deg, var(--blanc-casse) 0%, var(--creme-ecru) 100%) !important;
-    border-radius: var(--radius-xl) !important;
-    padding: var(--spacing-2xl) !important;
-    border: 1px solid rgba(212, 184, 150, 0.2) !important;
-    box-shadow: var(--shadow-lg) !important;
-    position: relative !important;
-    overflow: hidden !important;
-  }
-  
-  .profile-card::before {
-    content: '' !important;
-    position: absolute !important;
-    top: -50% !important;
-    right: -50% !important;
-    width: 100% !important;
-    height: 100% !important;
-    background: radial-gradient(circle, rgba(212, 184, 150, 0.05) 0%, transparent 70%) !important;
-    pointer-events: none !important;
-  }
-  
-  /* Hero section - garde les proportions desktop */
-  .hero {
-    min-height: 100vh !important;
-    padding: var(--spacing-4xl) var(--spacing-md) !important; /* Adaptation padding minimal */
-  }
-  
-  .hero-content {
-    text-align: center !important;
-    max-width: 800px !important;
-    margin: 0 auto !important;
-  }
-  
-  .hero-description {
-    font-size: clamp(1.1rem, 3vw, 1.3rem) !important; /* Garde la taille desktop */
-    line-height: 1.7 !important;
-    color: var(--tattoo-charcoal) !important;
-    margin-bottom: var(--spacing-2xl) !important;
-    max-width: 600px !important;
-    margin-left: auto !important;
-    margin-right: auto !important;
-  }
-  
-  /* Services - garde le style desktop */
-  .services {
-    padding: var(--spacing-4xl) 0 !important;
-    background: var(--blanc-casse) !important;
-  }
-  
-  .services-grid {
-    display: grid !important;
-    grid-template-columns: 1fr !important; /* Seule adaptation : 1 colonne */
-    gap: var(--spacing-2xl) !important; /* Garde l'espacement desktop */
-    margin-top: var(--spacing-3xl) !important;
-  }
-  
-  .service-card {
-    background: linear-gradient(135deg, var(--blanc-casse) 0%, var(--beige-clair) 100%) !important;
-    border-radius: var(--radius-lg) !important;
-    padding: var(--spacing-2xl) !important; /* Garde le padding desktop */
-    border: 1px solid rgba(212, 184, 150, 0.2) !important;
-    transition: var(--transition-normal) !important;
-    position: relative !important;
-    overflow: hidden !important;
-  }
-  
-  .service-card:hover {
-    transform: translateY(-8px) !important; /* Garde les effets desktop */
-    box-shadow: var(--shadow-xl) !important;
-  }
-  
-  /* Portfolio - garde le style desktop */
-  .portfolio {
-    padding: var(--spacing-4xl) 0 !important;
-    background: linear-gradient(135deg, var(--beige-clair) 0%, var(--creme-ecru) 100%) !important;
-  }
-  
-  .portfolio-grid {
-    display: grid !important;
-    grid-template-columns: 1fr !important; /* Seule adaptation : 1 colonne */
-    gap: var(--spacing-xl) !important; /* Garde l'espacement desktop */
-    margin-top: var(--spacing-3xl) !important;
-  }
-  
-  /* Boutons - garde le style desktop */
-  .btn {
-    padding: var(--spacing-md) var(--spacing-xl) !important; /* Garde le padding desktop */
-    font-family: var(--font-primary) !important;
-    font-weight: 500 !important;
-    font-size: 1rem !important;
-    border-radius: var(--radius-md) !important;
-    transition: var(--transition-normal) !important;
-  }
-  
-  .btn-primary {
-    background: var(--beige-sable) !important;
-    color: var(--blanc-casse) !important;
-    box-shadow: var(--shadow-md) !important;
-  }
-  
-  .btn-primary:hover {
-    background: var(--noir-profond) !important;
-    transform: translateY(-2px) !important; /* Garde les effets desktop */
-    box-shadow: var(--shadow-lg) !important;
-  }
-  
-  /* Contact - garde le style desktop */
-  .contact {
-    padding: var(--spacing-4xl) 0 !important;
-    background: var(--blanc-casse) !important;
-  }
-  
-  .contact-content {
-    display: grid !important;
-    grid-template-columns: 1fr !important; /* Seule adaptation : 1 colonne */
-    gap: var(--spacing-4xl) !important;
-    align-items: start !important;
-  }
-  
-  .contact-form {
-    background: linear-gradient(135deg, var(--beige-clair) 0%, var(--creme-ecru) 100%) !important;
-    border-radius: var(--radius-lg) !important;
-    padding: var(--spacing-2xl) !important; /* Garde le padding desktop */
-    border: 1px solid rgba(212, 184, 150, 0.2) !important;
-    box-shadow: var(--shadow-md) !important;
-  }
-  
-  /* Header minimal adaptation */
-  .header-container {
-    padding: var(--spacing-md) var(--spacing-lg) !important; /* Adaptation légère */
-  }
-  
-  .nav {
-    gap: var(--spacing-lg) !important; /* Garde l'espacement desktop */
   }
 }
