@@ -2303,16 +2303,16 @@ ul, ol {
     border-bottom: none !important; /* Dernière section */
   }
   
-  /* Content wrappers avec marge du bord droit */
+  /* Content wrappers uniformes */
   .hero-content,
   .about-content,
   .services-content,
   .portfolio-content,
   .contact-content {
     width: 100% !important;
-    max-width: calc(100% - var(--spacing-sm)) !important; /* Marge du bord droit */
+    max-width: 100% !important;
     margin: 0 auto !important;
-    padding: 0 var(--spacing-sm) !important; /* Padding plus confortable */
+    padding: 0 !important;
     text-align: center !important;
     display: flex !important;
     flex-direction: column !important;
@@ -2406,7 +2406,7 @@ ul, ol {
     font-weight: 400 !important;
   }
   
-  /* ===== PARAGRAPHES LISIBILITÉ PREMIUM ===== */
+  /* ===== PARAGRAPHES LOUIS VUITTON - LISIBILITÉ PREMIUM ===== */
   p, .description, .hero-description {
     font-family: 'Helvetica Neue', sans-serif !important;
     font-size: 1rem !important; /* 16px - standard LV */
@@ -3528,37 +3528,21 @@ ul, ol {
   }
 }
 
-/* Règles spécifiques pour Android portrait avec espacement des bords */
+/* Règles spécifiques pour Android portrait avec correction débordement */
 @media (max-width: 767px) and (orientation: portrait) {
   .hero {
     padding-top: 7rem !important;
-    padding-left: var(--spacing-lg) !important;
-    padding-right: var(--spacing-lg) !important;
   }
   
   .hero-content {
     min-height: calc(100vh - 9rem) !important;
-    padding: var(--spacing-2xl) var(--spacing-lg) 0 var(--spacing-lg) !important;
-    margin: 0 auto !important;
-    max-width: calc(100% - var(--spacing-xl)) !important; /* Marge importante des bords */
+    padding-top: var(--spacing-2xl) !important;
   }
   
   .hero-brand,
   .hero-title {
     margin-top: var(--spacing-3xl) !important;
-    padding: var(--spacing-xl) var(--spacing-md) !important;
-    max-width: calc(100% - var(--spacing-lg)) !important;
-  }
-  
-  .about-content {
-    padding: 0 var(--spacing-lg) !important;
-    margin: 0 auto !important;
-    max-width: calc(100% - var(--spacing-xl)) !important;
-  }
-  
-  .about-description {
-    padding: 0 var(--spacing-md) !important;
-    max-width: calc(100% - var(--spacing-lg)) !important;
+    padding: var(--spacing-xl) var(--spacing-lg) !important;
   }
 }
 
@@ -3610,7 +3594,7 @@ ul, ol {
     display: block !important;
   }
   
-  /* Retirer TOUTES les lignes décoratives et underlines sur mobile */
+  /* Retirer toutes les lignes décoratives sur mobile */
   .about::before,
   .about::after,
   .about .section-header::before,
@@ -3618,15 +3602,9 @@ ul, ol {
   .about-description::before,
   .about-description::after,
   .about-description p::before,
-  .about-description p::after,
-  .about .title-underline,
-  .section-header .title-underline {
+  .about-description p::after {
     display: none !important;
     content: none !important;
-    visibility: hidden !important;
-    opacity: 0 !important;
-    width: 0 !important;
-    height: 0 !important;
   }
   
   /* Section header about parfaitement centrée */
@@ -3642,50 +3620,49 @@ ul, ol {
     justify-content: center !important;
   }
   
-  /* Description about centrée sur mobile */
+  /* Description about centrée sans lignes */
   .about-description {
-    max-width: calc(100% - var(--spacing-md)) !important; /* Marge du bord droit */
+    max-width: 90% !important;
     margin: 0 auto !important;
-    text-align: center !important; /* Centrage du texte */
-    padding: 0 var(--spacing-sm) !important; /* Padding pour éviter les bords */
+    text-align: center !important;
+    padding: var(--spacing-lg) !important;
     background: none !important;
     border: none !important;
     position: relative !important;
     display: flex !important;
     flex-direction: column !important;
-    align-items: center !important; /* Centrage des éléments */
+    align-items: center !important;
     gap: var(--spacing-lg) !important;
   }
   
-  /* Paragraphes about centrés sur mobile */
+  /* Paragraphes about centrés */
   .about-description p {
-    text-align: center !important; /* Centrage du texte des paragraphes */
+    text-align: center !important;
     max-width: 100% !important;
-    margin: 0 auto var(--spacing-md) auto !important; /* Centrage avec marge auto */
-    padding: 0 var(--spacing-sm) !important; /* Padding confortable pour éviter les bords */
+    margin: 0 auto var(--spacing-md) auto !important;
+    padding: 0 !important;
     line-height: 1.7 !important;
     font-size: 1.1rem !important;
     color: var(--noir-profond) !important;
     position: relative !important;
   }
   
-  /* TOUS les éléments about parfaitement centrés */
+  /* Éléments additionnels about centrés */
   .about .container,
   .about-content,
   .about-text,
   .about-image,
-  .about-grid,
-  .features-grid,
-  .profile-card {
+  .about-grid {
     width: 100% !important;
-    max-width: calc(100% - var(--spacing-md)) !important; /* Marge des bords */
-    margin: 0 auto !important; /* Centrage automatique */
+    max-width: 100% !important;
+    margin: 0 auto !important;
     text-align: center !important;
     display: flex !important;
     flex-direction: column !important;
     align-items: center !important;
     justify-content: center !important;
-    padding: 0 var(--spacing-sm) !important; /* Padding uniforme */
+    padding-left: var(--spacing-md) !important;
+    padding-right: var(--spacing-md) !important;
   }
   
   /* Suppression des marges latérales pour éviter débordement */
@@ -3693,21 +3670,24 @@ ul, ol {
     box-sizing: border-box !important;
   }
   
-  /* Styles pour features et éléments spéciaux about */
-  .about .feature,
-  .about .feature-card {
+  .profile-card {
     width: 100% !important;
-    max-width: calc(100% - var(--spacing-lg)) !important;
-    margin: 0 auto var(--spacing-lg) auto !important;
-    padding: var(--spacing-lg) var(--spacing-md) !important;
-    text-align: center !important;
-    display: flex !important;
-    flex-direction: column !important;
-    align-items: center !important;
-    justify-content: center !important;
+    max-width: 100% !important;
+    padding: var(--spacing-2xl) var(--spacing-lg) !important;
+    margin: 0 auto var(--spacing-xl) auto !important;
+    
+    /* Style harmonieux Android */
+    border-radius: 20px !important;
     background: rgba(254, 252, 250, 0.95) !important;
-    border-radius: 12px !important;
-    border: 1px solid rgba(212, 184, 150, 0.2) !important;
+    backdrop-filter: blur(15px) !important;
+    -webkit-backdrop-filter: blur(15px) !important;
+    border: 2px solid rgba(212, 184, 150, 0.2) !important;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1) !important;
+    
+    /* Performance */
+    transform: translateZ(0) !important;
+    -webkit-transform: translateZ(0) !important;
+    transition: all 0.4s cubic-bezier(0.25, 0.1, 0.25, 1) !important;
   }
   
   .profile-image {
@@ -4738,7 +4718,8 @@ ul, ol {
   /* ===== HERO SECTION PORTRAIT ANDROID ===== */
   .hero {
     min-height: 100vh !important;
-    padding: 4.5rem var(--spacing-xl) var(--spacing-3xl) var(--spacing-xl) !important; /* Padding latéral important */
+    padding-top: 4.5rem !important;
+    padding-bottom: var(--spacing-3xl) !important;
     
     /* Background optimisé pour portrait */
     background: linear-gradient(180deg, 
@@ -4754,10 +4735,8 @@ ul, ol {
   
   .hero-content {
     min-height: calc(100vh - 7rem) !important;
-    padding: var(--spacing-2xl) var(--spacing-xl) !important; /* Padding important des bords */
+    padding: var(--spacing-2xl) var(--spacing-lg) !important;
     gap: var(--spacing-2xl) !important;
-    margin: 0 auto !important;
-    max-width: calc(100% - var(--spacing-2xl)) !important; /* Marge sécurisée */
     justify-content: center !important;
   }
   
@@ -5706,14 +5685,13 @@ ul, ol {
     justify-content: center !important;
   }
   
-  /* Contenu hero avec espacement du bord droit */
+  /* Contenu hero harmonieux */
   .hero-content {
     z-index: 10 !important;
     color: var(--tattoo-pearl) !important;
     width: 100% !important;
-    max-width: calc(100% - var(--spacing-md)) !important; /* Marge des bords */
-    padding: 0 var(--spacing-md) !important; /* Padding confortable */
-    margin: 0 auto !important;
+    max-width: 320px !important;
+    padding: var(--spacing-lg) var(--spacing-sm) !important;
     display: flex !important;
     flex-direction: column !important;
     align-items: center !important;
@@ -5722,7 +5700,8 @@ ul, ol {
     gap: var(--mobile-content-gap) !important;
     position: relative !important;
     min-height: calc(100vh - 8rem) !important;
-    box-sizing: border-box !important;
+    margin-top: 0 !important;
+    padding-top: var(--spacing-xl) !important;
   }
   
   /* Container pour les titres avec visibilité forcée */
@@ -5917,12 +5896,12 @@ ul, ol {
   }
 }
 
-/* Format portrait mobile très spécifique avec espacement sécurisé */
+/* Format portrait mobile très spécifique */
 @media (max-width: 480px) and (orientation: portrait) {
   .hero {
     min-height: 100vh !important;
     height: auto !important;
-    padding: 6rem var(--spacing-xl) var(--spacing-2xl) var(--spacing-xl) !important; /* Padding latéral important */
+    padding: calc(6rem) var(--spacing-md) var(--spacing-2xl) var(--spacing-md) !important;
     background: linear-gradient(135deg, 
       rgba(10, 10, 10, 0.98) 0%, 
       rgba(20, 20, 20, 0.95) 50%,
@@ -5933,26 +5912,10 @@ ul, ol {
   }
   
   .hero-content {
-    padding: var(--spacing-xl) var(--spacing-lg) !important; /* Padding confortable */
+    padding: var(--spacing-xl) var(--spacing-md) !important;
     gap: var(--spacing-xl) !important;
     min-height: 70vh !important;
     justify-content: center !important;
-    margin: 0 auto !important;
-    max-width: calc(100% - var(--spacing-2xl)) !important; /* Marge sécurisée des bords */
-  }
-  
-  .about {
-    padding: var(--spacing-3xl) var(--spacing-xl) !important; /* Padding latéral important */
-  }
-  
-  .about-content {
-    padding: 0 var(--spacing-lg) !important;
-    max-width: calc(100% - var(--spacing-xl)) !important;
-  }
-  
-  .about-description {
-    padding: 0 var(--spacing-md) !important;
-    max-width: calc(100% - var(--spacing-lg)) !important;
   }
   
   .hero-brand,
@@ -11389,11 +11352,10 @@ button.mobile-menu-btn.active::after,
     opacity: 0 !important;
   }
   
-  /* Force l'alignement correct pour about sans décalage */
+  /* Force le centrage sur tous les enfants about */
   .about * {
     box-sizing: border-box !important;
-    margin-left: 0 !important;
-    margin-right: 0 !important;
+    text-align: center !important;
   }
   
   /* Grilles et listes about centrées */
@@ -11748,27 +11710,30 @@ button.mobile-menu-btn.active::after,
   }
   
   .title-underline {
-    display: none !important;
+    width: 80px !important;
+    height: 2px !important;
+    background: linear-gradient(90deg, 
+      transparent 0%, 
+      var(--lv-gold-accent) 50%, 
+      transparent 100%) !important;
+    margin: 0 auto !important;
   }
   
-  /* ===== ABOUT DESCRIPTION PARFAITEMENT ALIGNÉE ===== */
+  /* ===== ABOUT DESCRIPTION MODERNE ===== */
   .about-description {
     width: 100% !important;
-    max-width: 100% !important;
-    margin: 0 !important;
-    padding: 0 !important; /* Aucun padding pour éliminer tout décalage */
+    max-width: 400px !important;
+    margin: 0 auto !important;
+    padding: 0 var(--lv-mobile-xs) !important; /* Réduit l'espace latéral de 16px à 8px */
     display: flex !important;
     flex-direction: column !important;
     gap: var(--lv-mobile-lg) !important;
-    text-align: left !important;
-    position: relative !important;
+    text-align: center !important;
+    position: relative !important; /* Reset position */
   }
   
-  /* Force la suppression de TOUS les éléments décoratifs about sur mobile */
-  .about-description::before,
-  .about-description::after,
-  .about-description p::before,
-  .about-description p::after {
+  /* Force la suppression du ::before sur mobile */
+  .about-description::before {
     display: none !important;
     content: none !important;
     visibility: hidden !important;
@@ -11781,8 +11746,8 @@ button.mobile-menu-btn.active::after,
     font-size: var(--lv-text-base) !important;
     line-height: 1.7 !important;
     color: var(--lv-grey) !important;
-    margin: 0 0 var(--lv-mobile-md) 0 !important;
-    text-align: left !important;
+    margin: 0 auto var(--lv-mobile-md) auto !important;
+    text-align: center !important;
     font-weight: 300 !important;
     letter-spacing: 0.01em !important;
   }
@@ -12186,11 +12151,8 @@ button.mobile-menu-btn.active::after,
   }
   
   .hero-content {
-    padding: calc(56px + var(--lv-mobile-sm)) var(--lv-mobile-sm) var(--lv-mobile-lg) !important;
+    padding: calc(56px + var(--lv-mobile-md)) var(--lv-mobile-md) var(--lv-mobile-lg) !important;
     gap: var(--lv-mobile-lg) !important;
-    margin: 0 auto !important;
-    width: 100% !important;
-    max-width: calc(100% - var(--lv-mobile-md)) !important; /* Marge des bords */
   }
   
   .hero-text {
