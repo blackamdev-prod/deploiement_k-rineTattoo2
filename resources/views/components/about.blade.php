@@ -20,7 +20,7 @@
                         {!! $description !!}
                     @else
                         <p>
-                            écouvrez l'<span class="highlight-word">univers artistique</span> de K'RINE TATTOO, où chaque trait d'aiguille raconte une histoire unique. Depuis plus de cinq années de passion dédiée à l'art corporel, je donne vie à vos <span class="highlight-word">projets les plus personnels</span>, créant des œuvres qui vous accompagneront toute votre vie.
+                            Découvrez l'<span class="highlight-word">univers artistique</span> de K'RINE TATTOO, où chaque trait d'aiguille raconte une histoire unique. Depuis plus de cinq années de passion dédiée à l'art corporel, je donne vie à vos <span class="highlight-word">projets les plus personnels</span>, créant des œuvres qui vous accompagneront toute votre vie.
                         </p>
                         
                         <p>
