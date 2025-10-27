@@ -2303,16 +2303,16 @@ ul, ol {
     border-bottom: none !important; /* Dernière section */
   }
   
-  /* Content wrappers uniformes */
+  /* Content wrappers avec marge du bord droit */
   .hero-content,
   .about-content,
   .services-content,
   .portfolio-content,
   .contact-content {
     width: 100% !important;
-    max-width: 100% !important;
+    max-width: calc(100% - var(--spacing-sm)) !important; /* Marge du bord droit */
     margin: 0 auto !important;
-    padding: 0 !important;
+    padding: 0 var(--spacing-sm) !important; /* Padding plus confortable */
     text-align: center !important;
     display: flex !important;
     flex-direction: column !important;
@@ -2406,7 +2406,7 @@ ul, ol {
     font-weight: 400 !important;
   }
   
-  /* ===== PARAGRAPHES LOUIS VUITTON - LISIBILITÉ PREMIUM ===== */
+  /* ===== PARAGRAPHES LISIBILITÉ PREMIUM ===== */
   p, .description, .hero-description {
     font-family: 'Helvetica Neue', sans-serif !important;
     font-size: 1rem !important; /* 16px - standard LV */
@@ -3528,73 +3528,88 @@ ul, ol {
   }
 }
 
-/* Règles spécifiques pour Android portrait avec correction débordement */
+/* Règles spécifiques pour Android portrait avec espacement des bords */
 @media (max-width: 767px) and (orientation: portrait) {
   .hero {
     padding-top: 7rem !important;
+    padding-left: var(--spacing-lg) !important;
+    padding-right: var(--spacing-lg) !important;
   }
   
   .hero-content {
     min-height: calc(100vh - 9rem) !important;
-    padding-top: var(--spacing-2xl) !important;
+    padding: var(--spacing-2xl) var(--spacing-lg) 0 var(--spacing-lg) !important;
+    margin: 0 auto !important;
+    max-width: calc(100% - var(--spacing-xl)) !important; /* Marge importante des bords */
   }
   
   .hero-brand,
   .hero-title {
     margin-top: var(--spacing-3xl) !important;
-    padding: var(--spacing-xl) var(--spacing-lg) !important;
+    padding: var(--spacing-xl) var(--spacing-md) !important;
+    max-width: calc(100% - var(--spacing-lg)) !important;
+  }
+  
+  .about-content {
+    padding: 0 var(--spacing-lg) !important;
+    margin: 0 auto !important;
+    max-width: calc(100% - var(--spacing-xl)) !important;
+  }
+  
+  .about-description {
+    padding: 0 var(--spacing-md) !important;
+    max-width: calc(100% - var(--spacing-lg)) !important;
   }
 }
 
 /* ===== ANDROID SECTIONS HARMONIZATION - STRUCTURE COMPLETE ===== */
 @media (max-width: 767px) {
   
-  /* ===== SECTION ABOUT - MOBILE CENTRAGE PARFAIT ===== */
+  /* About section mobile optimized - reduced !important usage */
   .about {
-    padding: var(--spacing-3xl) var(--spacing-md) !important;
+    padding: var(--lv-mobile-xl) var(--lv-mobile-md);
     background: linear-gradient(135deg, 
       rgba(254, 252, 250, 0.02) 0%, 
       rgba(254, 252, 250, 0.05) 50%, 
-      rgba(254, 252, 250, 0.02) 100%) !important;
+      rgba(254, 252, 250, 0.02) 100%);
     
-    /* Centrage parfait sur mobile */
-    text-align: center !important;
-    display: flex !important;
-    flex-direction: column !important;
-    align-items: center !important;
-    justify-content: center !important;
+    /* Centrage mobile */
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
     
-    /* Performance Android */
-    transform: translateZ(0) !important;
-    -webkit-transform: translateZ(0) !important;
-    will-change: transform !important;
+    /* Performance */
+    transform: translateZ(0);
+    will-change: transform;
   }
   
   .about-content {
-    max-width: 100% !important;
-    gap: var(--spacing-2xl) !important;
-    text-align: center !important;
-    display: flex !important;
-    flex-direction: column !important;
-    align-items: center !important;
-    justify-content: center !important;
-    width: 100% !important;
-    margin: 0 auto !important;
+    max-width: calc(100% - var(--lv-mobile-md));
+    gap: var(--lv-mobile-xl);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    margin: 0 auto;
   }
   
   .about .section-title {
-    font-size: 2.5rem !important;
-    margin-bottom: var(--spacing-2xl) !important;
-    color: var(--noir-profond) !important;
-    font-weight: 600 !important;
-    text-align: center !important;
-    width: 100% !important;
-    margin-left: auto !important;
-    margin-right: auto !important;
-    display: block !important;
+    font-size: clamp(2rem, 5vw, 2.5rem);
+    margin-bottom: var(--lv-mobile-xl);
+    color: var(--noir-profond);
+    font-weight: 600;
+    text-align: center;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
   }
   
-  /* Retirer toutes les lignes décoratives sur mobile */
+  /* SUPPRESSION TOTALE - TOUS éléments décoratifs mobile */
   .about::before,
   .about::after,
   .about .section-header::before,
@@ -3602,67 +3617,154 @@ ul, ol {
   .about-description::before,
   .about-description::after,
   .about-description p::before,
-  .about-description p::after {
+  .about-description p::after,
+  .about .title-underline,
+  .section-header .title-underline,
+  .feature::before,
+  .feature::after,
+  .feature-title::before,
+  .feature-title::after,
+  .profile-card::before,
+  .profile-card::after,
+  .profile-logo::before,
+  .profile-logo::after,
+  .profile-name::before,
+  .profile-name::after,
+  .profile-title::before,
+  .profile-title::after,
+  .profile-credentials::before,
+  .profile-credentials::after,
+  .profile-credentials p::before,
+  .profile-credentials p::after,
+  .profile-quote::before,
+  .profile-quote::after,
+  .profile-quote blockquote::before,
+  .profile-quote blockquote::after,
+  .quote-signature::before,
+  .quote-signature::after {
     display: none !important;
     content: none !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
+    width: 0 !important;
+    height: 0 !important;
+    border: none !important;
+    background: none !important;
+    box-shadow: none !important;
+    border-radius: 0 !important;
+    transform: none !important;
   }
   
-  /* Section header about parfaitement centrée */
-  .about .section-header {
-    text-align: center !important;
-    width: 100% !important;
-    margin: 0 auto var(--spacing-2xl) auto !important;
-    padding: 0 !important;
-    position: relative !important;
-    display: flex !important;
-    flex-direction: column !important;
-    align-items: center !important;
-    justify-content: center !important;
+  /* Suppression backgrounds décoratifs mobile */
+  .about,
+  .feature,
+  .profile-card {
+    background: var(--lv-warm-white) !important;
+    box-shadow: none !important;
+    border: none !important;
+    backdrop-filter: none !important;
   }
   
-  /* Description about centrée sans lignes */
-  .about-description {
-    max-width: 90% !important;
-    margin: 0 auto !important;
-    text-align: center !important;
-    padding: var(--spacing-lg) !important;
+  /* Suppression effets hover mobile */
+  .about .feature:hover,
+  .about .profile-card:hover,
+  .about .highlight-word:hover {
+    transform: none !important;
+    box-shadow: none !important;
+    background: inherit !important;
+  }
+  
+  /* Override FORCER - tous pseudo-éléments desktop neutralisés mobile */
+  .about::before,
+  .about::after {
+    content: none !important;
+    display: none !important;
+    position: static !important;
+    width: 0 !important;
+    height: 0 !important;
+    background: none !important;
+  }
+  
+  /* SÉCURITÉ MAXIMALE - suppression totale pseudo-éléments */
+  .about *::before,
+  .about *::after {
+    content: none !important;
+    display: none !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
+    width: 0 !important;
+    height: 0 !important;
+    position: static !important;
     background: none !important;
     border: none !important;
-    position: relative !important;
-    display: flex !important;
-    flex-direction: column !important;
-    align-items: center !important;
-    gap: var(--spacing-lg) !important;
+    box-shadow: none !important;
+    transform: none !important;
   }
   
-  /* Paragraphes about centrés */
+  /* Section header about centrée - espacement réduit */
+  .about .section-header {
+    text-align: center;
+    width: 100%;
+    margin: 0 auto var(--lv-mobile-lg) auto; /* Réduit de xl à lg */
+    padding: 0 var(--lv-mobile-md); /* Ajout padding latéral */
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  /* Description about mobile - espacement amélioré */
+  .about-description {
+    max-width: calc(100% - var(--lv-mobile-lg)); /* Marge confortable */
+    margin: 0 auto;
+    text-align: center;
+    padding: 0 var(--lv-mobile-md); /* Padding latéral important */
+    background: none;
+    border: none;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--lv-mobile-lg); /* Espacement paragraphes */
+  }
+  
+  /* Paragraphes about mobile - lisibilité améliorée */
   .about-description p {
-    text-align: center !important;
-    max-width: 100% !important;
-    margin: 0 auto var(--spacing-md) auto !important;
-    padding: 0 !important;
-    line-height: 1.7 !important;
-    font-size: 1.1rem !important;
-    color: var(--noir-profond) !important;
-    position: relative !important;
+    text-align: center;
+    max-width: 100%;
+    margin: 0 auto var(--lv-mobile-md) auto; /* Espacement vertical optimisé */
+    padding: 0 var(--lv-mobile-sm); /* Padding latéral confortable */
+    line-height: 1.6; /* Légèrement réduit pour mobile */
+    font-size: 1rem; /* Taille réduite pour mobile */
+    color: var(--noir-profond);
+    position: relative;
   }
   
-  /* Éléments additionnels about centrés */
+  /* Premier paragraphe légèrement plus grand */
+  .about-description p:first-child {
+    font-size: 1.1rem;
+    font-weight: 400;
+    margin-bottom: var(--lv-mobile-lg);
+  }
+  
+  /* TOUS les éléments about parfaitement centrés */
   .about .container,
   .about-content,
   .about-text,
   .about-image,
-  .about-grid {
+  .about-grid,
+  .features-grid,
+  .profile-card {
     width: 100% !important;
-    max-width: 100% !important;
-    margin: 0 auto !important;
+    max-width: calc(100% - var(--spacing-md)) !important; /* Marge des bords */
+    margin: 0 auto !important; /* Centrage automatique */
     text-align: center !important;
     display: flex !important;
     flex-direction: column !important;
     align-items: center !important;
     justify-content: center !important;
-    padding-left: var(--spacing-md) !important;
-    padding-right: var(--spacing-md) !important;
+    padding: 0 var(--spacing-sm) !important; /* Padding uniforme */
   }
   
   /* Suppression des marges latérales pour éviter débordement */
@@ -3670,24 +3772,21 @@ ul, ol {
     box-sizing: border-box !important;
   }
   
-  .profile-card {
+  /* Styles pour features et éléments spéciaux about */
+  .about .feature,
+  .about .feature-card {
     width: 100% !important;
-    max-width: 100% !important;
-    padding: var(--spacing-2xl) var(--spacing-lg) !important;
-    margin: 0 auto var(--spacing-xl) auto !important;
-    
-    /* Style harmonieux Android */
-    border-radius: 20px !important;
+    max-width: calc(100% - var(--spacing-lg)) !important;
+    margin: 0 auto var(--spacing-lg) auto !important;
+    padding: var(--spacing-lg) var(--spacing-md) !important;
+    text-align: center !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
     background: rgba(254, 252, 250, 0.95) !important;
-    backdrop-filter: blur(15px) !important;
-    -webkit-backdrop-filter: blur(15px) !important;
-    border: 2px solid rgba(212, 184, 150, 0.2) !important;
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1) !important;
-    
-    /* Performance */
-    transform: translateZ(0) !important;
-    -webkit-transform: translateZ(0) !important;
-    transition: all 0.4s cubic-bezier(0.25, 0.1, 0.25, 1) !important;
+    border-radius: 12px !important;
+    border: 1px solid rgba(212, 184, 150, 0.2) !important;
   }
   
   .profile-image {
@@ -4718,8 +4817,7 @@ ul, ol {
   /* ===== HERO SECTION PORTRAIT ANDROID ===== */
   .hero {
     min-height: 100vh !important;
-    padding-top: 4.5rem !important;
-    padding-bottom: var(--spacing-3xl) !important;
+    padding: 4.5rem var(--spacing-xl) var(--spacing-3xl) var(--spacing-xl) !important; /* Padding latéral important */
     
     /* Background optimisé pour portrait */
     background: linear-gradient(180deg, 
@@ -4735,8 +4833,10 @@ ul, ol {
   
   .hero-content {
     min-height: calc(100vh - 7rem) !important;
-    padding: var(--spacing-2xl) var(--spacing-lg) !important;
+    padding: var(--spacing-2xl) var(--spacing-xl) !important; /* Padding important des bords */
     gap: var(--spacing-2xl) !important;
+    margin: 0 auto !important;
+    max-width: calc(100% - var(--spacing-2xl)) !important; /* Marge sécurisée */
     justify-content: center !important;
   }
   
@@ -5685,13 +5785,14 @@ ul, ol {
     justify-content: center !important;
   }
   
-  /* Contenu hero harmonieux */
+  /* Contenu hero avec espacement du bord droit */
   .hero-content {
     z-index: 10 !important;
     color: var(--tattoo-pearl) !important;
     width: 100% !important;
-    max-width: 320px !important;
-    padding: var(--spacing-lg) var(--spacing-sm) !important;
+    max-width: calc(100% - var(--spacing-md)) !important; /* Marge des bords */
+    padding: 0 var(--spacing-md) !important; /* Padding confortable */
+    margin: 0 auto !important;
     display: flex !important;
     flex-direction: column !important;
     align-items: center !important;
@@ -5700,8 +5801,7 @@ ul, ol {
     gap: var(--mobile-content-gap) !important;
     position: relative !important;
     min-height: calc(100vh - 8rem) !important;
-    margin-top: 0 !important;
-    padding-top: var(--spacing-xl) !important;
+    box-sizing: border-box !important;
   }
   
   /* Container pour les titres avec visibilité forcée */
@@ -5896,12 +5996,12 @@ ul, ol {
   }
 }
 
-/* Format portrait mobile très spécifique */
+/* Format portrait mobile très spécifique avec espacement sécurisé */
 @media (max-width: 480px) and (orientation: portrait) {
   .hero {
     min-height: 100vh !important;
     height: auto !important;
-    padding: calc(6rem) var(--spacing-md) var(--spacing-2xl) var(--spacing-md) !important;
+    padding: 6rem var(--spacing-xl) var(--spacing-2xl) var(--spacing-xl) !important; /* Padding latéral important */
     background: linear-gradient(135deg, 
       rgba(10, 10, 10, 0.98) 0%, 
       rgba(20, 20, 20, 0.95) 50%,
@@ -5912,10 +6012,26 @@ ul, ol {
   }
   
   .hero-content {
-    padding: var(--spacing-xl) var(--spacing-md) !important;
+    padding: var(--spacing-xl) var(--spacing-lg) !important; /* Padding confortable */
     gap: var(--spacing-xl) !important;
     min-height: 70vh !important;
     justify-content: center !important;
+    margin: 0 auto !important;
+    max-width: calc(100% - var(--spacing-2xl)) !important; /* Marge sécurisée des bords */
+  }
+  
+  .about {
+    padding: var(--spacing-3xl) var(--spacing-xl) !important; /* Padding latéral important */
+  }
+  
+  .about-content {
+    padding: 0 var(--spacing-lg) !important;
+    max-width: calc(100% - var(--spacing-xl)) !important;
+  }
+  
+  .about-description {
+    padding: 0 var(--spacing-md) !important;
+    max-width: calc(100% - var(--spacing-lg)) !important;
   }
   
   .hero-brand,
@@ -6795,12 +6911,7 @@ ul, ol {
   overflow: hidden;
 }
 
-@media (max-width: 768px) {
-  .about {
-    overflow: visible;
-    padding: var(--spacing-3xl) 0 var(--spacing-4xl) 0;
-  }
-}
+/* Supprimé - redondant avec le bloc principal ligne 3566 */
 
 .about::before {
   content: '';
@@ -7110,23 +7221,9 @@ ul, ol {
 }
 
 /* Responsive about-description */
-@media (max-width: 768px) {
-  .about-description {
-    max-width: 100%;
-    padding: var(--spacing-md) var(--spacing-sm);
-    gap: var(--spacing-lg);
-  }
-  
-  .about-description p {
-    font-size: 1rem;
-    line-height: 1.7;
-    padding-left: var(--spacing-md);
-    text-align: left;
-  }
-  
-  .about-description p:first-child {
-    font-size: 1.1rem;
-  }
+.about-description p:first-child {
+  font-size: 1.1rem;
+}
   
   .about-description::before {
     width: 2px;
@@ -11352,10 +11449,11 @@ button.mobile-menu-btn.active::after,
     opacity: 0 !important;
   }
   
-  /* Force le centrage sur tous les enfants about */
+  /* Force l'alignement correct pour about sans décalage */
   .about * {
     box-sizing: border-box !important;
-    text-align: center !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
   }
   
   /* Grilles et listes about centrées */
@@ -11710,30 +11808,27 @@ button.mobile-menu-btn.active::after,
   }
   
   .title-underline {
-    width: 80px !important;
-    height: 2px !important;
-    background: linear-gradient(90deg, 
-      transparent 0%, 
-      var(--lv-gold-accent) 50%, 
-      transparent 100%) !important;
-    margin: 0 auto !important;
+    display: none !important;
   }
   
-  /* ===== ABOUT DESCRIPTION MODERNE ===== */
+  /* ===== ABOUT DESCRIPTION PARFAITEMENT ALIGNÉE ===== */
   .about-description {
     width: 100% !important;
-    max-width: 400px !important;
-    margin: 0 auto !important;
-    padding: 0 var(--lv-mobile-xs) !important; /* Réduit l'espace latéral de 16px à 8px */
+    max-width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important; /* Aucun padding pour éliminer tout décalage */
     display: flex !important;
     flex-direction: column !important;
     gap: var(--lv-mobile-lg) !important;
-    text-align: center !important;
-    position: relative !important; /* Reset position */
+    text-align: left !important;
+    position: relative !important;
   }
   
-  /* Force la suppression du ::before sur mobile */
-  .about-description::before {
+  /* Force la suppression de TOUS les éléments décoratifs about sur mobile */
+  .about-description::before,
+  .about-description::after,
+  .about-description p::before,
+  .about-description p::after {
     display: none !important;
     content: none !important;
     visibility: hidden !important;
@@ -11746,8 +11841,8 @@ button.mobile-menu-btn.active::after,
     font-size: var(--lv-text-base) !important;
     line-height: 1.7 !important;
     color: var(--lv-grey) !important;
-    margin: 0 auto var(--lv-mobile-md) auto !important;
-    text-align: center !important;
+    margin: 0 0 var(--lv-mobile-md) 0 !important;
+    text-align: left !important;
     font-weight: 300 !important;
     letter-spacing: 0.01em !important;
   }
@@ -11759,10 +11854,19 @@ button.mobile-menu-btn.active::after,
     margin-bottom: var(--lv-mobile-lg) !important;
   }
   
+  /* Mots surlignés mobile - contraste amélioré */
   .highlight-word {
-    color: var(--lv-gold-accent) !important;
-    font-weight: 400 !important;
-    position: relative !important;
+    color: var(--noir-profond);
+    font-weight: 500;
+    background: linear-gradient(
+      90deg,
+      rgba(212, 184, 150, 0.2) 0%,
+      rgba(212, 184, 150, 0.3) 50%,
+      rgba(212, 184, 150, 0.2) 100%
+    );
+    padding: 0.1em 0.2em;
+    border-radius: 2px;
+    position: relative;
   }
   
   /* ===== FEATURES GRID REDESIGNÉE ===== */
@@ -12151,8 +12255,11 @@ button.mobile-menu-btn.active::after,
   }
   
   .hero-content {
-    padding: calc(56px + var(--lv-mobile-md)) var(--lv-mobile-md) var(--lv-mobile-lg) !important;
+    padding: calc(56px + var(--lv-mobile-sm)) var(--lv-mobile-sm) var(--lv-mobile-lg) !important;
     gap: var(--lv-mobile-lg) !important;
+    margin: 0 auto !important;
+    width: 100% !important;
+    max-width: calc(100% - var(--lv-mobile-md)) !important; /* Marge des bords */
   }
   
   .hero-text {
