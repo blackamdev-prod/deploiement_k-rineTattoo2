@@ -7212,3 +7212,146 @@ button.mobile-menu-btn.active::after,
     gap: 8px !important;
   }
 }
+
+/* ===== RESPONSIVE DESIGN ===== */
+
+/* Tablet */
+@media (max-width: 1024px) {
+  .container {
+    max-width: 90%;
+    padding: 0 var(--spacing-lg);
+  }
+  
+  .hero-title {
+    font-size: 3rem;
+  }
+  
+  .section-title {
+    font-size: 2.5rem;
+  }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .container {
+    max-width: 95%;
+    padding: 0 var(--spacing-md);
+  }
+  
+  /* Header mobile */
+  .header {
+    padding: var(--spacing-sm) 0;
+  }
+  
+  .header-content {
+    padding: 0 var(--spacing-md);
+  }
+  
+  /* Hero responsive */
+  .hero {
+    min-height: 100vh;
+    padding: var(--spacing-xl) 0;
+  }
+  
+  .hero-content {
+    text-align: center;
+    padding: 0 var(--spacing-md);
+  }
+  
+  .hero-title {
+    font-size: 2.5rem;
+    margin-bottom: var(--spacing-lg);
+  }
+  
+  .hero-subtitle {
+    font-size: 1.1rem;
+    margin-bottom: var(--spacing-xl);
+  }
+  
+  /* About responsive */
+  .about-content {
+    flex-direction: column;
+    gap: var(--spacing-xl);
+  }
+  
+  .about-text {
+    width: 100%;
+  }
+  
+  .profile-card {
+    width: 100%;
+    margin: 0;
+  }
+  
+  /* Features grid responsive */
+  .features-grid {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-lg);
+  }
+  
+  /* Services responsive */
+  .services-grid {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-lg);
+  }
+  
+  /* Portfolio responsive */
+  .portfolio-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--spacing-md);
+  }
+  
+  /* Contact responsive */
+  .contact-content {
+    flex-direction: column;
+    gap: var(--spacing-xl);
+  }
+  
+  .contact-info,
+  .contact-form {
+    width: 100%;
+  }
+  
+  /* Typography responsive */
+  .section-title {
+    font-size: 2rem;
+  }
+  
+  .title-main {
+    font-size: 2.2rem;
+  }
+  
+  .title-accent {
+    font-size: 2.2rem;
+  }
+  
+  /* Buttons responsive */
+  .btn {
+    padding: var(--spacing-md) var(--spacing-lg);
+    font-size: 1rem;
+  }
+}
+
+/* Small mobile */
+@media (max-width: 480px) {
+  .container {
+    padding: 0 var(--spacing-sm);
+  }
+  
+  .hero-title {
+    font-size: 2rem;
+  }
+  
+  .section-title {
+    font-size: 1.8rem;
+  }
+  
+  .portfolio-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .btn {
+    width: 100%;
+    text-align: center;
+  }
+}
