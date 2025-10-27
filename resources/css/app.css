@@ -7228,7 +7228,6 @@ ul, ol {
   .about-description::before {
     width: 2px;
   }
-}
 
 @media (max-width: 480px) {
   .hero-brand {
